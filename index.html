@@ -344,21 +344,19 @@
       display: flex; justify-content: center; align-items: center;
       position: relative;
     }
-    .hero-logo-wrap {
-      position: relative; width: 360px; height: 360px;
-      display: flex; justify-content: center; align-items: center;
+    .hero-photo-wrap {
+      position: relative; width: 100%; max-width: 520px;
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(10,180,200,0.2), 0 24px 64px rgba(0,0,0,0.5), 0 0 60px rgba(10,180,200,0.1);
     }
-    .h-ring {
-      position: absolute; border-radius: 50%;
-      border: 1px solid rgba(10, 180, 200, 0.18);
+    .hero-photo {
+      width: 100%; height: 380px; object-fit: cover; object-position: center;
+      display: block; border-radius: var(--radius-lg);
     }
-    .hr1 { width: 340px; height: 340px; animation: spin-ring 30s linear infinite; }
-    .hr2 { width: 270px; height: 270px; animation: spin-ring 20s linear infinite reverse; border-style: dashed; border-color: rgba(10,180,200,0.13); }
-    .hr3 { width: 210px; height: 210px; animation: spin-ring 40s linear infinite; border-color: rgba(26,111,164,0.2); }
-    @keyframes spin-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .hero-svg-logo {
-      position: relative; z-index: 2; width: 170px; height: 170px;
-      filter: drop-shadow(0 0 28px rgba(10, 180, 200, 0.55));
+    .hero-photo-glow {
+      position: absolute; inset: 0; border-radius: var(--radius-lg);
+      background: linear-gradient(to bottom, transparent 55%, rgba(8,20,36,0.75) 100%);
+      pointer-events: none;
     }
 
     /* ===== SECTION BASE ===== */
@@ -840,29 +838,9 @@
 
         <!-- Animated hero logo -->
         <div class="hero-visual" aria-hidden="true">
-          <div class="hero-logo-wrap">
-            <div class="h-ring hr1"></div>
-            <div class="h-ring hr2"></div>
-            <div class="h-ring hr3"></div>
-            <svg class="hero-svg-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="hero-lg" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#185FA5"/>
-                  <stop offset="100%" stop-color="#0ab4c8"/>
-                </linearGradient>
-              </defs>
-              <!-- Hexagon outer border -->
-              <path d="M40,6 L70,23 L70,57 L40,74 L10,57 L10,23 Z"
-                    fill="none" stroke="url(#hero-lg)" stroke-width="2.5" stroke-linejoin="round"/>
-              <!-- Inner mountain triangle network -->
-              <line x1="40" y1="21" x2="24" y2="51" stroke="url(#hero-lg)" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="40" y1="21" x2="56" y2="51" stroke="url(#hero-lg)" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="24" y1="51" x2="56" y2="51" stroke="url(#hero-lg)" stroke-width="1.8" stroke-linecap="round"/>
-              <!-- Node dots -->
-              <circle cx="40" cy="21" r="4.5" fill="url(#hero-lg)"/>
-              <circle cx="24" cy="51" r="4.5" fill="url(#hero-lg)"/>
-              <circle cx="56" cy="51" r="4.5" fill="url(#hero-lg)"/>
-            </svg>
+          <div class="hero-photo-wrap">
+            <img src="hero.png" alt="Laptop motherboard repair" class="hero-photo" />
+            <div class="hero-photo-glow"></div>
           </div>
         </div>
       </div>
