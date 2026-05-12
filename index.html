@@ -17,21 +17,22 @@
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
-      --navy-950: #050e1a;
-      --navy-900: #0a1628;
-      --navy-800: #0f2040;
-      --navy-700: #163355;
+      --navy-950: #f4f8fb;       /* page background */
+      --navy-900: #e8f0f7;       /* section alternate background */
+      --navy-800: #dce8f2;       /* subtle border/bg */
+      --navy-700: #c5d8e8;       /* unused / subtle */
       --blue-500: #1a6fa4;
       --teal-400: #0ab4c8;
-      --teal-300: #00d4e8;
-      --teal-200: #66e8f4;
-      --white: #f0f8ff;
-      --light: #c8dce8;
-      --mid: #7a9ab0;
+      --teal-300: #0097ad;       /* darker for readability on white */
+      --teal-200: #1a6fa4;       /* gradient end — deep blue */
+      --white: #0b1e30;          /* headings & prominent text — dark navy */
+      --light: #1e3a52;          /* body text — dark */
+      --mid: #5a7a92;            /* muted/secondary text */
+      --btn-text: #f4f8fb;       /* text on gradient buttons */
       --font-display: 'Rajdhani', sans-serif;
       --font-body: 'DM Sans', sans-serif;
-      --glow: 0 0 20px rgba(10, 180, 200, 0.4);
-      --glow-strong: 0 0 40px rgba(10, 180, 200, 0.6);
+      --glow: 0 0 20px rgba(10, 180, 200, 0.2);
+      --glow-strong: 0 0 36px rgba(10, 180, 200, 0.35);
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --radius: 12px;
       --radius-lg: 20px;
@@ -63,13 +64,14 @@
       padding: 1.1rem 2.5rem;
       display: flex; align-items: center; justify-content: space-between;
       backdrop-filter: blur(14px);
-      background: rgba(5, 14, 26, 0.75);
-      border-bottom: 1px solid rgba(10, 180, 200, 0.12);
+      background: rgba(244, 248, 251, 0.88);
+      border-bottom: 1px solid rgba(10, 180, 200, 0.18);
+      box-shadow: 0 1px 12px rgba(10,30,50,0.07);
       transition: padding var(--transition), background var(--transition);
     }
     nav.scrolled {
       padding: 0.7rem 2.5rem;
-      background: rgba(5, 14, 26, 0.97);
+      background: rgba(244, 248, 251, 0.98);
     }
     .nav-logo {
       display: flex; align-items: center; gap: 0.7rem;
@@ -103,13 +105,13 @@
     .nav-links a:hover::after { width: 100%; }
     .nav-cta {
       background: linear-gradient(135deg, var(--teal-400), var(--blue-500)) !important;
-      color: var(--white) !important;
+      color: #f4f8fb !important;
       padding: 0.5rem 1.25rem; border-radius: 6px;
       font-weight: 600 !important;
     }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover {
-      color: var(--white) !important;
+      color: #f4f8fb !important;
       box-shadow: var(--glow) !important;
       transform: translateY(-1px);
     }
@@ -123,18 +125,18 @@
       transition: var(--transition);
     }
 
-    /* ===== MOBILE MENU ===== */
     .mobile-overlay {
       display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.65); z-index: 1999;
+      background: rgba(30,58,82,0.45); z-index: 1999;
       backdrop-filter: blur(4px);
     }
     .mobile-overlay.open { display: block; }
     .mobile-menu {
       position: fixed; top: 0; right: -110%;
       width: min(320px, 100%); height: 100vh;
-      background: var(--navy-900);
-      border-left: 1px solid rgba(10, 180, 200, 0.2);
+      background: #fff;
+      border-left: 1px solid rgba(10, 180, 200, 0.25);
+      box-shadow: -4px 0 24px rgba(10,30,50,0.1);
       z-index: 2000; display: flex; flex-direction: column;
       padding: 5.5rem 2.5rem 2rem; gap: 1.75rem;
       transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -149,7 +151,7 @@
     .mobile-menu .m-cta {
       display: inline-flex; align-items: center; justify-content: center;
       background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: var(--white) !important;
+      color: #f4f8fb !important;
       padding: 0.8rem 1.5rem; border-radius: var(--radius);
       font-size: 1.1rem !important; margin-top: 0.5rem;
     }
@@ -172,13 +174,13 @@
     #hero::before {
       content: ''; position: absolute;
       top: -250px; right: -150px; width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(10, 180, 200, 0.14) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(10, 180, 200, 0.07) 0%, transparent 70%);
       pointer-events: none;
     }
     #hero::after {
       content: ''; position: absolute;
       bottom: -100px; left: -100px; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(26, 111, 164, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(26, 111, 164, 0.06) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-grid {
@@ -221,11 +223,11 @@
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: var(--white); padding: 0.9rem 2rem;
+      color: #f4f8fb; padding: 0.9rem 2rem;
       border-radius: var(--radius);
       font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
       letter-spacing: 0.03em; text-decoration: none;
-      box-shadow: 0 4px 22px rgba(10, 180, 200, 0.28);
+      box-shadow: 0 4px 22px rgba(10, 180, 200, 0.22);
       transition: transform var(--transition), box-shadow var(--transition);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
@@ -310,12 +312,13 @@
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
     }
     .svc-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(10, 180, 200, 0.1);
+      background: #fff;
+      border: 1px solid rgba(10, 180, 200, 0.15);
       border-radius: var(--radius-lg); padding: 2rem;
       position: relative; overflow: hidden;
       transition: transform var(--transition), background var(--transition),
                   border-color var(--transition), box-shadow var(--transition);
+      cursor: pointer; text-decoration: none; display: block; color: inherit;
     }
     .svc-card::before {
       content: ''; position: absolute;
@@ -324,15 +327,15 @@
       opacity: 0; transition: opacity var(--transition);
     }
     .svc-card:hover {
-      background: rgba(10, 180, 200, 0.04);
-      border-color: rgba(10, 180, 200, 0.3);
+      background: #f0fbfd;
+      border-color: rgba(10, 180, 200, 0.4);
       transform: translateY(-5px);
-      box-shadow: 0 10px 36px rgba(10, 180, 200, 0.1);
+      box-shadow: 0 10px 36px rgba(10, 180, 200, 0.13);
     }
     .svc-card:hover::before { opacity: 1; }
     .svc-icon {
       width: 50px; height: 50px;
-      background: linear-gradient(135deg, rgba(10,180,200,0.14), rgba(26,111,164,0.08));
+      background: linear-gradient(135deg, rgba(10,180,200,0.1), rgba(26,111,164,0.06));
       border: 1px solid rgba(10,180,200,0.22);
       border-radius: 12px; display: flex;
       align-items: center; justify-content: center; margin-bottom: 1.25rem;
@@ -347,6 +350,29 @@
       color: var(--white); margin-bottom: 0.5rem;
     }
     .svc-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.68; }
+    .svc-price {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 1.1rem;
+      background: linear-gradient(135deg, rgba(10,180,200,0.1), rgba(26,111,164,0.07));
+      border: 1px solid rgba(10,180,200,0.3);
+      border-radius: 100px; padding: 0.3rem 0.85rem;
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--blue-500);
+    }
+    .svc-price-note {
+      font-size: 0.75rem; color: var(--mid);
+      margin-top: 0.4rem; line-height: 1.5;
+    }
+    .svc-cta-hint {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--teal-400); margin-top: 1.25rem;
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .svc-cta-hint svg { width: 14px; height: 14px; transition: transform var(--transition); }
+    .svc-card:hover .svc-cta-hint { opacity: 1; }
+    .svc-card:hover .svc-cta-hint svg { transform: translateX(3px); }
 
     /* ===== PROCESS ===== */
     #process { position: relative; }
@@ -371,7 +397,7 @@
       font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
       color: var(--teal-400); margin: 0 auto 1.5rem;
       background: var(--navy-950);
-      box-shadow: 0 0 24px rgba(10,180,200,0.2), inset 0 0 0 6px var(--navy-950);
+      box-shadow: 0 0 18px rgba(10,180,200,0.14), inset 0 0 0 6px var(--navy-950);
       position: relative; z-index: 1;
     }
     .step-title {
@@ -383,7 +409,6 @@
       line-height: 1.72; max-width: 260px; margin: 0 auto;
     }
 
-    /* ===== WHY US ===== */
     #why-us { background: var(--navy-900); position: relative; }
     .why-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -412,15 +437,16 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
     }
     .wcard {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(10,180,200,0.1);
+      background: #fff;
+      border: 1px solid rgba(10,180,200,0.18);
       border-radius: var(--radius); padding: 1.6rem;
       text-align: center;
+      box-shadow: 0 2px 12px rgba(10,30,50,0.05);
       transition: border-color var(--transition), box-shadow var(--transition);
     }
     .wcard:hover {
-      border-color: rgba(10,180,200,0.28);
-      box-shadow: 0 4px 20px rgba(10,180,200,0.08);
+      border-color: rgba(10,180,200,0.35);
+      box-shadow: 0 6px 22px rgba(10,180,200,0.1);
     }
     .wcard-val {
       font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
@@ -459,9 +485,10 @@
 
     /* Form */
     .cform {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(10,180,200,0.1);
+      background: #fff;
+      border: 1px solid rgba(10,180,200,0.18);
       border-radius: var(--radius-lg); padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(10,30,50,0.06);
     }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .fg { margin-bottom: 1.2rem; }
@@ -472,20 +499,20 @@
     }
     .fg input, .fg select, .fg textarea {
       width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(10,180,200,0.18);
+      background: #f4f8fb;
+      border: 1px solid rgba(10,180,200,0.22);
       border-radius: 8px; padding: 0.72rem 1rem;
       color: var(--white); font-family: var(--font-body);
       font-size: 0.93rem; outline: none; -webkit-appearance: none;
       transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
     }
-    .fg input::placeholder, .fg textarea::placeholder { color: var(--mid); opacity: 0.7; }
+    .fg input::placeholder, .fg textarea::placeholder { color: var(--mid); opacity: 0.75; }
     .fg input:focus, .fg select:focus, .fg textarea:focus {
       border-color: var(--teal-400);
-      background: rgba(10,180,200,0.05);
-      box-shadow: 0 0 0 3px rgba(10,180,200,0.1);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(10,180,200,0.12);
     }
-    .fg select option { background: var(--navy-800); }
+    .fg select option { background: #fff; color: var(--white); }
     .fg textarea { resize: vertical; min-height: 108px; }
     .form-note {
       font-size: 0.78rem; color: var(--mid); margin-bottom: 1rem;
@@ -496,7 +523,7 @@
     .btn-submit {
       width: 100%;
       background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: var(--white); border: none; border-radius: var(--radius);
+      color: #f4f8fb; border: none; border-radius: var(--radius);
       padding: 0.9rem 2rem;
       font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
       letter-spacing: 0.05em; cursor: pointer;
@@ -507,7 +534,7 @@
     /* ===== FOOTER ===== */
     footer {
       background: var(--navy-900);
-      border-top: 1px solid rgba(10,180,200,0.1);
+      border-top: 1px solid rgba(10,180,200,0.15);
       padding: 2.25rem 0;
     }
     .footer-inner {
@@ -733,59 +760,99 @@
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">What We Fix</div>
-        <h2 class="section-title">Our Services</h2>
+        <h2 class="section-title">Our Services &amp; Pricing</h2>
         <div class="teal-bar"></div>
-        <p class="section-desc">From a sluggish laptop to a dead drive, we diagnose and repair across Windows, Mac, and Linux — fast and transparently.</p>
+        <p class="section-desc">Transparent, flat-rate pricing — no surprises. Click any service to get started. We work on Windows, Mac, and Linux.</p>
       </div>
       <div class="services-grid">
 
-        <div class="svc-card reveal d1">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/></svg>
-          </div>
-          <h3 class="svc-title">Virus &amp; Malware Removal</h3>
-          <p class="svc-desc">Full system scans, deep threat removal, and security hardening to protect your data and stop future infections.</p>
-        </div>
-
-        <div class="svc-card reveal d2">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3 class="svc-title">Laptop Screen Replacement</h3>
-          <p class="svc-desc">Cracked, black, or flickering display? We source quality screens for most makes and models and have you back up fast.</p>
-        </div>
-
-        <div class="svc-card reveal d3">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3 class="svc-title">Hardware Upgrades</h3>
-          <p class="svc-desc">RAM, SSD, and component upgrades that breathe new life into older machines. We install, configure, and benchmark everything.</p>
-        </div>
-
-        <div class="svc-card reveal d1">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </div>
-          <h3 class="svc-title">OS Installation &amp; Recovery</h3>
-          <p class="svc-desc">Clean Windows installs, driver setup, recovery from failed updates, and migration from old drives — done properly.</p>
-        </div>
-
-        <div class="svc-card reveal d2">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3 class="svc-title">Data Recovery &amp; Backup</h3>
-          <p class="svc-desc">Lost photos, documents, or a crashed drive? We recover what matters and set up reliable backup solutions to protect it going forward.</p>
-        </div>
-
-        <div class="svc-card reveal d3">
+        <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='General Diagnostics'">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
           <h3 class="svc-title">General Diagnostics</h3>
           <p class="svc-desc">Not sure what's wrong? We run a thorough hardware and software diagnostic and give you a clear, honest assessment before any work begins.</p>
-        </div>
+          <div class="svc-price">$20 – $60</div>
+          <p class="svc-price-note">Diagnostic fee is <strong>waived</strong> when you choose to repair with us.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Virus & Malware Removal'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/></svg>
+          </div>
+          <h3 class="svc-title">Virus &amp; Malware Removal</h3>
+          <p class="svc-desc">The cleanest fix is a reformat with full data recovery — your files come back, the threats don't. Includes system hardening so it doesn't happen again.</p>
+          <div class="svc-price">$160 Flat</div>
+          <p class="svc-price-note">Includes data recovery &amp; reformat. No hidden add-ons.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d3" onclick="document.getElementById('f-service').value='Laptop Screen Replacement'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="svc-title">Laptop Screen Replacement</h3>
+          <p class="svc-desc">Cracked, black, or flickering display? We source quality screens for most makes and models and have you back up fast.</p>
+          <div class="svc-price">$120 + Parts</div>
+          <p class="svc-price-note">Parts cost varies by model — we'll quote you before any work starts.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='Mac Support & Screen Repair'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8"/><path d="M12 14v6"/><path d="M7 9l3 3-3 3"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
+          </div>
+          <h3 class="svc-title">Mac Support &amp; Screen Repair</h3>
+          <p class="svc-desc">Spinning beach ball, kernel panic, or a cracked display? Newer Macs require a more delicate touch and Apple-specific knowledge — we've got it. No Genius Bar appointment needed.</p>
+          <div class="svc-price">$260 + Parts</div>
+          <p class="svc-price-note">Mac screen repair is priced higher due to the precision and Apple-specific expertise required.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Hardware Upgrades & Installation'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="svc-title">Hardware Upgrades &amp; Installation</h3>
+          <p class="svc-desc">RAM, SSD, GPU, or any component — we install, configure, and benchmark. Typically $60 per part for labor; you cover the parts themselves.</p>
+          <div class="svc-price">$60 / Part + Parts</div>
+          <p class="svc-price-note">$60 labor per component installed. Parts are at your cost — we'll advise on what to buy.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d3" onclick="document.getElementById('f-service').value='Data Recovery & Backup'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="svc-title">Data Recovery &amp; Backup</h3>
+          <p class="svc-desc">Lost photos, documents, or a crashed drive? Simple file recovery starts at $60. Full drive recovery is $120 — add an OS install if needed and we'll handle the whole thing.</p>
+          <div class="svc-price">$60 – $120</div>
+          <p class="svc-price-note">Simple recovery $60 · Full drive recovery $120 · OS reinstall available as add-on.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='After Hours Emergency Support'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 class="svc-title">After Hours &amp; House Calls</h3>
+          <p class="svc-desc">When everyone else has locked up and gone home, we haven't. Presentation due tomorrow and your machine just died? We come to you — covering data recovery, BitLocker issues, and more. Can't fix on-site? You pay a flat $65 diagnostic and leave knowing exactly what happened and how to proceed. Need us to handle the repair from there? Add $20–$60 to cover our time and any shipping.</p>
+          <div class="svc-price">$120 House Call · $65 Diag</div>
+          <p class="svc-price-note">$120 flat for in-home service · $65 diag-only if we can't fix on-site · +$20–60 if we handle follow-up repair.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
+
+        <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Technical & Purchasing Advice'">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="svc-title">Technical &amp; Purchasing Advice</h3>
+          <p class="svc-desc">Building a new PC or eyeing a thousand-dollar laptop? Before you pull the trigger, call us. We'll tell you straight whether that purchase is a smart investment — or an expensive mistake. Consult is free. If you want us to do the install, that's $60 per part.</p>
+          <div class="svc-price">Free Consult · $60/Part Install</div>
+          <p class="svc-price-note">Advice and consultation is always free. Parts installation is $60 per component.</p>
+          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </a>
 
       </div>
     </div>
@@ -932,12 +999,14 @@
               <label for="f-service">Service Needed</label>
               <select id="f-service" name="service">
                 <option value="">Select a service…</option>
+                <option>General Diagnostics</option>
                 <option>Virus &amp; Malware Removal</option>
                 <option>Laptop Screen Replacement</option>
-                <option>Hardware Upgrade / Installation</option>
-                <option>OS Installation / Recovery</option>
+                <option>Mac Support &amp; Screen Repair</option>
+                <option>Hardware Upgrades &amp; Installation</option>
                 <option>Data Recovery &amp; Backup</option>
-                <option>General Diagnostics</option>
+                <option>After Hours Emergency Support</option>
+                <option>Technical &amp; Purchasing Advice</option>
                 <option>Other</option>
               </select>
             </div>
@@ -955,12 +1024,8 @@
             <label for="f-msg">Describe the Problem</label>
             <textarea id="f-msg" name="message" placeholder="My laptop won't turn on after it got wet…"></textarea>
           </div>
-          <p class="form-note">
-            📌 To connect this form to your email, set up a free account at
-            <a href="https://formspree.io" target="_blank" rel="noopener">Formspree.io</a>
-            and replace the form action with your endpoint.
-          </p>
-          <button class="btn-submit" onclick="handleSubmit()">Send Request →</button>
+          <div id="form-feedback" style="display:none; padding:0.85rem 1.1rem; border-radius:8px; font-size:0.9rem; margin-bottom:1rem;"></div>
+          <button class="btn-submit" id="submit-btn" onclick="handleSubmit()">Send Request →</button>
         </div>
       </div>
     </div>
@@ -1035,30 +1100,73 @@
 
     revealEls.forEach(el => revealObserver.observe(el));
 
-    // ─── Form handler ───────────────────────────────────────────────────────
-    // NOTE: This is a UI-only demo handler.
-    // For real form submission on GitHub Pages, replace with Formspree, EmailJS,
-    // or another static form service. See the comment above the form element.
-    function handleSubmit() {
-      const name = document.getElementById('f-name').value.trim();
-      const email = document.getElementById('f-email').value.trim();
+    // ─── Form handler — Web3Forms → support@granet.tech ─────────────────────
+    async function handleSubmit() {
+      const name    = document.getElementById('f-name').value.trim();
+      const email   = document.getElementById('f-email').value.trim();
+      const phone   = document.getElementById('f-phone').value.trim();
+      const service = document.getElementById('f-service').value;
+      const dropoff = document.getElementById('f-drop').value;
       const message = document.getElementById('f-msg').value.trim();
+      const btn      = document.getElementById('submit-btn');
+      const feedback = document.getElementById('form-feedback');
 
       if (!name || !email) {
-        alert('Please enter your name and email address.');
+        showFeedback('Please enter your name and email address.', false);
         return;
       }
       if (!message) {
-        alert('Please briefly describe the problem — it helps us give you an accurate quote.');
+        showFeedback('Please briefly describe the problem — it helps us give you an accurate quote.', false);
         return;
       }
 
-      // Demo-only: replace with actual fetch() to your form endpoint
-      alert(`Thanks, ${name}!\n\nWe received your request and will be in touch at ${email} soon.`);
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
 
-      // Reset form
-      ['f-name','f-phone','f-email','f-service','f-drop','f-msg']
-        .forEach(id => { document.getElementById(id).value = ''; });
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: '3e985a80-5833-4e39-897f-6296d2464e1e',
+            subject: `New Service Request — ${service || 'General Inquiry'} — ${name}`,
+            from_name: 'GraNet Website',
+            name, email, phone,
+            service: service || 'Not specified',
+            dropoff: dropoff || 'Not specified',
+            message
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          showFeedback(`Thanks, ${name}! We got your request and will be in touch at ${email} shortly.`, true);
+          ['f-name','f-phone','f-email','f-service','f-drop','f-msg']
+            .forEach(id => { document.getElementById(id).value = ''; });
+          btn.textContent = 'Sent ✓';
+          setTimeout(() => { btn.textContent = 'Send Request →'; btn.disabled = false; }, 4000);
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        showFeedback('Something went wrong. Please email us directly at support@granet.tech.', false);
+        btn.textContent = 'Send Request →';
+        btn.disabled = false;
+      }
+    }
+
+    function showFeedback(msg, success) {
+      const el = document.getElementById('form-feedback');
+      el.textContent = msg;
+      el.style.display = 'block';
+      el.style.background = success ? 'rgba(10,180,200,0.1)' : 'rgba(220,50,50,0.08)';
+      el.style.border     = success ? '1px solid rgba(10,180,200,0.35)' : '1px solid rgba(220,50,50,0.25)';
+      el.style.color      = success ? '#0a7a8a' : '#b03030';
+      el.style.borderRadius = '8px';
+      el.style.padding    = '0.85rem 1.1rem';
+      el.style.fontSize   = '0.9rem';
+      el.style.marginBottom = '1rem';
     }
   </script>
 
