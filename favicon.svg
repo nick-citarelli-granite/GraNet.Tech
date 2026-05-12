@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="64" x2="64" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#185FA5"/>
+      <stop offset="100%" stop-color="#0ab4c8"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark navy pill background for legibility -->
+  <rect width="64" height="64" rx="14" fill="#0a1628"/>
+  <!-- Hexagon outer -->
+  <path d="M32,5 L56,18.5 L56,45.5 L32,59 L8,45.5 L8,18.5 Z"
+        fill="none" stroke="url(#g)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Triangle network -->
+  <line x1="32" y1="17" x2="19" y2="40" stroke="url(#g)" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="32" y1="17" x2="45" y2="40" stroke="url(#g)" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="19" y1="40" x2="45" y2="40" stroke="url(#g)" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Nodes -->
+  <circle cx="32" cy="17" r="4" fill="url(#g)"/>
+  <circle cx="19" cy="40" r="4" fill="url(#g)"/>
+  <circle cx="45" cy="40" r="4" fill="url(#g)"/>
+</svg>

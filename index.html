@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GraNet Computer Repair | Derry, NH</title>
+  <meta name="description" content="Fast, reliable computer repair for homes and businesses in Derry, NH and the greater Manchester area. Virus removal, hardware upgrades, data recovery, and more. No fix, no fee." />
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --navy-950: #050e1a;
+      --navy-900: #0a1628;
+      --navy-800: #0f2040;
+      --navy-700: #163355;
+      --blue-500: #1a6fa4;
+      --teal-400: #0ab4c8;
+      --teal-300: #00d4e8;
+      --teal-200: #66e8f4;
+      --white: #f0f8ff;
+      --light: #c8dce8;
+      --mid: #7a9ab0;
+      --font-display: 'Rajdhani', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --glow: 0 0 20px rgba(10, 180, 200, 0.4);
+      --glow-strong: 0 0 40px rgba(10, 180, 200, 0.6);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--navy-950);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy-900); }
+    ::-webkit-scrollbar-thumb { background: var(--teal-400); border-radius: 3px; }
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.1rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 14, 26, 0.75);
+      border-bottom: 1px solid rgba(10, 180, 200, 0.12);
+      transition: padding var(--transition), background var(--transition);
+    }
+    nav.scrolled {
+      padding: 0.7rem 2.5rem;
+      background: rgba(5, 14, 26, 0.97);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-logo-mark { width: 38px; height: 38px; }
+    .nav-logo-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--white); line-height: 1.1;
+    }
+    .nav-logo-name em { color: var(--teal-400); font-style: normal; }
+    .nav-logo-sub {
+      font-family: var(--font-display);
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal-400); margin-top: 1px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 500;
+      letter-spacing: 0.04em; color: var(--light); text-decoration: none;
+      transition: color var(--transition); position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--teal-400);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--teal-300); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--teal-400), var(--blue-500)) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem; border-radius: 6px;
+      font-weight: 600 !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      color: var(--white) !important;
+      box-shadow: var(--glow) !important;
+      transform: translateY(-1px);
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--teal-400); border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.65); z-index: 1999;
+      backdrop-filter: blur(4px);
+    }
+    .mobile-overlay.open { display: block; }
+    .mobile-menu {
+      position: fixed; top: 0; right: -110%;
+      width: min(320px, 100%); height: 100vh;
+      background: var(--navy-900);
+      border-left: 1px solid rgba(10, 180, 200, 0.2);
+      z-index: 2000; display: flex; flex-direction: column;
+      padding: 5.5rem 2.5rem 2rem; gap: 1.75rem;
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu a {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 600;
+      letter-spacing: 0.05em; color: var(--light); text-decoration: none;
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--teal-400); }
+    .mobile-menu .m-cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+      color: var(--white) !important;
+      padding: 0.8rem 1.5rem; border-radius: var(--radius);
+      font-size: 1.1rem !important; margin-top: 0.5rem;
+    }
+    .close-btn {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: none;
+      color: var(--mid); font-size: 1.4rem; cursor: pointer; line-height: 1;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; padding: 7rem 0 4rem; overflow: hidden;
+    }
+    .hero-circuit-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.1;
+    }
+    .hero-circuit-bg svg { width: 100%; height: 100%; }
+    #hero::before {
+      content: ''; position: absolute;
+      top: -250px; right: -150px; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(10, 180, 200, 0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: ''; position: absolute;
+      bottom: -100px; left: -100px; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(26, 111, 164, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(10, 180, 200, 0.08);
+      border: 1px solid rgba(10, 180, 200, 0.3);
+      border-radius: 100px; padding: 0.35rem 1rem;
+      font-family: var(--font-display); font-size: 0.78rem;
+      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal-300); margin-bottom: 1.5rem;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--teal-400);
+      box-shadow: 0 0 8px var(--teal-400);
+      animation: badge-pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes badge-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.8); }
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 5.5vw, 4.75rem);
+      font-weight: 700; line-height: 1.03; margin-bottom: 1.5rem;
+    }
+    .hero-title .accent {
+      background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--mid);
+      margin-bottom: 2.5rem; max-width: 460px; line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+      color: var(--white); padding: 0.9rem 2rem;
+      border-radius: var(--radius);
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+      letter-spacing: 0.03em; text-decoration: none;
+      box-shadow: 0 4px 22px rgba(10, 180, 200, 0.28);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--teal-400);
+      padding: 0.9rem 2rem; border-radius: var(--radius);
+      border: 1px solid rgba(10, 180, 200, 0.4);
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+      letter-spacing: 0.03em; text-decoration: none;
+      transition: all var(--transition);
+    }
+    .btn-secondary:hover {
+      background: rgba(10, 180, 200, 0.07);
+      border-color: var(--teal-400); transform: translateY(-2px);
+    }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(10, 180, 200, 0.14);
+    }
+    .stat-val {
+      font-family: var(--font-display); font-size: 1.9rem; font-weight: 700;
+      color: var(--teal-400); line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.78rem; color: var(--mid);
+      margin-top: 0.25rem; letter-spacing: 0.04em;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+    .hero-logo-wrap {
+      position: relative; width: 360px; height: 360px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .h-ring {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(10, 180, 200, 0.18);
+    }
+    .hr1 { width: 340px; height: 340px; animation: spin-ring 30s linear infinite; }
+    .hr2 { width: 270px; height: 270px; animation: spin-ring 20s linear infinite reverse; border-style: dashed; border-color: rgba(10,180,200,0.13); }
+    .hr3 { width: 210px; height: 210px; animation: spin-ring 40s linear infinite; border-color: rgba(26,111,164,0.2); }
+    @keyframes spin-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-svg-logo {
+      position: relative; z-index: 2; width: 170px; height: 170px;
+      filter: drop-shadow(0 0 28px rgba(10, 180, 200, 0.55));
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 6rem 0; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-label {
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal-400); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .teal-bar {
+      width: 52px; height: 3px; margin: 0.85rem auto 0;
+      background: linear-gradient(90deg, var(--teal-400), var(--blue-500));
+      border-radius: 2px;
+    }
+    .section-desc {
+      font-size: 1rem; color: var(--mid); max-width: 540px;
+      margin: 1rem auto 0; line-height: 1.7;
+    }
+    .sep-line {
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal-400), transparent);
+    }
+
+    /* ===== SERVICES ===== */
+    #services { background: var(--navy-900); position: relative; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .svc-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(10, 180, 200, 0.1);
+      border-radius: var(--radius-lg); padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: transform var(--transition), background var(--transition),
+                  border-color var(--transition), box-shadow var(--transition);
+    }
+    .svc-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue-500), var(--teal-400));
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .svc-card:hover {
+      background: rgba(10, 180, 200, 0.04);
+      border-color: rgba(10, 180, 200, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 36px rgba(10, 180, 200, 0.1);
+    }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, rgba(10,180,200,0.14), rgba(26,111,164,0.08));
+      border: 1px solid rgba(10,180,200,0.22);
+      border-radius: 12px; display: flex;
+      align-items: center; justify-content: center; margin-bottom: 1.25rem;
+    }
+    .svc-icon svg {
+      width: 22px; height: 22px; color: var(--teal-400);
+      fill: none; stroke: currentColor; stroke-width: 1.75;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .svc-title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .svc-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.68; }
+
+    /* ===== PROCESS ===== */
+    #process { position: relative; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 36px;
+      left: calc(16.67% + 36px);
+      right: calc(16.67% + 36px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--teal-400), var(--blue-500), var(--teal-400));
+      opacity: 0.35;
+    }
+    .proc-step { text-align: center; }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      border: 2px solid var(--teal-400);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
+      color: var(--teal-400); margin: 0 auto 1.5rem;
+      background: var(--navy-950);
+      box-shadow: 0 0 24px rgba(10,180,200,0.2), inset 0 0 0 6px var(--navy-950);
+      position: relative; z-index: 1;
+    }
+    .step-title {
+      font-size: 1.2rem; font-weight: 700; color: var(--white);
+      margin-bottom: 0.65rem;
+    }
+    .step-desc {
+      font-size: 0.88rem; color: var(--mid);
+      line-height: 1.72; max-width: 260px; margin: 0 auto;
+    }
+
+    /* ===== WHY US ===== */
+    #why-us { background: var(--navy-900); position: relative; }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4.5rem; align-items: center;
+    }
+    .why-label {
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal-400); margin-bottom: 0.75rem;
+    }
+    .why-title {
+      font-size: clamp(1.75rem, 3vw, 2.6rem); font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+    .why-body { color: var(--mid); margin-bottom: 2rem; line-height: 1.75; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .why-list li {
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      font-size: 0.93rem; color: var(--light);
+    }
+    .why-list li .arrow {
+      color: var(--teal-400); font-size: 0.95rem;
+      margin-top: 0.08rem; flex-shrink: 0; line-height: 1.6;
+    }
+    .why-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .wcard {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(10,180,200,0.1);
+      border-radius: var(--radius); padding: 1.6rem;
+      text-align: center;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .wcard:hover {
+      border-color: rgba(10,180,200,0.28);
+      box-shadow: 0 4px 20px rgba(10,180,200,0.08);
+    }
+    .wcard-val {
+      font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .wcard-lbl { font-size: 0.82rem; color: var(--mid); margin-top: 0.25rem; }
+
+    /* ===== CONTACT ===== */
+    #contact { position: relative; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.55fr;
+      gap: 4rem; align-items: start;
+    }
+    .cinfo-title {
+      font-size: 1.8rem; font-weight: 700; margin-bottom: 0.9rem;
+    }
+    .cinfo-body { color: var(--mid); line-height: 1.75; margin-bottom: 2rem; }
+    .cinfo-items { display: flex; flex-direction: column; gap: 1.25rem; }
+    .ci-item { display: flex; align-items: center; gap: 1rem; }
+    .ci-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(10,180,200,0.09);
+      border: 1px solid rgba(10,180,200,0.22);
+      border-radius: 10px; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .ci-icon svg {
+      width: 19px; height: 19px; color: var(--teal-400);
+      fill: none; stroke: currentColor; stroke-width: 1.75;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .ci-text { font-size: 0.93rem; color: var(--light); }
+    .ci-lbl { font-size: 0.72rem; color: var(--mid); letter-spacing: 0.04em; margin-top: 1px; }
+
+    /* Form */
+    .cform {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(10,180,200,0.1);
+      border-radius: var(--radius-lg); padding: 2.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fg { margin-bottom: 1.2rem; }
+    .fg label {
+      display: block; font-family: var(--font-display);
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      color: var(--light); margin-bottom: 0.45rem;
+    }
+    .fg input, .fg select, .fg textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(10,180,200,0.18);
+      border-radius: 8px; padding: 0.72rem 1rem;
+      color: var(--white); font-family: var(--font-body);
+      font-size: 0.93rem; outline: none; -webkit-appearance: none;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: var(--mid); opacity: 0.7; }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      border-color: var(--teal-400);
+      background: rgba(10,180,200,0.05);
+      box-shadow: 0 0 0 3px rgba(10,180,200,0.1);
+    }
+    .fg select option { background: var(--navy-800); }
+    .fg textarea { resize: vertical; min-height: 108px; }
+    .form-note {
+      font-size: 0.78rem; color: var(--mid); margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .form-note a { color: var(--teal-400); text-decoration: none; }
+    .form-note a:hover { text-decoration: underline; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+      color: var(--white); border: none; border-radius: var(--radius);
+      padding: 0.9rem 2rem;
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+      letter-spacing: 0.05em; cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-900);
+      border-top: 1px solid rgba(10,180,200,0.1);
+      padding: 2.25rem 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.65rem;
+      text-decoration: none;
+    }
+    .footer-name {
+      font-family: var(--font-display); font-size: 1.1rem;
+      font-weight: 700; color: var(--white);
+    }
+    .footer-name em { color: var(--teal-400); font-style: normal; }
+    .footer-copy { font-size: 0.82rem; color: var(--mid); }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { max-width: 100%; margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .why-cards { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      nav { padding: 0.9rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== MOBILE OVERLAY + MENU ===== -->
+  <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="close-btn" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#process" onclick="closeMenu()">How It Works</a>
+    <a href="#why-us" onclick="closeMenu()">About</a>
+    <a href="#contact" class="m-cta" onclick="closeMenu()">Get a Quote</a>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="GraNet Computer Repair home">
+      <!-- Inline SVG logo mark — hexagonal network mark -->
+      <svg class="nav-logo-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="nav-lg" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#185FA5"/>
+            <stop offset="100%" stop-color="#0ab4c8"/>
+          </linearGradient>
+        </defs>
+        <!-- Hexagon outer border -->
+        <path d="M40,6 L70,23 L70,57 L40,74 L10,57 L10,23 Z"
+              fill="none" stroke="url(#nav-lg)" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Inner mountain triangle network -->
+        <line x1="40" y1="21" x2="24" y2="51" stroke="url(#nav-lg)" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="40" y1="21" x2="56" y2="51" stroke="url(#nav-lg)" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="24" y1="51" x2="56" y2="51" stroke="url(#nav-lg)" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- Node dots -->
+        <circle cx="40" cy="21" r="4.5" fill="url(#nav-lg)"/>
+        <circle cx="24" cy="51" r="4.5" fill="url(#nav-lg)"/>
+        <circle cx="56" cy="51" r="4.5" fill="url(#nav-lg)"/>
+      </svg>
+      <div>
+        <div class="nav-logo-name">Gra<em>Net</em></div>
+        <div class="nav-logo-sub">Computer Repair</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#why-us">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="hamburger" onclick="openMenu()" aria-label="Open menu" aria-expanded="false" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" aria-label="Hero">
+    <!-- Circuit PCB background -->
+    <div class="hero-circuit-bg" aria-hidden="true">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="h-cbg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1a5f8a"/>
+            <stop offset="100%" stop-color="#0ab4c8"/>
+          </linearGradient>
+        </defs>
+        <!-- Grid lines -->
+        <line x1="0" y1="150" x2="1440" y2="150" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="0" y1="300" x2="1440" y2="300" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="0" y1="450" x2="1440" y2="450" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="0" y1="600" x2="1440" y2="600" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="0" y1="750" x2="1440" y2="750" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="150" y1="0" x2="150" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="300" y1="0" x2="300" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="450" y1="0" x2="450" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="600" y1="0" x2="600" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="750" y1="0" x2="750" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="900" y1="0" x2="900" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="1050" y1="0" x2="1050" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="1200" y1="0" x2="1200" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <line x1="1350" y1="0" x2="1350" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+        <!-- Circuit traces -->
+        <polyline points="150,150 300,150 300,300 450,300 600,300 600,150 750,150 750,300 900,300 900,150 1050,150 1050,300 1200,300" stroke="#0ab4c8" stroke-width="1.4" fill="none"/>
+        <polyline points="300,450 450,450 450,600 600,600 750,600 750,450 900,450 1050,450 1050,600 1200,600 1200,750" stroke="#0ab4c8" stroke-width="1.4" fill="none"/>
+        <polyline points="150,600 300,600 300,750 450,750" stroke="#1a6fa4" stroke-width="1.4" fill="none"/>
+        <polyline points="1050,150 1050,300" stroke="#1a6fa4" stroke-width="1.4" fill="none"/>
+        <!-- Nodes -->
+        <circle cx="300" cy="150" r="4.5" fill="#0ab4c8"/>
+        <circle cx="600" cy="300" r="4.5" fill="#0ab4c8"/>
+        <circle cx="750" cy="150" r="4.5" fill="#0ab4c8"/>
+        <circle cx="900" cy="300" r="4.5" fill="#0ab4c8"/>
+        <circle cx="1050" cy="150" r="4.5" fill="#0ab4c8"/>
+        <circle cx="450" cy="450" r="4.5" fill="#1a6fa4"/>
+        <circle cx="750" cy="450" r="4.5" fill="#1a6fa4"/>
+        <circle cx="1050" cy="600" r="4.5" fill="#1a6fa4"/>
+        <circle cx="300" cy="600" r="4.5" fill="#1a6fa4"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Serving Derry &amp; Greater Manchester, NH
+          </div>
+          <h1 class="hero-title">
+            Expert Repairs.<br>
+            <span class="accent">Local Trust.</span>
+          </h1>
+          <p class="hero-sub">
+            Fast, honest computer repair for homes and businesses across Southern NH.
+            We diagnose, fix, and return — with no hidden fees.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Get a Free Quote
+            </a>
+            <a href="#services" class="btn-secondary">
+              View Services
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-val">Same&nbsp;Day</div>
+              <div class="stat-lbl">Diagnostics</div>
+            </div>
+            <div>
+              <div class="stat-val">No&nbsp;Fix</div>
+              <div class="stat-lbl">No Fee Policy</div>
+            </div>
+            <div>
+              <div class="stat-val">NH</div>
+              <div class="stat-lbl">Locally Owned</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated hero logo -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-logo-wrap">
+            <div class="h-ring hr1"></div>
+            <div class="h-ring hr2"></div>
+            <div class="h-ring hr3"></div>
+            <svg class="hero-svg-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="hero-lg" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#185FA5"/>
+                  <stop offset="100%" stop-color="#0ab4c8"/>
+                </linearGradient>
+              </defs>
+              <!-- Hexagon outer border -->
+              <path d="M40,6 L70,23 L70,57 L40,74 L10,57 L10,23 Z"
+                    fill="none" stroke="url(#hero-lg)" stroke-width="2.5" stroke-linejoin="round"/>
+              <!-- Inner mountain triangle network -->
+              <line x1="40" y1="21" x2="24" y2="51" stroke="url(#hero-lg)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="40" y1="21" x2="56" y2="51" stroke="url(#hero-lg)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="24" y1="51" x2="56" y2="51" stroke="url(#hero-lg)" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Node dots -->
+              <circle cx="40" cy="21" r="4.5" fill="url(#hero-lg)"/>
+              <circle cx="24" cy="51" r="4.5" fill="url(#hero-lg)"/>
+              <circle cx="56" cy="51" r="4.5" fill="url(#hero-lg)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" aria-label="Services">
+    <div class="sep-line"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What We Fix</div>
+        <h2 class="section-title">Our Services</h2>
+        <div class="teal-bar"></div>
+        <p class="section-desc">From a sluggish laptop to a dead drive, we diagnose and repair across Windows, Mac, and Linux — fast and transparently.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="svc-card reveal d1">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/></svg>
+          </div>
+          <h3 class="svc-title">Virus &amp; Malware Removal</h3>
+          <p class="svc-desc">Full system scans, deep threat removal, and security hardening to protect your data and stop future infections.</p>
+        </div>
+
+        <div class="svc-card reveal d2">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="svc-title">Laptop Screen Replacement</h3>
+          <p class="svc-desc">Cracked, black, or flickering display? We source quality screens for most makes and models and have you back up fast.</p>
+        </div>
+
+        <div class="svc-card reveal d3">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="svc-title">Hardware Upgrades</h3>
+          <p class="svc-desc">RAM, SSD, and component upgrades that breathe new life into older machines. We install, configure, and benchmark everything.</p>
+        </div>
+
+        <div class="svc-card reveal d1">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3 class="svc-title">OS Installation &amp; Recovery</h3>
+          <p class="svc-desc">Clean Windows installs, driver setup, recovery from failed updates, and migration from old drives — done properly.</p>
+        </div>
+
+        <div class="svc-card reveal d2">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="svc-title">Data Recovery &amp; Backup</h3>
+          <p class="svc-desc">Lost photos, documents, or a crashed drive? We recover what matters and set up reliable backup solutions to protect it going forward.</p>
+        </div>
+
+        <div class="svc-card reveal d3">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3 class="svc-title">General Diagnostics</h3>
+          <p class="svc-desc">Not sure what's wrong? We run a thorough hardware and software diagnostic and give you a clear, honest assessment before any work begins.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section id="process" aria-label="How it works">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">The Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <div class="teal-bar"></div>
+      </div>
+      <div class="process-steps">
+        <div class="proc-step reveal d1">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Reach Out</h3>
+          <p class="step-desc">Fill out the quick quote form or call us directly. Describe the issue — we'll get back to you the same day.</p>
+        </div>
+        <div class="proc-step reveal d2">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Drop Off or Pick Up</h3>
+          <p class="step-desc">Bring your device to us in Derry, or ask about our local pick-up option. We work around your schedule.</p>
+        </div>
+        <div class="proc-step reveal d3">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Repaired &amp; Returned</h3>
+          <p class="step-desc">We diagnose, fix, and test thoroughly before returning your device. You'll get a full explanation of what was done and why.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
+  <section id="why-us" aria-label="Why GraNet">
+    <div class="sep-line"></div>
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content reveal">
+          <div class="why-label">Why GraNet</div>
+          <h2 class="why-title">Local Expertise.<br>Real Accountability.</h2>
+          <p class="why-body">We're not a big box store. We're your neighbors in Derry — a locally owned operation that lives and dies by doing right by every customer. No runaround, no upsells, just honest work.</p>
+          <ul class="why-list">
+            <li><span class="arrow">▸</span> No fix, no fee — you only pay when the job is done right</li>
+            <li><span class="arrow">▸</span> Honest diagnostics before any work begins</li>
+            <li><span class="arrow">▸</span> Same-day diagnostics available on most devices</li>
+            <li><span class="arrow">▸</span> Drop-off and local pick-up service options</li>
+            <li><span class="arrow">▸</span> Windows, macOS, and Linux all supported</li>
+            <li><span class="arrow">▸</span> Transparent, itemized pricing — no hidden charges</li>
+          </ul>
+        </div>
+        <div class="why-cards reveal d2">
+          <div class="wcard">
+            <div class="wcard-val">24h</div>
+            <div class="wcard-lbl">Avg. Turnaround</div>
+          </div>
+          <div class="wcard">
+            <div class="wcard-val">100%</div>
+            <div class="wcard-lbl">Satisfaction Goal</div>
+          </div>
+          <div class="wcard">
+            <div class="wcard-val">NH</div>
+            <div class="wcard-lbl">Locally Owned</div>
+          </div>
+          <div class="wcard">
+            <div class="wcard-val">Free</div>
+            <div class="wcard-lbl">Diagnostics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" aria-label="Contact and quote form">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Request a Quote</h2>
+        <div class="teal-bar"></div>
+        <p class="section-desc">Describe your issue and we'll get back to you with an estimate — usually the same day.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <h3 class="cinfo-title">Let's Fix It.</h3>
+          <p class="cinfo-body">Whether it's a slow laptop, a failed drive, or a screen that won't turn on — reach out and we'll figure it out together. No judgment, no jargon.</p>
+          <div class="cinfo-items">
+            <div class="ci-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="ci-text">Derry, New Hampshire</div>
+                <div class="ci-lbl">Service Location</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="ci-text">Available by appointment</div>
+                <div class="ci-lbl">Phone / Scheduling</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="ci-text">Use the form to get started</div>
+                <div class="ci-lbl">Email</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--
+          FORM BACKEND NOTE (for GitHub Pages deployment):
+          GitHub Pages is static — you'll need a form backend to receive submissions.
+          Easy options:
+            • Formspree:  <form action="https://formspree.io/f/YOUR_ID" method="POST">
+            • Netlify Forms: add netlify attribute if hosting on Netlify
+            • EmailJS: https://www.emailjs.com (pure JS, no backend needed)
+          Replace the onclick handler below with your chosen solution.
+        -->
+        <div class="cform reveal d2">
+          <div class="form-row">
+            <div class="fg">
+              <label for="f-name">Full Name</label>
+              <input type="text" id="f-name" name="name" placeholder="Jane Smith" autocomplete="name" />
+            </div>
+            <div class="fg">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="(603) 555-0100" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="fg">
+            <label for="f-email">Email Address</label>
+            <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="f-service">Service Needed</label>
+              <select id="f-service" name="service">
+                <option value="">Select a service…</option>
+                <option>Virus &amp; Malware Removal</option>
+                <option>Laptop Screen Replacement</option>
+                <option>Hardware Upgrade / Installation</option>
+                <option>OS Installation / Recovery</option>
+                <option>Data Recovery &amp; Backup</option>
+                <option>General Diagnostics</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label for="f-drop">Drop-off or Pick-up?</label>
+              <select id="f-drop" name="dropoff">
+                <option value="">Prefer…</option>
+                <option>Drop-off in Derry</option>
+                <option>Local Pick-up</option>
+                <option>Either works</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="f-msg">Describe the Problem</label>
+            <textarea id="f-msg" name="message" placeholder="My laptop won't turn on after it got wet…"></textarea>
+          </div>
+          <p class="form-note">
+            📌 To connect this form to your email, set up a free account at
+            <a href="https://formspree.io" target="_blank" rel="noopener">Formspree.io</a>
+            and replace the form action with your endpoint.
+          </p>
+          <button class="btn-submit" onclick="handleSubmit()">Send Request →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#hero" class="footer-logo" aria-label="GraNet Computer Repair">
+          <svg width="30" height="30" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="f-lg" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#185FA5"/>
+                <stop offset="100%" stop-color="#0ab4c8"/>
+              </linearGradient>
+            </defs>
+            <!-- Hexagon outer border -->
+            <path d="M40,6 L70,23 L70,57 L40,74 L10,57 L10,23 Z"
+                  fill="none" stroke="url(#f-lg)" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Inner mountain triangle network -->
+            <line x1="40" y1="21" x2="24" y2="51" stroke="url(#f-lg)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="40" y1="21" x2="56" y2="51" stroke="url(#f-lg)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="24" y1="51" x2="56" y2="51" stroke="url(#f-lg)" stroke-width="1.8" stroke-linecap="round"/>
+            <!-- Node dots -->
+            <circle cx="40" cy="21" r="4" fill="url(#f-lg)"/>
+            <circle cx="24" cy="51" r="4" fill="url(#f-lg)"/>
+            <circle cx="56" cy="51" r="4" fill="url(#f-lg)"/>
+          </svg>
+          <div class="footer-name">Gra<em>Net</em></div>
+        </a>
+        <p class="footer-copy">© 2026 GraNet Computer Repair · Derry, NH · Locally Owned &amp; Operated</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Navbar scroll effect ───────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ─── Mobile menu ────────────────────────────────────────────────────────
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    const hamburger = document.getElementById('hamburger');
+
+    function openMenu() {
+      menu.classList.add('open');
+      overlay.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // ─── Scroll reveal ──────────────────────────────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ─── Form handler ───────────────────────────────────────────────────────
+    // NOTE: This is a UI-only demo handler.
+    // For real form submission on GitHub Pages, replace with Formspree, EmailJS,
+    // or another static form service. See the comment above the form element.
+    function handleSubmit() {
+      const name = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const message = document.getElementById('f-msg').value.trim();
+
+      if (!name || !email) {
+        alert('Please enter your name and email address.');
+        return;
+      }
+      if (!message) {
+        alert('Please briefly describe the problem — it helps us give you an accurate quote.');
+        return;
+      }
+
+      // Demo-only: replace with actual fetch() to your form endpoint
+      alert(`Thanks, ${name}!\n\nWe received your request and will be in touch at ${email} soon.`);
+
+      // Reset form
+      ['f-name','f-phone','f-email','f-service','f-drop','f-msg']
+        .forEach(id => { document.getElementById(id).value = ''; });
+    }
+  </script>
+
+</body>
+</html>
