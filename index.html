@@ -222,28 +222,103 @@
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: #f4f8fb; padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff; padding: 0.9rem 2rem;
       border-radius: var(--radius);
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+      letter-spacing: 0.03em; text-decoration: none;
+      box-shadow: 0 4px 22px rgba(34, 197, 94, 0.25);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(34,197,94,0.38); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+      color: #f4f8fb;
+      padding: 0.9rem 2rem; border-radius: var(--radius);
       font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
       letter-spacing: 0.03em; text-decoration: none;
       box-shadow: 0 4px 22px rgba(10, 180, 200, 0.22);
       transition: transform var(--transition), box-shadow var(--transition);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
-    .btn-secondary {
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+    .btn-emergency {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent; color: var(--teal-400);
-      padding: 0.9rem 2rem; border-radius: var(--radius);
-      border: 1px solid rgba(10, 180, 200, 0.4);
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff; padding: 0.9rem 2rem;
+      border-radius: var(--radius);
       font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
-      letter-spacing: 0.03em; text-decoration: none;
-      transition: all var(--transition);
+      letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
+      border: none; outline: none;
+      box-shadow: 0 4px 22px rgba(239, 68, 68, 0.28);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
-    .btn-secondary:hover {
-      background: rgba(10, 180, 200, 0.07);
-      border-color: var(--teal-400); transform: translateY(-2px);
+    .btn-emergency:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(239,68,68,0.45); }
+
+    /* ===== EMERGENCY MODAL ===== */
+    .emg-overlay {
+      display: none; position: fixed; inset: 0; z-index: 3000;
+      background: rgba(11, 30, 48, 0.72); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
     }
+    .emg-overlay.open { display: flex; }
+    .emg-modal {
+      background: #fff; border-radius: var(--radius-lg);
+      padding: 2.75rem 2.5rem 2.25rem;
+      max-width: 420px; width: calc(100% - 2rem);
+      position: relative; text-align: center;
+      box-shadow: 0 24px 64px rgba(10,30,50,0.18);
+      border-top: 4px solid #ef4444;
+      animation: modal-in 0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: scale(0.94) translateY(12px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .emg-close {
+      position: absolute; top: 1rem; right: 1.1rem;
+      background: none; border: none; font-size: 1.3rem;
+      color: var(--mid); cursor: pointer; line-height: 1;
+      transition: color var(--transition);
+    }
+    .emg-close:hover { color: var(--white); }
+    .emg-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(220,38,38,0.07));
+      border: 1px solid rgba(239,68,68,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .emg-icon svg { width: 26px; height: 26px; color: #ef4444; }
+    .emg-heading {
+      font-family: var(--font-display); font-size: 1.55rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .emg-sub {
+      font-size: 0.9rem; color: var(--mid); margin-bottom: 1.75rem; line-height: 1.6;
+    }
+    .emg-number {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff; text-decoration: none;
+      font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+      letter-spacing: 0.04em; padding: 1rem 1.5rem; border-radius: var(--radius);
+      box-shadow: 0 6px 24px rgba(249,115,22,0.3);
+      transition: transform var(--transition), box-shadow var(--transition);
+      margin-bottom: 0.85rem;
+    }
+    .emg-number:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(249,115,22,0.42); }
+    .emg-number svg { width: 22px; height: 22px; }
+    .emg-tagline {
+      font-size: 0.82rem; color: var(--mid); margin-bottom: 1.5rem;
+    }
+    .emg-email {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.88rem; color: var(--teal-300); text-decoration: none;
+      transition: color var(--transition);
+    }
+    .emg-email:hover { color: var(--blue-500); }
+    .emg-email svg { width: 15px; height: 15px; }
     .hero-stats {
       display: flex; gap: 2.5rem; margin-top: 3rem;
       padding-top: 2rem;
@@ -589,6 +664,28 @@
 </head>
 <body>
 
+  <!-- ===== EMERGENCY MODAL ===== -->
+  <div class="emg-overlay" id="emgOverlay" role="dialog" aria-modal="true" aria-label="Emergency IT Support" onclick="handleOverlayClick(event)">
+    <div class="emg-modal">
+      <button class="emg-close" onclick="closeEmergency()" aria-label="Close">✕</button>
+      <div class="emg-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div class="emg-heading">Need Help Right Now?</div>
+      <p class="emg-sub">Call or text us directly. If we don't answer, it means our team is busy helping another customer — leave a voicemail and we'll get back to you as soon as possible.<br><br>
+      When leaving a voicemail, please include your <strong>name</strong>, <strong>callback number</strong>, and a <strong>brief description of your issue</strong>.</p>
+      <a href="tel:+19782194427" class="emg-number">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (978) 219-4427
+      </a>
+      <p class="emg-tagline">📞 Call or 💬 Text — whichever is easier</p>
+      <a href="mailto:support@granet.tech" class="emg-email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        support@granet.tech
+      </a>
+    </div>
+  </div>
+
   <!-- ===== MOBILE OVERLAY + MENU ===== -->
   <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
@@ -631,6 +728,12 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How It Works</a></li>
       <li><a href="#why-us">About</a></li>
+      <li>
+        <a href="tel:+19782194427" style="display:inline-flex;align-items:center;gap:0.4rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (978) 219-4427
+        </a>
+      </li>
       <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
     </ul>
     <button class="hamburger" onclick="openMenu()" aria-label="Open menu" aria-expanded="false" id="hamburger">
@@ -698,14 +801,18 @@
             We diagnose, fix, and return — with no hidden fees.
           </p>
           <div class="hero-actions">
-            <a href="#contact" class="btn-primary">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Get a Free Quote
+            <a href="#services" class="btn-primary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Services &amp; Prices
             </a>
-            <a href="#services" class="btn-secondary">
-              View Services
+            <a href="#contact" class="btn-secondary">
+              Get a Free Quote
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
+            <button class="btn-emergency" onclick="openEmergency()" aria-haspopup="dialog">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Emergency IT Support
+            </button>
           </div>
           <div class="hero-stats">
             <div>
@@ -954,8 +1061,8 @@
                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div>
-                <div class="ci-text">Available by appointment</div>
-                <div class="ci-lbl">Phone / Scheduling</div>
+                <a href="tel:+19782194427" class="ci-text" style="text-decoration:none;color:inherit;">+1 (978) 219-4427</a>
+                <div class="ci-lbl">Call us and leave us a voicemail!</div>
               </div>
             </div>
             <div class="ci-item">
@@ -963,8 +1070,8 @@
                 <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div>
-                <div class="ci-text">Use the form to get started</div>
-                <div class="ci-lbl">Email</div>
+                <a href="mailto:support@granet.tech" class="ci-text" style="text-decoration:none;color:inherit;">support@granet.tech</a>
+                <div class="ci-lbl">Or send us an email directly!</div>
               </div>
             </div>
           </div>
@@ -1063,6 +1170,22 @@
   </footer>
 
   <script>
+    // ─── Emergency modal ────────────────────────────────────────────────────
+    function openEmergency() {
+      document.getElementById('emgOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeEmergency() {
+      document.getElementById('emgOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('emgOverlay')) closeEmergency();
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeEmergency();
+    });
+
     // ─── Navbar scroll effect ───────────────────────────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
