@@ -1,1283 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GraNet Computer Repair | Derry, NH</title>
-  <meta name="description" content="Fast, reliable computer repair for homes and businesses in Derry, NH and the greater Manchester area. Virus removal, hardware upgrades, data recovery, and more. No fix, no fee." />
-  <!-- Favicons -->
-  <link rel="icon" href="favicon.ico" sizes="any"/>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GraNet IT Solutions | Derry, NH</title>
+<meta name="description" content="Fast, reliable computer repair and IT support for homes and businesses in Derry, NH and the greater Manchester area. Virus removal, hardware upgrades, data recovery, and more. No fix, no fee." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-  <style>
-    /* ===== CSS VARIABLES ===== */
-    :root {
-      --navy-950: #f4f8fb;       /* page background */
-      --navy-900: #e8f0f7;       /* section alternate background */
-      --navy-800: #dce8f2;       /* subtle border/bg */
-      --navy-700: #c5d8e8;       /* unused / subtle */
-      --blue-500: #1a6fa4;
-      --teal-400: #0ab4c8;
-      --teal-300: #0097ad;       /* darker for readability on white */
-      --teal-200: #1a6fa4;       /* gradient end — deep blue */
-      --white: #0b1e30;          /* headings & prominent text — dark navy */
-      --light: #1e3a52;          /* body text — dark */
-      --mid: #5a7a92;            /* muted/secondary text */
-      --btn-text: #f4f8fb;       /* text on gradient buttons */
-      --font-display: 'Rajdhani', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --glow: 0 0 20px rgba(10, 180, 200, 0.2);
-      --glow-strong: 0 0 36px rgba(10, 180, 200, 0.35);
-      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --radius: 12px;
-      --radius-lg: 20px;
-    }
+<!-- Favicons -->
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
 
-    /* ===== RESET ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background-color: var(--navy-950);
-      color: var(--light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--navy-900); }
-    ::-webkit-scrollbar-thumb { background: var(--teal-400); border-radius: 3px; }
-    h1, h2, h3, h4 {
-      font-family: var(--font-display);
-      color: var(--white);
-      letter-spacing: 0.02em;
-    }
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 
-    /* ===== NAV ===== */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 1.1rem 2.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      backdrop-filter: blur(14px);
-      background: rgba(244, 248, 251, 0.88);
-      border-bottom: 1px solid rgba(10, 180, 200, 0.18);
-      box-shadow: 0 1px 12px rgba(10,30,50,0.07);
-      transition: padding var(--transition), background var(--transition);
-    }
-    nav.scrolled {
-      padding: 0.7rem 2.5rem;
-      background: rgba(244, 248, 251, 0.98);
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 0.7rem;
-      text-decoration: none;
-    }
-    .nav-logo-mark { width: 38px; height: 38px; }
-    .nav-logo-name {
-      font-family: var(--font-display);
-      font-size: 1.35rem; font-weight: 700;
-      color: var(--white); line-height: 1.1;
-    }
-    .nav-logo-name em { color: var(--teal-400); font-style: normal; }
-    .nav-logo-sub {
-      font-family: var(--font-display);
-      font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--teal-400); margin-top: 1px;
-    }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--font-display); font-size: 1rem; font-weight: 500;
-      letter-spacing: 0.04em; color: var(--light); text-decoration: none;
-      transition: color var(--transition); position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--teal-400);
-      transition: width var(--transition);
-    }
-    .nav-links a:hover { color: var(--teal-300); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--teal-400), var(--blue-500)) !important;
-      color: #f4f8fb !important;
-      padding: 0.5rem 1.25rem; border-radius: 6px;
-      font-weight: 600 !important;
-    }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover {
-      color: #f4f8fb !important;
-      box-shadow: var(--glow) !important;
-      transform: translateY(-1px);
-    }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px; background: none; border: none;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--teal-400); border-radius: 2px;
-      transition: var(--transition);
-    }
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --navy-950: #f4f8fb;
+  --navy-900: #e8f0f7;
+  --navy-800: #dce8f2;
+  --navy-700: #c5d8e8;
+  --blue-500: #1a6fa4;
+  --teal-400: #0ab4c8;
+  --teal-300: #0097ad;
+  --teal-200: #1a6fa4;
+  --white: #0b1e30;
+  --light: #1e3a52;
+  --mid: #5a7a92;
+  --btn-text: #f4f8fb;
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --glow: 0 0 20px rgba(10, 180, 200, 0.2);
+  --glow-strong: 0 0 36px rgba(10, 180, 200, 0.35);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
 
-    .mobile-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(30,58,82,0.45); z-index: 1999;
-      backdrop-filter: blur(4px);
-    }
-    .mobile-overlay.open { display: block; }
-    .mobile-menu {
-      position: fixed; top: 0; right: -110%;
-      width: min(320px, 100%); height: 100vh;
-      background: #fff;
-      border-left: 1px solid rgba(10, 180, 200, 0.25);
-      box-shadow: -4px 0 24px rgba(10,30,50,0.1);
-      z-index: 2000; display: flex; flex-direction: column;
-      padding: 5.5rem 2.5rem 2rem; gap: 1.75rem;
-      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .mobile-menu.open { right: 0; }
-    .mobile-menu a {
-      font-family: var(--font-display); font-size: 1.5rem; font-weight: 600;
-      letter-spacing: 0.05em; color: var(--light); text-decoration: none;
-      transition: color var(--transition);
-    }
-    .mobile-menu a:hover { color: var(--teal-400); }
-    .mobile-menu .m-cta {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: #f4f8fb !important;
-      padding: 0.8rem 1.5rem; border-radius: var(--radius);
-      font-size: 1.1rem !important; margin-top: 0.5rem;
-    }
-    .close-btn {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      background: none; border: none;
-      color: var(--mid); font-size: 1.4rem; cursor: pointer; line-height: 1;
-    }
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background-color: var(--navy-950);
+  color: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--navy-900); }
+::-webkit-scrollbar-thumb { background: var(--teal-400); border-radius: 3px; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+.container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ===== HERO ===== */
-    #hero {
-      min-height: 100vh; display: flex; align-items: center;
-      position: relative; padding: 7rem 0 4rem; overflow: hidden;
-    }
-    .hero-circuit-bg {
-      position: absolute; inset: 0; pointer-events: none;
-      opacity: 0.1;
-    }
-    .hero-circuit-bg svg { width: 100%; height: 100%; }
-    #hero::before {
-      content: ''; position: absolute;
-      top: -250px; right: -150px; width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(10, 180, 200, 0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #hero::after {
-      content: ''; position: absolute;
-      bottom: -100px; left: -100px; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(26, 111, 164, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center; position: relative; z-index: 1;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(10, 180, 200, 0.08);
-      border: 1px solid rgba(10, 180, 200, 0.3);
-      border-radius: 100px; padding: 0.35rem 1rem;
-      font-family: var(--font-display); font-size: 0.78rem;
-      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--teal-300); margin-bottom: 1.5rem;
-    }
-    .hero-badge-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--teal-400);
-      box-shadow: 0 0 8px var(--teal-400);
-      animation: badge-pulse 2.2s ease-in-out infinite;
-    }
-    @keyframes badge-pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.55; transform: scale(0.8); }
-    }
-    .hero-title {
-      font-size: clamp(2.6rem, 5.5vw, 4.75rem);
-      font-weight: 700; line-height: 1.03; margin-bottom: 1.5rem;
-    }
-    .hero-title .accent {
-      background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1.1rem; color: var(--mid);
-      margin-bottom: 2.5rem; max-width: 460px; line-height: 1.75;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #fff; padding: 0.9rem 2rem;
-      border-radius: var(--radius);
-      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
-      letter-spacing: 0.03em; text-decoration: none;
-      box-shadow: 0 4px 22px rgba(34, 197, 94, 0.25);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(34,197,94,0.38); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: #f4f8fb;
-      padding: 0.9rem 2rem; border-radius: var(--radius);
-      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
-      letter-spacing: 0.03em; text-decoration: none;
-      box-shadow: 0 4px 22px rgba(10, 180, 200, 0.22);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .btn-secondary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
-    .btn-emergency {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: #fff; padding: 0.9rem 2rem;
-      border-radius: var(--radius);
-      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
-      letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
-      border: none; outline: none;
-      box-shadow: 0 4px 22px rgba(239, 68, 68, 0.28);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .btn-emergency:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(239,68,68,0.45); }
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.1rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  backdrop-filter: blur(14px);
+  background: rgba(244, 248, 251, 0.88);
+  border-bottom: 1px solid rgba(10, 180, 200, 0.18);
+  box-shadow: 0 1px 12px rgba(10,30,50,0.07);
+  transition: padding var(--transition), background var(--transition);
+}
+nav.scrolled {
+  padding: 0.7rem 2.5rem;
+  background: rgba(244, 248, 251, 0.98);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.7rem;
+  text-decoration: none;
+}
+.nav-logo img {
+  height: 42px;
+  width: auto;
+  border-radius: 4px;
+  display: block;
+  mix-blend-mode: multiply;
+  transition: transform var(--transition);
+}
+.nav-logo:hover img { transform: scale(1.03); }
 
-    /* ===== EMERGENCY MODAL ===== */
-    .emg-overlay {
-      display: none; position: fixed; inset: 0; z-index: 3000;
-      background: rgba(11, 30, 48, 0.72); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center;
-    }
-    .emg-overlay.open { display: flex; }
-    .emg-modal {
-      background: #fff; border-radius: var(--radius-lg);
-      padding: 2.75rem 2.5rem 2.25rem;
-      max-width: 420px; width: calc(100% - 2rem);
-      position: relative; text-align: center;
-      box-shadow: 0 24px 64px rgba(10,30,50,0.18);
-      border-top: 4px solid #ef4444;
-      animation: modal-in 0.22s cubic-bezier(0.4,0,0.2,1);
-    }
-    @keyframes modal-in {
-      from { opacity: 0; transform: scale(0.94) translateY(12px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .emg-close {
-      position: absolute; top: 1rem; right: 1.1rem;
-      background: none; border: none; font-size: 1.3rem;
-      color: var(--mid); cursor: pointer; line-height: 1;
-      transition: color var(--transition);
-    }
-    .emg-close:hover { color: var(--white); }
-    .emg-icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(220,38,38,0.07));
-      border: 1px solid rgba(239,68,68,0.3);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.25rem;
-    }
-    .emg-icon svg { width: 26px; height: 26px; color: #ef4444; }
-    .emg-heading {
-      font-family: var(--font-display); font-size: 1.55rem; font-weight: 700;
-      color: var(--white); margin-bottom: 0.5rem;
-    }
-    .emg-sub {
-      font-size: 0.9rem; color: var(--mid); margin-bottom: 1.75rem; line-height: 1.6;
-    }
-    .emg-number {
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: #fff; text-decoration: none;
-      font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
-      letter-spacing: 0.04em; padding: 1rem 1.5rem; border-radius: var(--radius);
-      box-shadow: 0 6px 24px rgba(249,115,22,0.3);
-      transition: transform var(--transition), box-shadow var(--transition);
-      margin-bottom: 0.85rem;
-    }
-    .emg-number:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(249,115,22,0.42); }
-    .emg-number svg { width: 22px; height: 22px; }
-    .emg-tagline {
-      font-size: 0.82rem; color: var(--mid); margin-bottom: 1.5rem;
-    }
-    .emg-email {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.88rem; color: var(--teal-300); text-decoration: none;
-      transition: color var(--transition);
-    }
-    .emg-email:hover { color: var(--blue-500); }
-    .emg-email svg { width: 15px; height: 15px; }
-    .hero-stats {
-      display: flex; gap: 0; margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(10, 180, 200, 0.14);
-    }
-    .hero-stats > div {
-      flex: 1; padding: 0 1.75rem;
-      border-right: 1px solid rgba(10, 180, 200, 0.25);
-    }
-    .hero-stats > div:first-child { padding-left: 0; }
-    .hero-stats > div:last-child { border-right: none; }
-    .stat-val {
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
-      color: var(--teal-400); line-height: 1;
-    }
-    .stat-lbl {
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
-      color: var(--teal-400); margin-top: 0.15rem; line-height: 1;
-    }
+/* Hero logo display (left column) */
+.hero-logo-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.hero-logo-display img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 32px rgba(10,180,200,0.18));
+  animation: logo-float 5s ease-in-out infinite;
+}
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
 
-    /* Hero visual */
-    .hero-visual {
-      display: flex; justify-content: center; align-items: center;
-      position: relative;
-    }
-    .hero-photo-wrap {
-      position: relative; width: 100%; max-width: 520px;
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: 0 0 0 1px rgba(10,180,200,0.2), 0 24px 64px rgba(0,0,0,0.5), 0 0 60px rgba(10,180,200,0.1);
-    }
-    .hero-photo {
-      width: 100%; height: 380px; object-fit: cover; object-position: center;
-      display: block; border-radius: var(--radius-lg);
-    }
-    .hero-photo-glow {
-      position: absolute; inset: 0; border-radius: var(--radius-lg);
-      background: linear-gradient(to bottom, transparent 55%, rgba(8,20,36,0.75) 100%);
-      pointer-events: none;
-    }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.04em; color: var(--light); text-decoration: none;
+  transition: color var(--transition); position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--teal-400);
+  transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--teal-300); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: linear-gradient(135deg, var(--teal-400), var(--blue-500)) !important;
+  color: #f4f8fb !important;
+  padding: 0.5rem 1.25rem; border-radius: 6px;
+  font-weight: 600 !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover {
+  color: #f4f8fb !important;
+  box-shadow: var(--glow) !important;
+  transform: translateY(-1px);
+}
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--teal-400); border-radius: 2px;
+  transition: var(--transition);
+}
+.mobile-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(30,58,82,0.45); z-index: 1999;
+  backdrop-filter: blur(4px);
+}
+.mobile-overlay.open { display: block; }
+.mobile-menu {
+  position: fixed; top: 0; right: -110%;
+  width: min(320px, 100%); height: 100vh;
+  background: #fff;
+  border-left: 1px solid rgba(10, 180, 200, 0.25);
+  box-shadow: -4px 0 24px rgba(10,30,50,0.1);
+  z-index: 2000; display: flex; flex-direction: column;
+  padding: 5.5rem 2.5rem 2rem; gap: 1.75rem;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu a {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 600;
+  letter-spacing: 0.05em; color: var(--light); text-decoration: none;
+  transition: color var(--transition);
+}
+.mobile-menu a:hover { color: var(--teal-400); }
+.mobile-menu .m-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+  color: #f4f8fb !important;
+  padding: 0.8rem 1.5rem; border-radius: var(--radius);
+  font-size: 1.1rem !important; margin-top: 0.5rem;
+}
+.close-btn {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: none; border: none;
+  color: var(--mid); font-size: 1.4rem; cursor: pointer; line-height: 1;
+}
 
-    /* ===== SECTION BASE ===== */
-    section { padding: 6rem 0; }
-    .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-label {
-      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--teal-400); margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700;
-      color: var(--white); margin-bottom: 0.5rem;
-    }
-    .teal-bar {
-      width: 52px; height: 3px; margin: 0.85rem auto 0;
-      background: linear-gradient(90deg, var(--teal-400), var(--blue-500));
-      border-radius: 2px;
-    }
-    .section-desc {
-      font-size: 1rem; color: var(--mid); max-width: 540px;
-      margin: 1rem auto 0; line-height: 1.7;
-    }
-    .sep-line {
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--teal-400), transparent);
-    }
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; padding: 7rem 0 4rem; overflow: hidden;
+}
+.hero-circuit-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  opacity: 0.1;
+}
+.hero-circuit-bg svg { width: 100%; height: 100%; }
+#hero::before {
+  content: ''; position: absolute;
+  top: -250px; right: -150px; width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(10, 180, 200, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+#hero::after {
+  content: ''; position: absolute;
+  bottom: -100px; left: -100px; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(26, 111, 164, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center; position: relative; z-index: 1;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(10, 180, 200, 0.08);
+  border: 1px solid rgba(10, 180, 200, 0.3);
+  border-radius: 100px; padding: 0.35rem 1rem;
+  font-family: var(--font-display); font-size: 0.78rem;
+  font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--teal-300); margin-bottom: 1.5rem;
+}
+.hero-badge-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--teal-400);
+  box-shadow: 0 0 8px var(--teal-400);
+  animation: badge-pulse 2.2s ease-in-out infinite;
+}
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.8); }
+}
+.hero-title {
+  font-size: clamp(2.6rem, 5.5vw, 4.75rem);
+  font-weight: 700; line-height: 1.03; margin-bottom: 1.5rem;
+}
+.hero-title .accent {
+  background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.1rem; color: var(--mid);
+  margin-bottom: 2.5rem; max-width: 460px; line-height: 1.75;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff; padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+  letter-spacing: 0.03em; text-decoration: none;
+  box-shadow: 0 4px 22px rgba(34, 197, 94, 0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(34,197,94,0.38); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+  color: #f4f8fb;
+  padding: 0.9rem 2rem; border-radius: var(--radius);
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+  letter-spacing: 0.03em; text-decoration: none;
+  box-shadow: 0 4px 22px rgba(10, 180, 200, 0.22);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-secondary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+.btn-emergency {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff; padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+  letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
+  border: none; outline: none;
+  box-shadow: 0 4px 22px rgba(239, 68, 68, 0.28);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-emergency:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(239,68,68,0.45); }
 
-    /* ===== SERVICES ===== */
-    #services { background: var(--navy-900); position: relative; }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
-    .svc-card {
-      background: #fff;
-      border: 1px solid rgba(10, 180, 200, 0.15);
-      border-radius: var(--radius-lg); padding: 2rem;
-      position: relative; overflow: hidden;
-      transition: transform var(--transition), background var(--transition),
-                  border-color var(--transition), box-shadow var(--transition);
-      cursor: pointer; text-decoration: none; display: block; color: inherit;
-    }
-    .svc-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--blue-500), var(--teal-400));
-      opacity: 0; transition: opacity var(--transition);
-    }
-    .svc-card:hover {
-      background: #f0fbfd;
-      border-color: rgba(10, 180, 200, 0.4);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 36px rgba(10, 180, 200, 0.13);
-    }
-    .svc-card:hover::before { opacity: 1; }
-    .svc-icon {
-      width: 50px; height: 50px;
-      background: linear-gradient(135deg, rgba(10,180,200,0.1), rgba(26,111,164,0.06));
-      border: 1px solid rgba(10,180,200,0.22);
-      border-radius: 12px; display: flex;
-      align-items: center; justify-content: center; margin-bottom: 1.25rem;
-    }
-    .svc-icon svg {
-      width: 22px; height: 22px; color: var(--teal-400);
-      fill: none; stroke: currentColor; stroke-width: 1.75;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-    .svc-title {
-      font-size: 1.15rem; font-weight: 700;
-      color: var(--white); margin-bottom: 0.5rem;
-    }
-    .svc-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.68; }
-    .svc-price {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      margin-top: 1.1rem;
-      background: linear-gradient(135deg, rgba(10,180,200,0.1), rgba(26,111,164,0.07));
-      border: 1px solid rgba(10,180,200,0.3);
-      border-radius: 100px; padding: 0.3rem 0.85rem;
-      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
-      letter-spacing: 0.04em; color: var(--blue-500);
-    }
-    .svc-price-note {
-      font-size: 0.75rem; color: var(--mid);
-      margin-top: 0.4rem; line-height: 1.5;
-    }
-    .svc-cta-hint {
-      display: flex; align-items: center; gap: 0.35rem;
-      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--teal-400); margin-top: 1.25rem;
-      opacity: 0; transition: opacity var(--transition);
-    }
-    .svc-cta-hint svg { width: 14px; height: 14px; transition: transform var(--transition); }
-    .svc-card:hover .svc-cta-hint { opacity: 1; }
-    .svc-card:hover .svc-cta-hint svg { transform: translateX(3px); }
+/* ===== EMERGENCY MODAL ===== */
+.emg-overlay {
+  display: none; position: fixed; inset: 0; z-index: 3000;
+  background: rgba(11, 30, 48, 0.72); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center;
+}
+.emg-overlay.open { display: flex; }
+.emg-modal {
+  background: #fff; border-radius: var(--radius-lg);
+  padding: 2.75rem 2.5rem 2.25rem;
+  max-width: 420px; width: calc(100% - 2rem);
+  position: relative; text-align: center;
+  box-shadow: 0 24px 64px rgba(10,30,50,0.18);
+  border-top: 4px solid #ef4444;
+  animation: modal-in 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.emg-close {
+  position: absolute; top: 1rem; right: 1.1rem;
+  background: none; border: none; font-size: 1.3rem;
+  color: var(--mid); cursor: pointer; line-height: 1;
+  transition: color var(--transition);
+}
+.emg-close:hover { color: var(--white); }
+.emg-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(220,38,38,0.07));
+  border: 1px solid rgba(239,68,68,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+.emg-icon svg { width: 26px; height: 26px; color: #ef4444; }
+.emg-heading {
+  font-family: var(--font-display); font-size: 1.55rem; font-weight: 700;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.emg-sub {
+  font-size: 0.9rem; color: var(--mid); margin-bottom: 1.75rem; line-height: 1.6;
+}
+.emg-number {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff; text-decoration: none;
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  letter-spacing: 0.04em; padding: 1rem 1.5rem; border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(249,115,22,0.3);
+  transition: transform var(--transition), box-shadow var(--transition);
+  margin-bottom: 0.85rem;
+}
+.emg-number:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(249,115,22,0.42); }
+.emg-number svg { width: 22px; height: 22px; }
+.emg-tagline { font-size: 0.82rem; color: var(--mid); margin-bottom: 1.5rem; }
+.emg-email {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.88rem; color: var(--teal-300); text-decoration: none;
+  transition: color var(--transition);
+}
+.emg-email:hover { color: var(--blue-500); }
+.emg-email svg { width: 15px; height: 15px; }
 
-    /* ===== PROCESS ===== */
-    #process { position: relative; }
-    .process-steps {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 2rem; position: relative;
-    }
-    .process-steps::before {
-      content: ''; position: absolute;
-      top: 36px;
-      left: calc(16.67% + 36px);
-      right: calc(16.67% + 36px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--teal-400), var(--blue-500), var(--teal-400));
-      opacity: 0.35;
-    }
-    .proc-step { text-align: center; }
-    .step-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      border: 2px solid var(--teal-400);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
-      color: var(--teal-400); margin: 0 auto 1.5rem;
-      background: var(--navy-950);
-      box-shadow: 0 0 18px rgba(10,180,200,0.14), inset 0 0 0 6px var(--navy-950);
-      position: relative; z-index: 1;
-    }
-    .step-title {
-      font-size: 1.2rem; font-weight: 700; color: var(--white);
-      margin-bottom: 0.65rem;
-    }
-    .step-desc {
-      font-size: 0.88rem; color: var(--mid);
-      line-height: 1.72; max-width: 260px; margin: 0 auto;
-    }
+.hero-stats {
+  display: flex; gap: 0; margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(10, 180, 200, 0.14);
+}
+.hero-stats > div {
+  flex: 1; padding: 0 1.75rem;
+  border-right: 1px solid rgba(10, 180, 200, 0.25);
+}
+.hero-stats > div:first-child { padding-left: 0; }
+.hero-stats > div:last-child { border-right: none; }
+.stat-val {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+  color: var(--teal-400); line-height: 1;
+}
+.stat-lbl {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+  color: var(--teal-400); margin-top: 0.15rem; line-height: 1;
+}
 
-    #why-us { background: var(--navy-900); position: relative; }
-    .why-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4.5rem; align-items: center;
-    }
-    .why-label {
-      font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--teal-400); margin-bottom: 0.75rem;
-    }
-    .why-title {
-      font-size: clamp(1.75rem, 3vw, 2.6rem); font-weight: 700;
-      margin-bottom: 1.25rem;
-    }
-    .why-body { color: var(--mid); margin-bottom: 2rem; line-height: 1.75; }
-    .why-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
-    .why-list li {
-      display: flex; align-items: flex-start; gap: 0.85rem;
-      font-size: 0.93rem; color: var(--light);
-    }
-    .why-list li .arrow {
-      color: var(--teal-400); font-size: 0.95rem;
-      margin-top: 0.08rem; flex-shrink: 0; line-height: 1.6;
-    }
-    .why-cards {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    }
-    .wcard {
-      background: #fff;
-      border: 1px solid rgba(10,180,200,0.18);
-      border-radius: var(--radius); padding: 1.6rem;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(10,30,50,0.05);
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-    .wcard:hover {
-      border-color: rgba(10,180,200,0.35);
-      box-shadow: 0 6px 22px rgba(10,180,200,0.1);
-    }
-    .wcard-val {
-      font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
-      background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .wcard-lbl { font-size: 0.82rem; color: var(--mid); margin-top: 0.25rem; }
+/* Hero visual - kept for reference, replaced by hero-logo-display */
+.hero-visual {
+  display: none;
+}
 
-    /* ===== CONTACT ===== */
-    #contact { position: relative; }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1.55fr;
-      gap: 4rem; align-items: start;
-    }
-    .cinfo-title {
-      font-size: 1.8rem; font-weight: 700; margin-bottom: 0.9rem;
-    }
-    .cinfo-body { color: var(--mid); line-height: 1.75; margin-bottom: 2rem; }
-    .cinfo-items { display: flex; flex-direction: column; gap: 1.25rem; }
-    .ci-item { display: flex; align-items: center; gap: 1rem; }
-    .ci-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      background: rgba(10,180,200,0.09);
-      border: 1px solid rgba(10,180,200,0.22);
-      border-radius: 10px; display: flex;
-      align-items: center; justify-content: center;
-    }
-    .ci-icon svg {
-      width: 19px; height: 19px; color: var(--teal-400);
-      fill: none; stroke: currentColor; stroke-width: 1.75;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-    .ci-text { font-size: 0.93rem; color: var(--light); }
-    .ci-lbl { font-size: 0.72rem; color: var(--mid); letter-spacing: 0.04em; margin-top: 1px; }
+/* ===== SECTION BASE ===== */
+section { padding: 6rem 0; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-label {
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal-400); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.teal-bar {
+  width: 52px; height: 3px; margin: 0.85rem auto 0;
+  background: linear-gradient(90deg, var(--teal-400), var(--blue-500));
+  border-radius: 2px;
+}
+.section-desc {
+  font-size: 1rem; color: var(--mid); max-width: 540px;
+  margin: 1rem auto 0; line-height: 1.7;
+}
+.sep-line {
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal-400), transparent);
+}
 
-    /* Form */
-    .cform {
-      background: #fff;
-      border: 1px solid rgba(10,180,200,0.18);
-      border-radius: var(--radius-lg); padding: 2.5rem;
-      box-shadow: 0 4px 24px rgba(10,30,50,0.06);
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .fg { margin-bottom: 1.2rem; }
-    .fg label {
-      display: block; font-family: var(--font-display);
-      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
-      color: var(--light); margin-bottom: 0.45rem;
-    }
-    .fg input, .fg select, .fg textarea {
-      width: 100%;
-      background: #f4f8fb;
-      border: 1px solid rgba(10,180,200,0.22);
-      border-radius: 8px; padding: 0.72rem 1rem;
-      color: var(--white); font-family: var(--font-body);
-      font-size: 0.93rem; outline: none; -webkit-appearance: none;
-      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
-    }
-    .fg input::placeholder, .fg textarea::placeholder { color: var(--mid); opacity: 0.75; }
-    .fg input:focus, .fg select:focus, .fg textarea:focus {
-      border-color: var(--teal-400);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(10,180,200,0.12);
-    }
-    .fg select option { background: #fff; color: var(--white); }
-    .fg textarea { resize: vertical; min-height: 108px; }
-    .form-note {
-      font-size: 0.78rem; color: var(--mid); margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-    .form-note a { color: var(--teal-400); text-decoration: none; }
-    .form-note a:hover { text-decoration: underline; }
-    .btn-submit {
-      width: 100%;
-      background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
-      color: #f4f8fb; border: none; border-radius: var(--radius);
-      padding: 0.9rem 2rem;
-      font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
-      letter-spacing: 0.05em; cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .btn-submit:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+/* ===== SERVICES ===== */
+#services { background: var(--navy-900); position: relative; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.svc-card {
+  background: #fff;
+  border: 1px solid rgba(10, 180, 200, 0.15);
+  border-radius: var(--radius-lg); padding: 2rem;
+  position: relative; overflow: hidden;
+  transition: transform var(--transition), background var(--transition),
+              border-color var(--transition), box-shadow var(--transition);
+  cursor: pointer; text-decoration: none; display: block; color: inherit;
+}
+.svc-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--blue-500), var(--teal-400));
+  opacity: 0; transition: opacity var(--transition);
+}
+.svc-card:hover {
+  background: #f0fbfd;
+  border-color: rgba(10, 180, 200, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 36px rgba(10, 180, 200, 0.13);
+}
+.svc-card:hover::before { opacity: 1; }
+.svc-icon {
+  width: 50px; height: 50px;
+  background: linear-gradient(135deg, rgba(10,180,200,0.1), rgba(26,111,164,0.06));
+  border: 1px solid rgba(10,180,200,0.22);
+  border-radius: 12px; display: flex;
+  align-items: center; justify-content: center; margin-bottom: 1.25rem;
+}
+.svc-icon svg {
+  width: 22px; height: 22px; color: var(--teal-400);
+  fill: none; stroke: currentColor; stroke-width: 1.75;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.svc-title {
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.svc-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.68; }
+.svc-price {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 1.1rem;
+  background: linear-gradient(135deg, rgba(10,180,200,0.1), rgba(26,111,164,0.07));
+  border: 1px solid rgba(10,180,200,0.3);
+  border-radius: 100px; padding: 0.3rem 0.85rem;
+  font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.04em; color: var(--blue-500);
+}
+.svc-price-note {
+  font-size: 0.75rem; color: var(--mid);
+  margin-top: 0.4rem; line-height: 1.5;
+}
+.svc-cta-hint {
+  display: flex; align-items: center; gap: 0.35rem;
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--teal-400); margin-top: 1.25rem;
+  opacity: 0; transition: opacity var(--transition);
+}
+.svc-cta-hint svg { width: 14px; height: 14px; transition: transform var(--transition); }
+.svc-card:hover .svc-cta-hint { opacity: 1; }
+.svc-card:hover .svc-cta-hint svg { transform: translateX(3px); }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--navy-900);
-      border-top: 1px solid rgba(10,180,200,0.15);
-      padding: 2.25rem 0;
-    }
-    .footer-inner {
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo {
-      display: flex; align-items: center; gap: 0.65rem;
-      text-decoration: none;
-    }
-    .footer-name {
-      font-family: var(--font-display); font-size: 1.1rem;
-      font-weight: 700; color: var(--white);
-    }
-    .footer-name em { color: var(--teal-400); font-style: normal; }
-    .footer-copy { font-size: 0.82rem; color: var(--mid); }
+/* ===== PROCESS ===== */
+#process { position: relative; }
+.process-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; position: relative;
+}
+.process-steps::before {
+  content: ''; position: absolute;
+  top: 36px;
+  left: calc(16.67% + 36px);
+  right: calc(16.67% + 36px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--teal-400), var(--blue-500), var(--teal-400));
+  opacity: 0.35;
+}
+.proc-step { text-align: center; }
+.step-num {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 2px solid var(--teal-400);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
+  color: var(--teal-400); margin: 0 auto 1.5rem;
+  background: var(--navy-950);
+  box-shadow: 0 0 18px rgba(10,180,200,0.14), inset 0 0 0 6px var(--navy-950);
+  position: relative; z-index: 1;
+}
+.step-title {
+  font-size: 1.2rem; font-weight: 700; color: var(--white);
+  margin-bottom: 0.65rem;
+}
+.step-desc {
+  font-size: 0.88rem; color: var(--mid);
+  line-height: 1.72; max-width: 260px; margin: 0 auto;
+}
 
-    /* ===== SCROLL REVEAL ===== */
-    .reveal {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
+/* ===== WHY US ===== */
+#why-us { background: var(--navy-900); position: relative; }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4.5rem; align-items: center;
+}
+.why-label {
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal-400); margin-bottom: 0.75rem;
+}
+.why-title {
+  font-size: clamp(1.75rem, 3vw, 2.6rem); font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+.why-body { color: var(--mid); margin-bottom: 2rem; line-height: 1.75; }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+.why-list li {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+  font-size: 0.93rem; color: var(--light);
+}
+.why-list li .arrow {
+  color: var(--teal-400); font-size: 0.95rem;
+  margin-top: 0.08rem; flex-shrink: 0; line-height: 1.6;
+}
+.why-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+}
+.wcard {
+  background: #fff;
+  border: 1px solid rgba(10,180,200,0.18);
+  border-radius: var(--radius); padding: 1.6rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(10,30,50,0.05);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.wcard:hover {
+  border-color: rgba(10,180,200,0.35);
+  box-shadow: 0 6px 22px rgba(10,180,200,0.1);
+}
+.wcard-val {
+  font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--teal-400), var(--teal-200));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.wcard-lbl { font-size: 0.82rem; color: var(--mid); margin-top: 0.25rem; }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 960px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-sub { max-width: 100%; margin-inline: auto; }
-      .hero-actions { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-visual { display: none; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .process-steps::before { display: none; }
-      .why-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-      .why-cards { grid-template-columns: 1fr 1fr; }
-      .hero-stats { gap: 0; }
-      .hero-stats > div { padding: 0 1rem; }
-      .hero-stats > div:first-child { padding-left: 0; }
-      nav { padding: 0.9rem 1.25rem; }
-    }
-  </style>
+/* ===== CONTACT ===== */
+#contact { position: relative; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.55fr;
+  gap: 4rem; align-items: start;
+}
+.cinfo-title {
+  font-size: 1.8rem; font-weight: 700; margin-bottom: 0.9rem;
+}
+.cinfo-body { color: var(--mid); line-height: 1.75; margin-bottom: 2rem; }
+.cinfo-items { display: flex; flex-direction: column; gap: 1.25rem; }
+.ci-item { display: flex; align-items: center; gap: 1rem; }
+.ci-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: rgba(10,180,200,0.09);
+  border: 1px solid rgba(10,180,200,0.22);
+  border-radius: 10px; display: flex;
+  align-items: center; justify-content: center;
+}
+.ci-icon svg {
+  width: 19px; height: 19px; color: var(--teal-400);
+  fill: none; stroke: currentColor; stroke-width: 1.75;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.ci-text { font-size: 0.93rem; color: var(--light); }
+.ci-lbl { font-size: 0.72rem; color: var(--mid); letter-spacing: 0.04em; margin-top: 1px; }
+
+/* Form */
+.cform {
+  background: #fff;
+  border: 1px solid rgba(10,180,200,0.18);
+  border-radius: var(--radius-lg); padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(10,30,50,0.06);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.fg { margin-bottom: 1.2rem; }
+.fg label {
+  display: block; font-family: var(--font-display);
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--light); margin-bottom: 0.45rem;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%;
+  background: #f4f8fb;
+  border: 1px solid rgba(10,180,200,0.22);
+  border-radius: 8px; padding: 0.72rem 1rem;
+  color: var(--white); font-family: var(--font-body);
+  font-size: 0.93rem; outline: none; -webkit-appearance: none;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--mid); opacity: 0.75; }
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--teal-400);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(10,180,200,0.12);
+}
+.fg select option { background: #fff; color: var(--white); }
+.fg textarea { resize: vertical; min-height: 108px; }
+.form-note {
+  font-size: 0.78rem; color: var(--mid); margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.form-note a { color: var(--teal-400); text-decoration: none; }
+.form-note a:hover { text-decoration: underline; }
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--teal-400), var(--blue-500));
+  color: #f4f8fb; border: none; border-radius: var(--radius);
+  padding: 0.9rem 2rem;
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+  letter-spacing: 0.05em; cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy-900);
+  border-top: 1px solid rgba(10,180,200,0.15);
+  padding: 2.25rem 0;
+}
+.footer-inner {
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 0.65rem;
+  text-decoration: none;
+}
+.footer-logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+.footer-copy { font-size: 0.82rem; color: var(--mid); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-logo-display { padding: 1rem; order: -1; }
+  .hero-logo-display img { max-width: 280px; }
+  .hero-sub { max-width: 100%; margin-inline: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .process-steps::before { display: none; }
+  .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .why-cards { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 0; }
+  .hero-stats > div { padding: 0 1rem; }
+  .hero-stats > div:first-child { padding-left: 0; }
+  nav { padding: 0.9rem 1.25rem; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ===== EMERGENCY MODAL ===== -->
-  <div class="emg-overlay" id="emgOverlay" role="dialog" aria-modal="true" aria-label="Emergency IT Support" onclick="handleOverlayClick(event)">
-    <div class="emg-modal">
-      <button class="emg-close" onclick="closeEmergency()" aria-label="Close">✕</button>
-      <div class="emg-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </div>
-      <div class="emg-heading">Need Help Right Now?</div>
-      <p class="emg-sub">Call or text us directly. If we don't answer, it means our team is busy helping another customer — leave a voicemail and we'll get back to you as soon as possible.<br><br>
-      When leaving a voicemail, please include your <strong>name</strong>, <strong>callback number</strong>, and a <strong>brief description of your issue</strong>.</p>
-      <a href="tel:+19782194427" class="emg-number">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<!-- ===== EMERGENCY MODAL ===== -->
+<div class="emg-overlay" id="emgOverlay" role="dialog" aria-modal="true" aria-label="Emergency IT Support" onclick="handleOverlayClick(event)">
+  <div class="emg-modal">
+    <button class="emg-close" onclick="closeEmergency()" aria-label="Close">&#x2715;</button>
+    <div class="emg-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <div class="emg-heading">Need Help Right Now?</div>
+    <p class="emg-sub">Call or text us directly. If we don't answer, it means our team is busy helping another customer — leave a voicemail and we'll get back to you as soon as possible.<br><br>
+    When leaving a voicemail, please include your <strong>name</strong>, <strong>callback number</strong>, and a <strong>brief description of your issue</strong>.</p>
+    <a href="tel:+19782194427" class="emg-number">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (978) 219-4427
+    </a>
+    <p class="emg-tagline">&#128222; Call or &#128172; Text — whichever is easier</p>
+    <a href="mailto:support@granet.tech" class="emg-email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      support@granet.tech
+    </a>
+  </div>
+</div>
+
+<!-- ===== MOBILE OVERLAY + MENU ===== -->
+<div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="close-btn" onclick="closeMenu()" aria-label="Close menu">&#x2715;</button>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#process" onclick="closeMenu()">How It Works</a>
+  <a href="#why-us" onclick="closeMenu()">About</a>
+  <a href="#contact" class="m-cta" onclick="closeMenu()">Get a Quote</a>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo" aria-label="GraNet IT Solutions home">
+    <img src="logo.png" alt="GraNet IT Solutions" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#why-us">About</a></li>
+    <li>
+      <a href="tel:+19782194427" style="display:inline-flex;align-items:center;gap:0.4rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         (978) 219-4427
       </a>
-      <p class="emg-tagline">📞 Call or 💬 Text — whichever is easier</p>
-      <a href="mailto:support@granet.tech" class="emg-email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        support@granet.tech
+    </li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMenu()" aria-label="Open menu" aria-expanded="false" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-circuit-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="h-cbg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#1a5f8a"/>
+          <stop offset="100%" stop-color="#0ab4c8"/>
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="150" x2="1440" y2="150" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="0" y1="450" x2="1440" y2="450" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="0" y1="600" x2="1440" y2="600" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="0" y1="750" x2="1440" y2="750" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="150" y1="0" x2="150" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="300" y1="0" x2="300" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="450" y1="0" x2="450" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="600" y1="0" x2="600" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="750" y1="0" x2="750" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="900" y1="0" x2="900" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="1050" y1="0" x2="1050" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="1200" y1="0" x2="1200" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <line x1="1350" y1="0" x2="1350" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
+      <polyline points="150,150 300,150 300,300 450,300 600,300 600,150 750,150 750,300 900,300 900,150 1050,150 1050,300 1200,300" stroke="#0ab4c8" stroke-width="1.4" fill="none"/>
+      <polyline points="300,450 450,450 450,600 600,600 750,600 750,450 900,450 1050,450 1050,600 1200,600 1200,750" stroke="#0ab4c8" stroke-width="1.4" fill="none"/>
+      <polyline points="150,600 300,600 300,750 450,750" stroke="#1a6fa4" stroke-width="1.4" fill="none"/>
+      <polyline points="1050,150 1050,300" stroke="#1a6fa4" stroke-width="1.4" fill="none"/>
+      <circle cx="300" cy="150" r="4.5" fill="#0ab4c8"/>
+      <circle cx="600" cy="300" r="4.5" fill="#0ab4c8"/>
+      <circle cx="750" cy="150" r="4.5" fill="#0ab4c8"/>
+      <circle cx="900" cy="300" r="4.5" fill="#0ab4c8"/>
+      <circle cx="1050" cy="150" r="4.5" fill="#0ab4c8"/>
+      <circle cx="450" cy="450" r="4.5" fill="#1a6fa4"/>
+      <circle cx="750" cy="450" r="4.5" fill="#1a6fa4"/>
+      <circle cx="1050" cy="600" r="4.5" fill="#1a6fa4"/>
+      <circle cx="300" cy="600" r="4.5" fill="#1a6fa4"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <!-- LEFT COLUMN: Logo + tagline -->
+      <div class="hero-logo-display" aria-label="GraNet IT Solutions logo">
+        <img src="logo.png" alt="GraNet IT Solutions — Innovation &amp; Efficiency" />
+      </div>
+
+      <!-- RIGHT COLUMN: Text content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Serving Derry &amp; Greater Manchester, NH
+        </div>
+        <h1 class="hero-title">
+          Expert Repairs.<br>
+          <span class="accent">Local Trust.</span>
+        </h1>
+        <p class="hero-sub">
+          Fast, honest computer repair for homes and businesses across Southern NH.
+          We diagnose, fix, and return — with no hidden fees.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Services &amp; Prices
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Get a Free Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <button class="btn-emergency" onclick="openEmergency()" aria-haspopup="dialog">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Emergency IT Support
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-val">Same&nbsp;Day</div>
+            <div class="stat-lbl">Diagnostics</div>
+          </div>
+          <div>
+            <div class="stat-val">No&nbsp;Fix</div>
+            <div class="stat-lbl">No Fee Policy</div>
+          </div>
+          <div>
+            <div class="stat-val">NH</div>
+            <div class="stat-lbl">Locally Owned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" aria-label="Services">
+  <div class="sep-line"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">What We Fix</div>
+      <h2 class="section-title">Our Services &amp; Pricing</h2>
+      <div class="teal-bar"></div>
+      <p class="section-desc">Transparent, flat-rate pricing — no surprises. Click any service to get started. We work on Windows, Mac, and Linux.</p>
+    </div>
+    <div class="services-grid">
+
+      <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='General Diagnostics'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="svc-title">General Diagnostics</h3>
+        <p class="svc-desc">Not sure what's wrong? We run a thorough hardware and software diagnostic and give you a clear, honest assessment before any work begins.</p>
+        <div class="svc-price">$20 – $60</div>
+        <p class="svc-price-note">Diagnostic fee is <strong>waived</strong> when you choose to repair with us.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
       </a>
+
+      <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Virus & Malware Removal'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/></svg>
+        </div>
+        <h3 class="svc-title">Virus &amp; Malware Removal</h3>
+        <p class="svc-desc">The cleanest fix is a reformat with full data recovery — your files come back, the threats don't. Includes system hardening so it doesn't happen again.</p>
+        <div class="svc-price">$160 Flat</div>
+        <p class="svc-price-note">Includes data recovery &amp; reformat. No hidden add-ons.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
+      <a href="#contact" class="svc-card reveal d3" onclick="document.getElementById('f-service').value='Laptop Screen Replacement'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="svc-title">Laptop Screen Replacement</h3>
+        <p class="svc-desc">Cracked, black, or flickering display? We source quality screens for most makes and models and have you back up fast.</p>
+        <div class="svc-price">$120 + Parts</div>
+        <p class="svc-price-note">Parts cost varies by model — we'll quote you before any work starts.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
+      <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='Mac Support & Screen Repair'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8"/><path d="M12 14v6"/><path d="M7 9l3 3-3 3"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
+        </div>
+        <h3 class="svc-title">Mac Support &amp; Screen Repair</h3>
+        <p class="svc-desc">Spinning beach ball, kernel panic, or a cracked display? Newer Macs require a more delicate touch and Apple-specific knowledge — we've got it. No Genius Bar appointment needed.</p>
+        <div class="svc-price">$260 + Parts</div>
+        <p class="svc-price-note">Mac screen repair is priced higher due to the precision and Apple-specific expertise required.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
+      <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Hardware Upgrades & Installation'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="svc-title">Hardware Upgrades &amp; Installation</h3>
+        <p class="svc-desc">RAM, SSD, GPU, or any component — we install, configure, and benchmark. Typically $60 per part for labor; you cover the parts themselves.</p>
+        <div class="svc-price">$60 / Part + Parts</div>
+        <p class="svc-price-note">$60 labor per component installed. Parts are at your cost — we'll advise on what to buy.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
+      <a href="#contact" class="svc-card reveal d3" onclick="document.getElementById('f-service').value='Data Recovery & Backup'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3 class="svc-title">Data Recovery &amp; Backup</h3>
+        <p class="svc-desc">Lost photos, documents, or a crashed drive? Simple file recovery starts at $60. Full drive recovery is $120 — add an OS install if needed and we'll handle the whole thing.</p>
+        <div class="svc-price">$60 – $120</div>
+        <p class="svc-price-note">Simple recovery $60 · Full drive recovery $120 · OS reinstall available as add-on.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
+      <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='After Hours & House Calls'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 class="svc-title">After Hours &amp; House Calls</h3>
+        <p class="svc-desc">When everyone else has locked up and gone home, we haven't. Presentation due tomorrow and your machine just died? We come to you — covering data recovery, BitLocker issues, and more. Can't fix on-site? You pay a flat $65 diagnostic and leave knowing exactly what happened and how to proceed.</p>
+        <div class="svc-price">$120 House Call · $65 Diag</div>
+        <p class="svc-price-note">$120 flat for in-home service · $65 diag-only if we can't fix on-site · +$20–60 if we handle follow-up repair.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
+      <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Technical & Purchasing Advice'">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3 class="svc-title">Technical &amp; Purchasing Advice</h3>
+        <p class="svc-desc">Building a new PC or eyeing a thousand-dollar laptop? Before you pull the trigger, call us. We'll tell you straight whether that purchase is a smart investment — or an expensive mistake. Consult is free. If you want us to do the install, that's $60 per part.</p>
+        <div class="svc-price">Free Consult · $60/Part Install</div>
+        <p class="svc-price-note">Advice and consultation is always free. Parts installation is $60 per component.</p>
+        <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+
     </div>
   </div>
+</section>
 
-  <!-- ===== MOBILE OVERLAY + MENU ===== -->
-  <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button class="close-btn" onclick="closeMenu()" aria-label="Close menu">✕</button>
-    <a href="#services" onclick="closeMenu()">Services</a>
-    <a href="#process" onclick="closeMenu()">How It Works</a>
-    <a href="#why-us" onclick="closeMenu()">About</a>
-    <a href="#contact" class="m-cta" onclick="closeMenu()">Get a Quote</a>
+<!-- ===== PROCESS ===== -->
+<section id="process" aria-label="How it works">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <div class="teal-bar"></div>
+    </div>
+    <div class="process-steps">
+      <div class="proc-step reveal d1">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Reach Out</h3>
+        <p class="step-desc">Fill out the quick quote form or call us directly. Describe the issue — we'll get back to you the same day.</p>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Drop Off or Pick Up</h3>
+        <p class="step-desc">Bring your device to us in Derry, or ask about our local pick-up option. We work around your schedule.</p>
+      </div>
+      <div class="proc-step reveal d3">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Repaired &amp; Returned</h3>
+        <p class="step-desc">We diagnose, fix, and test thoroughly before returning your device. You'll get a full explanation of what was done and why.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- ===== NAV ===== -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <a href="#hero" class="nav-logo" aria-label="GraNet Computer Repair home">
-      <!-- Inline SVG logo mark — hexagonal network mark -->
-      <svg class="nav-logo-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="nav-lg" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#185FA5"/>
-            <stop offset="100%" stop-color="#0ab4c8"/>
-          </linearGradient>
-        </defs>
-        <!-- Hexagon outer border -->
-        <path d="M40,6 L70,23 L70,57 L40,74 L10,57 L10,23 Z"
-              fill="none" stroke="url(#nav-lg)" stroke-width="2.5" stroke-linejoin="round"/>
-        <!-- Inner mountain triangle network -->
-        <line x1="40" y1="21" x2="24" y2="51" stroke="url(#nav-lg)" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="40" y1="21" x2="56" y2="51" stroke="url(#nav-lg)" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="24" y1="51" x2="56" y2="51" stroke="url(#nav-lg)" stroke-width="1.8" stroke-linecap="round"/>
-        <!-- Node dots -->
-        <circle cx="40" cy="21" r="4.5" fill="url(#nav-lg)"/>
-        <circle cx="24" cy="51" r="4.5" fill="url(#nav-lg)"/>
-        <circle cx="56" cy="51" r="4.5" fill="url(#nav-lg)"/>
-      </svg>
-      <div>
-        <div class="nav-logo-name">Gra<em>Net</em></div>
-        <div class="nav-logo-sub">Computer Repair</div>
+<!-- ===== WHY US ===== -->
+<section id="why-us" aria-label="Why GraNet">
+  <div class="sep-line"></div>
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-content reveal">
+        <div class="why-label">Why GraNet</div>
+        <h2 class="why-title">Local Expertise.<br>Real Accountability.</h2>
+        <p class="why-body">We're not a big box store. We're your neighbors in Derry — a locally owned operation that lives and dies by doing right by every customer. No runaround, no upsells, just honest work.</p>
+        <ul class="why-list">
+          <li><span class="arrow">&#9658;</span> No fix, no fee — you only pay when the job is done right</li>
+          <li><span class="arrow">&#9658;</span> Honest diagnostics before any work begins</li>
+          <li><span class="arrow">&#9658;</span> Same-day diagnostics available on most devices</li>
+          <li><span class="arrow">&#9658;</span> Drop-off and local pick-up service options</li>
+          <li><span class="arrow">&#9658;</span> Windows, macOS, and Linux all supported</li>
+          <li><span class="arrow">&#9658;</span> Transparent, itemized pricing — no hidden charges</li>
+        </ul>
       </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#why-us">About</a></li>
-      <li>
-        <a href="tel:+19782194427" style="display:inline-flex;align-items:center;gap:0.4rem;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (978) 219-4427
-        </a>
-      </li>
-      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
-    </ul>
-    <button class="hamburger" onclick="openMenu()" aria-label="Open menu" aria-expanded="false" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section id="hero" aria-label="Hero">
-    <!-- Circuit PCB background -->
-    <div class="hero-circuit-bg" aria-hidden="true">
-      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="h-cbg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#1a5f8a"/>
-            <stop offset="100%" stop-color="#0ab4c8"/>
-          </linearGradient>
-        </defs>
-        <!-- Grid lines -->
-        <line x1="0" y1="150" x2="1440" y2="150" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="0" y1="300" x2="1440" y2="300" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="0" y1="450" x2="1440" y2="450" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="0" y1="600" x2="1440" y2="600" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="0" y1="750" x2="1440" y2="750" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="150" y1="0" x2="150" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="300" y1="0" x2="300" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="450" y1="0" x2="450" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="600" y1="0" x2="600" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="750" y1="0" x2="750" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="900" y1="0" x2="900" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="1050" y1="0" x2="1050" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="1200" y1="0" x2="1200" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <line x1="1350" y1="0" x2="1350" y2="900" stroke="url(#h-cbg)" stroke-width="0.4"/>
-        <!-- Circuit traces -->
-        <polyline points="150,150 300,150 300,300 450,300 600,300 600,150 750,150 750,300 900,300 900,150 1050,150 1050,300 1200,300" stroke="#0ab4c8" stroke-width="1.4" fill="none"/>
-        <polyline points="300,450 450,450 450,600 600,600 750,600 750,450 900,450 1050,450 1050,600 1200,600 1200,750" stroke="#0ab4c8" stroke-width="1.4" fill="none"/>
-        <polyline points="150,600 300,600 300,750 450,750" stroke="#1a6fa4" stroke-width="1.4" fill="none"/>
-        <polyline points="1050,150 1050,300" stroke="#1a6fa4" stroke-width="1.4" fill="none"/>
-        <!-- Nodes -->
-        <circle cx="300" cy="150" r="4.5" fill="#0ab4c8"/>
-        <circle cx="600" cy="300" r="4.5" fill="#0ab4c8"/>
-        <circle cx="750" cy="150" r="4.5" fill="#0ab4c8"/>
-        <circle cx="900" cy="300" r="4.5" fill="#0ab4c8"/>
-        <circle cx="1050" cy="150" r="4.5" fill="#0ab4c8"/>
-        <circle cx="450" cy="450" r="4.5" fill="#1a6fa4"/>
-        <circle cx="750" cy="450" r="4.5" fill="#1a6fa4"/>
-        <circle cx="1050" cy="600" r="4.5" fill="#1a6fa4"/>
-        <circle cx="300" cy="600" r="4.5" fill="#1a6fa4"/>
-      </svg>
+      <div class="why-cards reveal d2">
+        <div class="wcard">
+          <div class="wcard-val">$0</div>
+          <div class="wcard-lbl">Diagnostic fee with repair</div>
+        </div>
+        <div class="wcard">
+          <div class="wcard-val">&lt;24hr</div>
+          <div class="wcard-lbl">Avg. turnaround time</div>
+        </div>
+        <div class="wcard">
+          <div class="wcard-val">3</div>
+          <div class="wcard-lbl">Platforms supported</div>
+        </div>
+        <div class="wcard">
+          <div class="wcard-val">Local</div>
+          <div class="wcard-lbl">Derry, NH — always</div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            Serving Derry &amp; Greater Manchester, NH
-          </div>
-          <h1 class="hero-title">
-            Expert Repairs.<br>
-            <span class="accent">Local Trust.</span>
-          </h1>
-          <p class="hero-sub">
-            Fast, honest computer repair for homes and businesses across Southern NH.
-            We diagnose, fix, and return — with no hidden fees.
-          </p>
-          <div class="hero-actions">
-            <a href="#services" class="btn-primary">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              Services &amp; Prices
-            </a>
-            <a href="#contact" class="btn-secondary">
-              Get a Free Quote
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-            <button class="btn-emergency" onclick="openEmergency()" aria-haspopup="dialog">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              Emergency IT Support
-            </button>
-          </div>
-          <div class="hero-stats">
-            <div>
-              <div class="stat-val">Same&nbsp;Day</div>
-              <div class="stat-lbl">Diagnostics</div>
+<!-- ===== CONTACT ===== -->
+<section id="contact" aria-label="Contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Request a Free Quote</h2>
+      <div class="teal-bar"></div>
+      <p class="section-desc">Tell us what's wrong and we'll get back to you the same day. No commitment required.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo reveal">
+        <h3 class="cinfo-title">Let's Fix It Together</h3>
+        <p class="cinfo-body">Whether it's a cracked screen, a virus, or a machine that just won't start — reach out and we'll get it sorted. Drop-off available in Derry; house calls available across Southern NH.</p>
+        <div class="cinfo-items">
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div>
-              <div class="stat-val">No&nbsp;Fix</div>
-              <div class="stat-lbl">No Fee Policy</div>
+              <div class="ci-text"><a href="tel:+19782194427" style="color:inherit;text-decoration:none;">(978) 219-4427</a></div>
+              <div class="ci-lbl">CALL OR TEXT</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div>
-              <div class="stat-val">NH</div>
-              <div class="stat-lbl">Locally Owned</div>
+              <div class="ci-text"><a href="mailto:support@granet.tech" style="color:inherit;text-decoration:none;">support@granet.tech</a></div>
+              <div class="ci-lbl">EMAIL</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-text">Derry, NH</div>
+              <div class="ci-lbl">DROP-OFF BY APPOINTMENT</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="ci-text">Mon – Sat, Flexible Hours</div>
+              <div class="ci-lbl">AVAILABILITY</div>
             </div>
           </div>
         </div>
-
-        <!-- Animated hero logo -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-photo-wrap">
-            <img src="hero.png" alt="Laptop motherboard repair" class="hero-photo" />
-            <div class="hero-photo-glow"></div>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== SERVICES ===== -->
-  <section id="services" aria-label="Services">
-    <div class="sep-line"></div>
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">What We Fix</div>
-        <h2 class="section-title">Our Services &amp; Pricing</h2>
-        <div class="teal-bar"></div>
-        <p class="section-desc">Transparent, flat-rate pricing — no surprises. Click any service to get started. We work on Windows, Mac, and Linux.</p>
-      </div>
-      <div class="services-grid">
-
-        <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='General Diagnostics'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <h3 class="svc-title">General Diagnostics</h3>
-          <p class="svc-desc">Not sure what's wrong? We run a thorough hardware and software diagnostic and give you a clear, honest assessment before any work begins.</p>
-          <div class="svc-price">$20 – $60</div>
-          <p class="svc-price-note">Diagnostic fee is <strong>waived</strong> when you choose to repair with us.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Virus & Malware Removal'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/></svg>
-          </div>
-          <h3 class="svc-title">Virus &amp; Malware Removal</h3>
-          <p class="svc-desc">The cleanest fix is a reformat with full data recovery — your files come back, the threats don't. Includes system hardening so it doesn't happen again.</p>
-          <div class="svc-price">$160 Flat</div>
-          <p class="svc-price-note">Includes data recovery &amp; reformat. No hidden add-ons.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d3" onclick="document.getElementById('f-service').value='Laptop Screen Replacement'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3 class="svc-title">Laptop Screen Replacement</h3>
-          <p class="svc-desc">Cracked, black, or flickering display? We source quality screens for most makes and models and have you back up fast.</p>
-          <div class="svc-price">$120 + Parts</div>
-          <p class="svc-price-note">Parts cost varies by model — we'll quote you before any work starts.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='Mac Support & Screen Repair'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8"/><path d="M12 14v6"/><path d="M7 9l3 3-3 3"/><line x1="14" y1="12" x2="17" y2="12"/></svg>
-          </div>
-          <h3 class="svc-title">Mac Support &amp; Screen Repair</h3>
-          <p class="svc-desc">Spinning beach ball, kernel panic, or a cracked display? Newer Macs require a more delicate touch and Apple-specific knowledge — we've got it. No Genius Bar appointment needed.</p>
-          <div class="svc-price">$260 + Parts</div>
-          <p class="svc-price-note">Mac screen repair is priced higher due to the precision and Apple-specific expertise required.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Hardware Upgrades & Installation'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3 class="svc-title">Hardware Upgrades &amp; Installation</h3>
-          <p class="svc-desc">RAM, SSD, GPU, or any component — we install, configure, and benchmark. Typically $60 per part for labor; you cover the parts themselves.</p>
-          <div class="svc-price">$60 / Part + Parts</div>
-          <p class="svc-price-note">$60 labor per component installed. Parts are at your cost — we'll advise on what to buy.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d3" onclick="document.getElementById('f-service').value='Data Recovery & Backup'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3 class="svc-title">Data Recovery &amp; Backup</h3>
-          <p class="svc-desc">Lost photos, documents, or a crashed drive? Simple file recovery starts at $60. Full drive recovery is $120 — add an OS install if needed and we'll handle the whole thing.</p>
-          <div class="svc-price">$60 – $120</div>
-          <p class="svc-price-note">Simple recovery $60 · Full drive recovery $120 · OS reinstall available as add-on.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d1" onclick="document.getElementById('f-service').value='After Hours Emergency Support'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </div>
-          <h3 class="svc-title">After Hours &amp; House Calls</h3>
-          <p class="svc-desc">When everyone else has locked up and gone home, we haven't. Presentation due tomorrow and your machine just died? We come to you — covering data recovery, BitLocker issues, and more. Can't fix on-site? You pay a flat $65 diagnostic and leave knowing exactly what happened and how to proceed. Need us to handle the repair from there? Add $20–$60 to cover our time and any shipping.</p>
-          <div class="svc-price">$120 House Call · $65 Diag</div>
-          <p class="svc-price-note">$120 flat for in-home service · $65 diag-only if we can't fix on-site · +$20–60 if we handle follow-up repair.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-        <a href="#contact" class="svc-card reveal d2" onclick="document.getElementById('f-service').value='Technical & Purchasing Advice'">
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <h3 class="svc-title">Technical &amp; Purchasing Advice</h3>
-          <p class="svc-desc">Building a new PC or eyeing a thousand-dollar laptop? Before you pull the trigger, call us. We'll tell you straight whether that purchase is a smart investment — or an expensive mistake. Consult is free. If you want us to do the install, that's $60 per part.</p>
-          <div class="svc-price">Free Consult · $60/Part Install</div>
-          <p class="svc-price-note">Advice and consultation is always free. Parts installation is $60 per component.</p>
-          <div class="svc-cta-hint">Book this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROCESS ===== -->
-  <section id="process" aria-label="How it works">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">The Process</div>
-        <h2 class="section-title">How It Works</h2>
-        <div class="teal-bar"></div>
-      </div>
-      <div class="process-steps">
-        <div class="proc-step reveal d1">
-          <div class="step-num">01</div>
-          <h3 class="step-title">Reach Out</h3>
-          <p class="step-desc">Fill out the quick quote form or call us directly. Describe the issue — we'll get back to you the same day.</p>
-        </div>
-        <div class="proc-step reveal d2">
-          <div class="step-num">02</div>
-          <h3 class="step-title">Drop Off or Pick Up</h3>
-          <p class="step-desc">Bring your device to us in Derry, or ask about our local pick-up option. We work around your schedule.</p>
-        </div>
-        <div class="proc-step reveal d3">
-          <div class="step-num">03</div>
-          <h3 class="step-title">Repaired &amp; Returned</h3>
-          <p class="step-desc">We diagnose, fix, and test thoroughly before returning your device. You'll get a full explanation of what was done and why.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WHY US ===== -->
-  <section id="why-us" aria-label="Why GraNet">
-    <div class="sep-line"></div>
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-content reveal">
-          <div class="why-label">Why GraNet</div>
-          <h2 class="why-title">Local Expertise.<br>Real Accountability.</h2>
-          <p class="why-body">We're not a big box store. We're your neighbors in Derry — a locally owned operation that lives and dies by doing right by every customer. No runaround, no upsells, just honest work.</p>
-          <ul class="why-list">
-            <li><span class="arrow">▸</span> No fix, no fee — you only pay when the job is done right</li>
-            <li><span class="arrow">▸</span> Honest diagnostics before any work begins</li>
-            <li><span class="arrow">▸</span> Same-day diagnostics available on most devices</li>
-            <li><span class="arrow">▸</span> Drop-off and local pick-up service options</li>
-            <li><span class="arrow">▸</span> Windows, macOS, and Linux all supported</li>
-            <li><span class="arrow">▸</span> Transparent, itemized pricing — no hidden charges</li>
-          </ul>
-        </div>
-        <div class="why-cards reveal d2">
-          <div class="wcard">
-            <div class="wcard-val">24h</div>
-            <div class="wcard-lbl">Avg. Turnaround</div>
-          </div>
-          <div class="wcard">
-            <div class="wcard-val">100%</div>
-            <div class="wcard-lbl">Satisfaction Goal</div>
-          </div>
-          <div class="wcard">
-            <div class="wcard-val">NH</div>
-            <div class="wcard-lbl">Locally Owned</div>
-          </div>
-          <div class="wcard">
-            <div class="wcard-val">Free</div>
-            <div class="wcard-lbl">Diagnostics</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" aria-label="Contact and quote form">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Get In Touch</div>
-        <h2 class="section-title">Request a Quote</h2>
-        <div class="teal-bar"></div>
-        <p class="section-desc">Describe your issue and we'll get back to you with an estimate — usually the same day.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="reveal">
-          <h3 class="cinfo-title">Let's Fix It.</h3>
-          <p class="cinfo-body">Whether it's a slow laptop, a failed drive, or a screen that won't turn on — reach out and we'll figure it out together. No judgment, no jargon.</p>
-          <div class="cinfo-items">
-            <div class="ci-item">
-              <div class="ci-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <div class="ci-text">Derry, New Hampshire</div>
-                <div class="ci-lbl">Service Location</div>
-              </div>
-            </div>
-            <div class="ci-item">
-              <div class="ci-icon">
-                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.72 6.72l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div>
-                <a href="tel:+19782194427" class="ci-text" style="text-decoration:none;color:inherit;">+1 (978) 219-4427</a>
-                <div class="ci-lbl">Call us and leave us a voicemail!</div>
-              </div>
-            </div>
-            <div class="ci-item">
-              <div class="ci-icon">
-                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <a href="mailto:support@granet.tech" class="ci-text" style="text-decoration:none;color:inherit;">support@granet.tech</a>
-                <div class="ci-lbl">Or send us an email directly!</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--
-          FORM BACKEND NOTE (for GitHub Pages deployment):
-          GitHub Pages is static — you'll need a form backend to receive submissions.
-          Easy options:
-            • Formspree:  <form action="https://formspree.io/f/YOUR_ID" method="POST">
-            • Netlify Forms: add netlify attribute if hosting on Netlify
-            • EmailJS: https://www.emailjs.com (pure JS, no backend needed)
-          Replace the onclick handler below with your chosen solution.
-        -->
-        <div class="cform reveal d2">
-          <div class="form-row">
-            <div class="fg">
-              <label for="f-name">Full Name</label>
-              <input type="text" id="f-name" name="name" placeholder="Jane Smith" autocomplete="name" />
-            </div>
-            <div class="fg">
-              <label for="f-phone">Phone</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="(603) 555-0100" autocomplete="tel" />
-            </div>
+      <div class="cform reveal d2">
+        <div class="form-row">
+          <div class="fg">
+            <label for="f-name">Your Name</label>
+            <input type="text" id="f-name" name="name" placeholder="Jane Smith" required />
           </div>
           <div class="fg">
-            <label for="f-email">Email Address</label>
-            <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" />
+            <label for="f-phone">Phone Number</label>
+            <input type="tel" id="f-phone" name="phone" placeholder="(603) 555-0100" />
           </div>
-          <div class="form-row">
-            <div class="fg">
-              <label for="f-service">Service Needed</label>
-              <select id="f-service" name="service">
-                <option value="">Select a service…</option>
-                <option>General Diagnostics</option>
-                <option>Virus &amp; Malware Removal</option>
-                <option>Laptop Screen Replacement</option>
-                <option>Mac Support &amp; Screen Repair</option>
-                <option>Hardware Upgrades &amp; Installation</option>
-                <option>Data Recovery &amp; Backup</option>
-                <option>After Hours Emergency Support</option>
-                <option>Technical &amp; Purchasing Advice</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="fg">
-              <label for="f-drop">Drop-off or Pick-up?</label>
-              <select id="f-drop" name="dropoff">
-                <option value="">Prefer…</option>
-                <option>Drop-off in Derry</option>
-                <option>Local Pick-up</option>
-                <option>Either works</option>
-              </select>
-            </div>
-          </div>
-          <div class="fg">
-            <label for="f-msg">Describe the Problem</label>
-            <textarea id="f-msg" name="message" placeholder="My laptop won't turn on after it got wet…"></textarea>
-          </div>
-          <div id="form-feedback" style="display:none; padding:0.85rem 1.1rem; border-radius:8px; font-size:0.9rem; margin-bottom:1rem;"></div>
-          <button class="btn-submit" id="submit-btn" onclick="handleSubmit()">Send Request →</button>
         </div>
+        <div class="fg">
+          <label for="f-email">Email Address</label>
+          <input type="email" id="f-email" name="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="fg">
+          <label for="f-service">Service Needed</label>
+          <select id="f-service" name="service">
+            <option value="">— Select a service —</option>
+            <option value="General Diagnostics">General Diagnostics ($20–$60)</option>
+            <option value="Virus & Malware Removal">Virus &amp; Malware Removal ($160)</option>
+            <option value="Laptop Screen Replacement">Laptop Screen Replacement ($120 + Parts)</option>
+            <option value="Mac Support & Screen Repair">Mac Support &amp; Screen Repair ($260 + Parts)</option>
+            <option value="Hardware Upgrades & Installation">Hardware Upgrades &amp; Installation ($60/Part)</option>
+            <option value="Data Recovery & Backup">Data Recovery &amp; Backup ($60–$120)</option>
+            <option value="After Hours & House Calls">After Hours &amp; House Calls ($120)</option>
+            <option value="Technical & Purchasing Advice">Technical &amp; Purchasing Advice (Free)</option>
+            <option value="Other / Not Sure">Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="f-message">Describe the Issue</label>
+          <textarea id="f-message" name="message" placeholder="What's happening with your device? Any error messages, sounds, or symptoms help us prepare."></textarea>
+        </div>
+        <p class="form-note">We typically respond within a few hours. Your information is never shared or sold. By submitting you agree to be contacted about your repair request.</p>
+        <button type="button" class="btn-submit" onclick="handleSubmit()">
+          Send My Request &nbsp;&#8594;
+        </button>
+        <p id="form-success" style="display:none;margin-top:1rem;text-align:center;color:#16a34a;font-family:var(--font-display);font-size:1rem;font-weight:600;">
+          &#10003; &nbsp;Got it! We'll be in touch shortly.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <a href="#hero" class="footer-logo" aria-label="GraNet Computer Repair">
-          <svg width="30" height="30" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="f-lg" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#185FA5"/>
-                <stop offset="100%" stop-color="#0ab4c8"/>
-              </linearGradient>
-            </defs>
-            <!-- Hexagon outer border -->
-            <path d="M40,6 L70,23 L70,57 L40,74 L10,57 L10,23 Z"
-                  fill="none" stroke="url(#f-lg)" stroke-width="2.5" stroke-linejoin="round"/>
-            <!-- Inner mountain triangle network -->
-            <line x1="40" y1="21" x2="24" y2="51" stroke="url(#f-lg)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="40" y1="21" x2="56" y2="51" stroke="url(#f-lg)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="24" y1="51" x2="56" y2="51" stroke="url(#f-lg)" stroke-width="1.8" stroke-linecap="round"/>
-            <!-- Node dots -->
-            <circle cx="40" cy="21" r="4" fill="url(#f-lg)"/>
-            <circle cx="24" cy="51" r="4" fill="url(#f-lg)"/>
-            <circle cx="56" cy="51" r="4" fill="url(#f-lg)"/>
-          </svg>
-          <div class="footer-name">Gra<em>Net</em></div>
-        </a>
-        <p class="footer-copy">© 2026 Citare Holdings, DBA GraNet IT Solutions · Derry, NH · Locally Owned &amp; Operated</p>
-      </div>
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo" aria-label="GraNet IT Solutions home">
+        <img src="logo.png" alt="GraNet IT Solutions" />
+      </a>
+      <p class="footer-copy">&copy; 2026 GraNet State IT Solutions LLC &middot; Derry, NH &middot; All rights reserved</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    // ─── Emergency modal ────────────────────────────────────────────────────
-    function openEmergency() {
-      document.getElementById('emgOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeEmergency() {
-      document.getElementById('emgOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function handleOverlayClick(e) {
-      if (e.target === document.getElementById('emgOverlay')) closeEmergency();
-    }
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeEmergency();
+<script>
+  // ===== NAVBAR SCROLL =====
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ===== SCROLL REVEAL =====
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => revealObserver.observe(el));
 
-    // ─── Navbar scroll effect ───────────────────────────────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
+  // ===== MOBILE MENU =====
+  function openMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+  }
 
-    // ─── Mobile menu ────────────────────────────────────────────────────────
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    const hamburger = document.getElementById('hamburger');
+  // ===== EMERGENCY MODAL =====
+  function openEmergency() {
+    document.getElementById('emgOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeEmergency() {
+    document.getElementById('emgOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('emgOverlay')) closeEmergency();
+  }
 
-    function openMenu() {
-      menu.classList.add('open');
-      overlay.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+  // ===== FORM SUBMIT =====
+  function handleSubmit() {
+    const name    = document.getElementById('f-name').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const message = document.getElementById('f-message').value.trim();
+    if (!name || !email) {
+      alert('Please fill in your name and email address.');
+      return;
     }
-    function closeMenu() {
-      menu.classList.remove('open');
-      overlay.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    // ─── Scroll reveal ──────────────────────────────────────────────────────
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
-
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // ─── Form handler — Web3Forms → support@granet.tech ─────────────────────
-    async function handleSubmit() {
-      const name    = document.getElementById('f-name').value.trim();
-      const email   = document.getElementById('f-email').value.trim();
-      const phone   = document.getElementById('f-phone').value.trim();
-      const service = document.getElementById('f-service').value;
-      const dropoff = document.getElementById('f-drop').value;
-      const message = document.getElementById('f-msg').value.trim();
-      const btn      = document.getElementById('submit-btn');
-      const feedback = document.getElementById('form-feedback');
-
-      if (!name || !email) {
-        showFeedback('Please enter your name and email address.', false);
-        return;
-      }
-      if (!message) {
-        showFeedback('Please briefly describe the problem — it helps us give you an accurate quote.', false);
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            access_key: '3e985a80-5833-4e39-897f-6296d2464e1e',
-            subject: `New Service Request — ${service || 'General Inquiry'} — ${name}`,
-            from_name: 'GraNet Website',
-            name, email, phone,
-            service: service || 'Not specified',
-            dropoff: dropoff || 'Not specified',
-            message
-          })
-        });
-
-        const data = await res.json();
-
-        if (data.success) {
-          showFeedback(`Thanks, ${name}! We got your request and will be in touch at ${email} shortly.`, true);
-          ['f-name','f-phone','f-email','f-service','f-drop','f-msg']
-            .forEach(id => { document.getElementById(id).value = ''; });
-          btn.textContent = 'Sent ✓';
-          setTimeout(() => { btn.textContent = 'Send Request →'; btn.disabled = false; }, 4000);
-        } else {
-          throw new Error(data.message || 'Submission failed');
-        }
-      } catch (err) {
-        showFeedback('Something went wrong. Please email us directly at support@granet.tech.', false);
-        btn.textContent = 'Send Request →';
-        btn.disabled = false;
-      }
-    }
-
-    function showFeedback(msg, success) {
-      const el = document.getElementById('form-feedback');
-      el.textContent = msg;
-      el.style.display = 'block';
-      el.style.background = success ? 'rgba(10,180,200,0.1)' : 'rgba(220,50,50,0.08)';
-      el.style.border     = success ? '1px solid rgba(10,180,200,0.35)' : '1px solid rgba(220,50,50,0.25)';
-      el.style.color      = success ? '#0a7a8a' : '#b03030';
-      el.style.borderRadius = '8px';
-      el.style.padding    = '0.85rem 1.1rem';
-      el.style.fontSize   = '0.9rem';
-      el.style.marginBottom = '1rem';
-    }
-  </script>
-
+    // Build mailto fallback — replace with Formspree/Netlify endpoint as needed
+    const service = document.getElementById('f-service').value || 'Not specified';
+    const phone   = document.getElementById('f-phone').value.trim() || 'Not provided';
+    const subject = encodeURIComponent('GraNet Quote Request — ' + service);
+    const body    = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Email: ' + email + '\n' +
+      'Service: ' + service + '\n\n' +
+      'Message:\n' + message
+    );
+    window.location.href = 'mailto:support@granet.tech?subject=' + subject + '&body=' + body;
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
 </body>
 </html>
