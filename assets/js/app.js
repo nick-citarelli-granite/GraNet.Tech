@@ -55,9 +55,9 @@ class PanelSwitcher {
   }
 }
 
-class CopyEmail {
+class ClipboardCopy {
   constructor() {
-    this.buttons = Dom.all('[data-copy-email]');
+    this.buttons = Dom.all('[data-copy-email], [data-copy-value]');
     this.status = document.getElementById('copy-status');
   }
 
@@ -68,19 +68,20 @@ class CopyEmail {
   }
 
   async copy(button) {
-    const email = button.dataset.copyEmail;
-    if (!email) {
-      throw new Error('Copy email button is missing an email value.');
+    const value = button.dataset.copyValue || button.dataset.copyEmail;
+    if (!value) {
+      throw new Error('Copy button is missing a value.');
     }
+    const label = button.dataset.copyLabel || 'Copied';
 
     try {
-      await navigator.clipboard.writeText(email);
-      this.setStatus('Copied');
-      Analytics.track('copy_email');
+      await navigator.clipboard.writeText(value);
+      this.setStatus(label, button);
+      Analytics.track('copy_value');
     } catch {
-      this.fallbackCopy(email);
-      this.setStatus('Copied');
-      Analytics.track('copy_email_fallback');
+      this.fallbackCopy(value);
+      this.setStatus(label, button);
+      Analytics.track('copy_value_fallback');
     }
   }
 
@@ -96,13 +97,58 @@ class CopyEmail {
     input.remove();
   }
 
-  setStatus(message) {
-    if (this.status) {
-      this.status.textContent = message;
+  setStatus(message, button) {
+    const scopedStatus = button.closest('[data-contact-modal]')?.querySelector('[data-modal-status]');
+    const target = scopedStatus || this.status;
+    if (target) {
+      target.textContent = message;
       window.setTimeout(() => {
-        this.status.textContent = '';
+        target.textContent = '';
       }, 1800);
     }
+  }
+}
+
+class ContactModal {
+  constructor() {
+    this.modal = document.querySelector('[data-contact-modal]');
+    this.openButtons = Dom.all('[data-contact-help]');
+    this.closeButtons = Dom.all('[data-modal-close]');
+    this.topic = document.querySelector('[data-modal-topic]');
+    this.lastFocus = null;
+  }
+
+  init() {
+    if (!this.modal) return;
+    this.openButtons.forEach((button) => {
+      button.addEventListener('click', () => this.open(button));
+    });
+    this.closeButtons.forEach((button) => {
+      button.addEventListener('click', () => this.close());
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !this.modal.hidden) {
+        this.close();
+      }
+    });
+  }
+
+  open(button) {
+    this.lastFocus = button;
+    const topic = button.dataset.helpTopic;
+    if (this.topic) {
+      this.topic.textContent = topic ? `For ${topic}, choose the quickest contact option.` : 'Pick the fastest option for your request.';
+    }
+    this.modal.hidden = false;
+    document.body.classList.add('modal-open');
+    this.modal.querySelector('a, button')?.focus();
+    Analytics.track('contact_modal_open');
+  }
+
+  close() {
+    this.modal.hidden = true;
+    document.body.classList.remove('modal-open');
+    this.lastFocus?.focus();
   }
 }
 
@@ -123,7 +169,7 @@ class ContactForm {
   async submit() {
     const button = this.form.querySelector('button[type="submit"]');
     const originalLabel = button?.textContent || 'Send request';
-    const payload = Object.fromEntries(new FormData(this.form).entries());
+    const payload = new FormData(this.form);
 
     Analytics.track('contact_form_submit');
     this.setStatus('Sending...', false);
@@ -133,10 +179,14 @@ class ContactForm {
     }
 
     try {
+      if (!this.form.action.startsWith('https://formsubmit.co/ajax/')) {
+        throw new Error(`Unexpected contact form endpoint: ${this.form.action}`);
+      }
+
       const response = await fetch(this.form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { Accept: 'application/json' },
+        body: payload,
       });
 
       if (!response.ok) {
@@ -144,10 +194,10 @@ class ContactForm {
       }
 
       this.form.reset();
-      this.setStatus('Request sent. GraNet will follow up soon.', false);
+      this.setStatus('Request sent. GraNet will follow up soon. First-time setup may require email confirmation.', false);
       Analytics.track('contact_form_success');
     } catch {
-      this.setStatus('Could not send from this page. Call/text or copy the email above.', true);
+      this.setStatus('Could not send from this page. Use the contact options above or email support@granet.tech.', true);
       Analytics.track('contact_form_error');
     } finally {
       if (button) {
@@ -185,5 +235,6 @@ class Analytics {
 document.documentElement.classList.add(READY_CLASS);
 Analytics.init();
 new PanelSwitcher().init();
-new CopyEmail().init();
+new ContactModal().init();
+new ClipboardCopy().init();
 new ContactForm().init();

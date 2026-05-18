@@ -126,6 +126,7 @@
                 <li><span>Part Swap</span><strong>$59.99 + part</strong></li>
                 <li><span>Custom Build</span><strong>$119.99 &ndash; $239.99+</strong></li>
               </ul>
+              <button class="help-button" type="button" data-contact-help data-help-topic="General diagnostic and repair" data-analytics="help_repair_general">Get help</button>
             </article>
 
             <article class="price-card">
@@ -139,6 +140,7 @@
                 <li><span>OS Reformat</span><strong>$76.99</strong></li>
                 <li><span>Drive Install/Swap + OS Install</span><strong>$119.99</strong></li>
               </ul>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Software and OS support" data-analytics="help_repair_software">Get help</button>
             </article>
 
             <article class="price-card">
@@ -152,6 +154,7 @@
                 <li><span>Other Laptop Services</span><strong>$89.99</strong></li>
                 <li><span>Data Backup &amp; Recovery</span><strong>$19.99 &ndash; $129.99</strong></li>
               </ul>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Hardware repair or data recovery" data-analytics="help_repair_hardware">Get help</button>
             </article>
           </div>
 
@@ -186,6 +189,7 @@
                 <li>Workstation setup and laptop onboarding</li>
                 <li>Purchasing guidance</li>
               </ul>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Business Starter support" data-analytics="help_business_starter">Get help</button>
             </article>
 
             <article class="price-card featured">
@@ -200,6 +204,7 @@
                 <li>Domain, DNS, and email delivery support</li>
                 <li>Backup review and verification</li>
               </ul>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Ongoing Business support" data-analytics="help_business_ongoing">Get help</button>
             </article>
 
             <article class="price-card">
@@ -214,6 +219,7 @@
                 <li>Procurement planning</li>
                 <li>Quarterly business technology review</li>
               </ul>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Established Business support" data-analytics="help_business_established">Get help</button>
             </article>
           </div>
 
@@ -239,14 +245,17 @@
             <article class="service-card">
               <h4>Website Help</h4>
               <p>Updates, troubleshooting, landing pages, and cleanup.</p>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Website help" data-analytics="help_web_site">Get help</button>
             </article>
             <article class="service-card">
               <h4>Business Web Admin</h4>
               <p>DNS, domains, email records, and hosting coordination.</p>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Business web admin" data-analytics="help_web_admin">Get help</button>
             </article>
             <article class="service-card">
               <h4>Programming Help</h4>
               <p>Scripts, fixes, workflow tools, and practical automation.</p>
+              <button class="help-button" type="button" data-contact-help data-help-topic="Programming help" data-analytics="help_programming">Get help</button>
             </article>
           </div>
 
@@ -281,31 +290,37 @@
               <span>Email</span>
               <strong>support@granet.tech</strong>
               <small>Best for screenshots, links, and project notes.</small>
-              <button class="copy-card-button" type="button" data-copy-email="support@granet.tech" data-analytics="contact_copy_email">Copy email</button>
+              <button class="copy-card-button" type="button" data-contact-help data-help-topic="Contact request" data-analytics="contact_help_modal">Contact options</button>
             </div>
           </div>
 
-          <form class="contact-form" action="/api/contact" method="POST" data-contact-form>
+          <form class="contact-form" action="https://formsubmit.co/ajax/support@granet.tech" method="POST" data-contact-form>
             <label class="field-trap" aria-hidden="true">
               <span>Website</span>
-              <input name="website" tabindex="-1" autocomplete="off" />
+              <input name="_honey" tabindex="-1" autocomplete="off" />
             </label>
+            <input type="hidden" name="_subject" value="New GraNet.Tech contact request" />
+            <input type="hidden" name="_template" value="table" />
             <div class="form-grid">
               <label>
                 <span>Name</span>
                 <input name="name" autocomplete="name" required />
               </label>
               <label>
-                <span>Phone or email</span>
-                <input name="contact" autocomplete="email" required />
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" required />
               </label>
             </div>
+            <label>
+              <span>Phone</span>
+              <input name="phone" autocomplete="tel" />
+            </label>
             <label>
               <span>What do you need?</span>
               <textarea name="message" rows="4" required></textarea>
             </label>
             <button class="form-submit" type="submit" data-analytics="contact_form_submit">Send request</button>
-            <p class="form-note">Sends directly to GraNet.Tech. No mail app or form vendor.</p>
+            <p class="form-note">Temporary hosted form while GraNet sets up its own server.</p>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </section>
@@ -314,6 +329,31 @@
     </div>
   </section>
 </main>
+
+<div class="contact-modal" data-contact-modal hidden>
+  <div class="modal-backdrop" data-modal-close></div>
+  <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-describedby="contact-modal-description">
+    <button class="modal-close" type="button" data-modal-close aria-label="Close contact options">&times;</button>
+    <p class="panel-kicker">GraNet contact</p>
+    <h2 id="contact-modal-title">How do you want to reach us?</h2>
+    <p id="contact-modal-description" data-modal-topic>Pick the fastest option for your request.</p>
+    <div class="modal-actions">
+      <a class="modal-action primary-action" href="tel:+19782194427" data-analytics="modal_call">
+        <span>Call us</span>
+        <strong>(978) 219-4427</strong>
+      </a>
+      <button class="modal-action" type="button" data-copy-value="+19782194427" data-copy-label="Phone number copied" data-analytics="modal_text">
+        <span>Text us</span>
+        <strong>Copy number</strong>
+      </button>
+      <a class="modal-action" href="mailto:support@granet.tech?subject=GraNet.Tech%20service%20request" data-analytics="modal_email">
+        <span>Email us</span>
+        <strong>support@granet.tech</strong>
+      </a>
+    </div>
+    <p class="modal-status" data-modal-status role="status" aria-live="polite"></p>
+  </section>
+</div>
 
 <footer class="site-footer">
   <div class="container footer-inner">
