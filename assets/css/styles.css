@@ -97,10 +97,8 @@ main { flex: 1; }
 .feature-list li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 0.42rem; height: 0.42rem; border-radius: 50%; background: var(--red-600); }
 .plan-price { color: var(--black); font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; }
 .plan-price span { color: var(--muted); font-family: var(--font-body); font-size: 0.92rem; font-weight: 500; }
-.panel-note, .contact-strip { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 0.85rem; border-left: 3px solid var(--red-600); border-radius: var(--radius); background: #fff8f9; padding: 0.85rem 1rem; color: var(--ink); }
+.contact-strip { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 0.85rem; border-left: 3px solid var(--red-600); border-radius: var(--radius); background: #fff8f9; padding: 0.85rem 1rem; color: var(--ink); }
 .contact-strip p { color: var(--muted); }
-.quick-notes { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0.7rem; margin-top: 0.85rem; list-style: none; }
-.quick-notes li { border: 1px solid rgba(215,226,236,0.85); border-radius: var(--radius); background: rgba(255,255,255,0.72); color: var(--muted); font-size: 0.9rem; padding: 0.72rem 0.8rem; }
 .inline-contact { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.85rem; border: 1px solid rgba(11,63,115,0.22); border-radius: var(--radius); background: rgba(238,244,250,0.82); padding: 0.85rem 1rem; }
 .inline-contact strong { color: var(--black); font-family: var(--font-display); font-size: 1.15rem; line-height: 1.1; }
 .inline-contact-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: flex-end; }
@@ -149,7 +147,7 @@ main { flex: 1; }
   .panel-tabs::-webkit-scrollbar { height: 0.45rem; }
   .panel-tabs::-webkit-scrollbar-thumb { background: rgba(11,63,115,0.32); border-radius: 999px; }
   .panel-tab { min-height: 58px; scroll-snap-align: start; }
-  .pricing-grid, .service-grid, .quick-notes { grid-template-columns: 1fr 1fr; }
+  .pricing-grid, .service-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -164,8 +162,8 @@ main { flex: 1; }
   .hero h1 { font-size: 2.2rem; max-width: 100%; overflow-wrap: break-word; }
   .hero-text { max-width: 100%; overflow-wrap: break-word; }
   .panel-tabs { grid-template-columns: repeat(4,minmax(155px,1fr)); margin-inline: -1.1rem; padding-inline: 1.1rem; }
-  .pricing-grid, .service-grid, .quick-notes, .contact-panel .contact-grid, .form-grid { grid-template-columns: 1fr; }
-  .switcher-heading, .panel-note, .contact-strip, .inline-contact, .footer-inner { align-items: stretch; flex-direction: column; }
+  .pricing-grid, .service-grid, .contact-panel .contact-grid, .form-grid { grid-template-columns: 1fr; }
+  .switcher-heading, .contact-strip, .inline-contact, .footer-inner { align-items: stretch; flex-direction: column; }
   .inline-contact-actions { justify-content: stretch; }
   .inline-contact-actions a, .inline-contact-actions button { flex: 1 1 7rem; text-align: center; }
   .footer-copy { justify-content: flex-start; text-align: left; }
