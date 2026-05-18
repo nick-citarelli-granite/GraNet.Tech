@@ -98,57 +98,12 @@ class ClipboardCopy {
   }
 
   setStatus(message, button) {
-    const scopedStatus = button.closest('[data-contact-modal]')?.querySelector('[data-modal-status]');
-    const target = scopedStatus || this.status;
-    if (target) {
-      target.textContent = message;
+    if (this.status) {
+      this.status.textContent = message;
       window.setTimeout(() => {
-        target.textContent = '';
+        this.status.textContent = '';
       }, 1800);
     }
-  }
-}
-
-class ContactModal {
-  constructor() {
-    this.modal = document.querySelector('[data-contact-modal]');
-    this.openButtons = Dom.all('[data-contact-help]');
-    this.closeButtons = Dom.all('[data-modal-close]');
-    this.topic = document.querySelector('[data-modal-topic]');
-    this.lastFocus = null;
-  }
-
-  init() {
-    if (!this.modal) return;
-    this.openButtons.forEach((button) => {
-      button.addEventListener('click', () => this.open(button));
-    });
-    this.closeButtons.forEach((button) => {
-      button.addEventListener('click', () => this.close());
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !this.modal.hidden) {
-        this.close();
-      }
-    });
-  }
-
-  open(button) {
-    this.lastFocus = button;
-    const topic = button.dataset.helpTopic;
-    if (this.topic) {
-      this.topic.textContent = topic ? `For ${topic}, choose the quickest contact option.` : 'Pick the fastest option for your request.';
-    }
-    this.modal.hidden = false;
-    document.body.classList.add('modal-open');
-    this.modal.querySelector('a, button')?.focus();
-    Analytics.track('contact_modal_open');
-  }
-
-  close() {
-    this.modal.hidden = true;
-    document.body.classList.remove('modal-open');
-    this.lastFocus?.focus();
   }
 }
 
@@ -235,6 +190,5 @@ class Analytics {
 document.documentElement.classList.add(READY_CLASS);
 Analytics.init();
 new PanelSwitcher().init();
-new ContactModal().init();
 new ClipboardCopy().init();
 new ContactForm().init();
