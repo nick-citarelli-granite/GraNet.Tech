@@ -50,13 +50,14 @@ $copyFiles = @(
   "favicon-32x32.png",
   "apple-touch-icon.png",
   "logo.svg",
-  "og-image.png"
+  "og-image.png",
+  "server"
 )
 
 foreach ($file in $copyFiles) {
   $source = Join-Path $SourceRoot $file
   if (Test-Path -LiteralPath $source) {
-    Copy-Item -LiteralPath $source -Destination (Join-Path $OutputRoot $file)
+    Copy-Item -LiteralPath $source -Destination (Join-Path $OutputRoot $file) -Recurse
   }
 }
 

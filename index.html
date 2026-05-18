@@ -284,10 +284,11 @@
             </div>
           </div>
 
-          <form class="contact-form" action="https://formsubmit.co/support@granet.tech" method="POST" data-contact-form>
-            <input type="hidden" name="_subject" value="GraNet.Tech website request" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+          <form class="contact-form" action="/api/contact" method="POST" data-contact-form>
+            <label class="field-trap" aria-hidden="true">
+              <span>Website</span>
+              <input name="website" tabindex="-1" autocomplete="off" />
+            </label>
             <div class="form-grid">
               <label>
                 <span>Name</span>
@@ -303,7 +304,8 @@
               <textarea name="message" rows="4" required></textarea>
             </label>
             <button class="form-submit" type="submit" data-analytics="contact_form_submit">Send request</button>
-            <p class="form-note">Submits through a static-site form service. No mail app required.</p>
+            <p class="form-note">Sends directly to GraNet.Tech. No mail app or form vendor.</p>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </section>
       </div>

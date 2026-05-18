@@ -109,15 +109,58 @@ class CopyEmail {
 class ContactForm {
   constructor() {
     this.form = document.querySelector('[data-contact-form]');
+    this.status = document.querySelector('[data-form-status]');
   }
 
   init() {
     if (!this.form) return;
-    this.form.addEventListener('submit', () => {
-      Analytics.track('contact_form_submit');
-      const button = this.form.querySelector('button[type="submit"]');
-      if (button) button.textContent = 'Sending...';
+    this.form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.submit();
     });
+  }
+
+  async submit() {
+    const button = this.form.querySelector('button[type="submit"]');
+    const originalLabel = button?.textContent || 'Send request';
+    const payload = Object.fromEntries(new FormData(this.form).entries());
+
+    Analytics.track('contact_form_submit');
+    this.setStatus('Sending...', false);
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Sending...';
+    }
+
+    try {
+      const response = await fetch(this.form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Contact endpoint returned ${response.status}`);
+      }
+
+      this.form.reset();
+      this.setStatus('Request sent. GraNet will follow up soon.', false);
+      Analytics.track('contact_form_success');
+    } catch {
+      this.setStatus('Could not send from this page. Call/text or copy the email above.', true);
+      Analytics.track('contact_form_error');
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalLabel;
+      }
+    }
+  }
+
+  setStatus(message, isError) {
+    if (!this.status) return;
+    this.status.textContent = message;
+    this.status.classList.toggle('error', Boolean(isError));
   }
 }
 
