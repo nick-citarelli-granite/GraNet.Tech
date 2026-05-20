@@ -293,13 +293,15 @@
             </div>
           </div>
 
-          <form class="contact-form" action="https://formsubmit.co/ajax/support@granet.tech" method="POST" data-contact-form>
+          <form class="contact-form" action="https://formsubmit.co/support@granet.tech" method="POST">
             <label class="field-trap" aria-hidden="true">
               <span>Website</span>
               <input name="_honey" tabindex="-1" autocomplete="off" />
             </label>
             <input type="hidden" name="_subject" value="New GraNet.Tech contact request" />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://granet.tech/#contact-panel" />
             <div class="form-grid">
               <label>
                 <span>Name</span>
@@ -319,8 +321,6 @@
               <textarea name="message" rows="4" required></textarea>
             </label>
             <button class="form-submit" type="submit" data-analytics="contact_form_submit">Send request</button>
-            <p class="form-note">Temporary hosted form while GraNet sets up its own server.</p>
-            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </section>
       </div>

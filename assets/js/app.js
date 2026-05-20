@@ -59,6 +59,7 @@ class ClipboardCopy {
   constructor() {
     this.buttons = Dom.all('[data-copy-email], [data-copy-value]');
     this.status = document.getElementById('copy-status');
+    this.toast = null;
   }
 
   init() {
@@ -98,6 +99,7 @@ class ClipboardCopy {
   }
 
   setStatus(message, button) {
+    this.showToast(message);
     if (this.status) {
       this.status.textContent = message;
       window.setTimeout(() => {
@@ -105,67 +107,22 @@ class ClipboardCopy {
       }, 1800);
     }
   }
-}
 
-class ContactForm {
-  constructor() {
-    this.form = document.querySelector('[data-contact-form]');
-    this.status = document.querySelector('[data-form-status]');
-  }
-
-  init() {
-    if (!this.form) return;
-    this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.submit();
-    });
-  }
-
-  async submit() {
-    const button = this.form.querySelector('button[type="submit"]');
-    const originalLabel = button?.textContent || 'Send request';
-    const payload = new FormData(this.form);
-
-    Analytics.track('contact_form_submit');
-    this.setStatus('Sending...', false);
-    if (button) {
-      button.disabled = true;
-      button.textContent = 'Sending...';
+  showToast(message) {
+    if (!this.toast) {
+      this.toast = document.createElement('div');
+      this.toast.className = 'copy-toast';
+      this.toast.setAttribute('role', 'status');
+      this.toast.setAttribute('aria-live', 'polite');
+      document.body.append(this.toast);
     }
 
-    try {
-      if (!this.form.action.startsWith('https://formsubmit.co/ajax/')) {
-        throw new Error(`Unexpected contact form endpoint: ${this.form.action}`);
-      }
-
-      const response = await fetch(this.form.action, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: payload,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Contact endpoint returned ${response.status}`);
-      }
-
-      this.form.reset();
-      this.setStatus('Request sent. GraNet will follow up soon. First-time setup may require email confirmation.', false);
-      Analytics.track('contact_form_success');
-    } catch {
-      this.setStatus('Could not send from this page. Use the contact options above or email support@granet.tech.', true);
-      Analytics.track('contact_form_error');
-    } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = originalLabel;
-      }
-    }
-  }
-
-  setStatus(message, isError) {
-    if (!this.status) return;
-    this.status.textContent = message;
-    this.status.classList.toggle('error', Boolean(isError));
+    this.toast.textContent = message;
+    this.toast.classList.add('visible');
+    window.clearTimeout(this.toastTimer);
+    this.toastTimer = window.setTimeout(() => {
+      this.toast.classList.remove('visible');
+    }, 1800);
   }
 }
 
@@ -191,4 +148,3 @@ document.documentElement.classList.add(READY_CLASS);
 Analytics.init();
 new PanelSwitcher().init();
 new ClipboardCopy().init();
-new ContactForm().init();

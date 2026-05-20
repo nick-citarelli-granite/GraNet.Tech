@@ -1,6 +1,6 @@
 # GraNet.Tech Contact Endpoint
 
-This is the planned first-party contact endpoint for the static site. The live static page currently posts to FormSubmit as a temporary free fallback until GraNet has a server available. This endpoint uses only Node.js built-ins and stores requests as JSON lines on disk.
+This is the planned first-party contact endpoint for the static site. The live static page currently posts to FormSubmit's standard hosted form endpoint as a temporary free fallback until GraNet has a server available. This endpoint uses only Node.js built-ins and stores requests as JSON lines on disk.
 
 Run it on a server you control:
 
