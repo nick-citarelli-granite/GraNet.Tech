@@ -141,7 +141,7 @@ main { flex: 1; }
   .hero-mark { order: -1; }
   .hero-mark img { width: 180px; }
   .service-console { grid-template-columns: 1fr; }
-  .panel-tabs { grid-template-columns: repeat(4,minmax(180px,1fr)); overflow-x: auto; padding-bottom: 0.3rem; position: static; scroll-snap-type: x proximity; }
+  .panel-tabs { grid-template-columns: repeat(2,minmax(180px,1fr)); padding-bottom: 0.3rem; position: static; scroll-snap-type: x proximity; }
   .panel-tabs::-webkit-scrollbar { height: 0.45rem; }
   .panel-tabs::-webkit-scrollbar-thumb { background: rgba(11,63,115,0.32); border-radius: 999px; }
   .panel-tab { min-height: 58px; scroll-snap-align: start; }
@@ -159,7 +159,7 @@ main { flex: 1; }
   .hero-brand span { font-size: clamp(2.35rem,14vw,3.25rem); }
   .hero h1 { font-size: 2.2rem; max-width: 100%; overflow-wrap: break-word; }
   .hero-text { max-width: 100%; overflow-wrap: break-word; }
-  .panel-tabs { grid-template-columns: repeat(4,minmax(155px,1fr)); margin-inline: -1.1rem; padding-inline: 1.1rem; }
+  .panel-tabs { grid-template-columns: repeat(2,minmax(155px,1fr)); margin-inline: -1.1rem; padding-inline: 1.1rem; }
   .pricing-grid, .contact-panel .contact-grid, .form-grid { grid-template-columns: 1fr; }
   .switcher-heading, .inline-contact, .footer-inner { align-items: stretch; flex-direction: column; }
   .inline-contact-actions { justify-content: stretch; }
