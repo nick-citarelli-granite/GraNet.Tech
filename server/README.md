@@ -1,6 +1,6 @@
 # GraNet.Tech Contact Endpoint
 
-This is the planned first-party contact endpoint for the static site. The live static page currently posts to FormSubmit's standard hosted form endpoint as a temporary free fallback until GraNet has a server available. This endpoint uses only Node.js built-ins and stores requests as JSON lines on disk.
+This is the first-party contact endpoint for the static site. It uses only Node.js built-ins and stores requests as JSON lines on disk.
 
 Run it on a server you control:
 
@@ -16,14 +16,21 @@ The website posts to:
 /api/contact
 ```
 
-If the static site is served by GitHub Pages, configure DNS/proxy infrastructure so `https://granet.tech/api/contact` is routed to this Node process. The static files can still stay on GitHub Pages; only `/api/contact` needs to hit the first-party backend.
+The website checks endpoint availability at:
+
+```text
+/api/contact/health
+```
+
+If the static site is served by GitHub Pages, configure DNS/proxy infrastructure so `https://granet.tech/api/contact` and `https://granet.tech/api/contact/health` are routed to this Node process. The static files can still stay on GitHub Pages; only `/api/contact*` needs to hit the first-party backend.
 
 Expected request body:
 
 ```json
 {
   "name": "Customer Name",
-  "contact": "phone or email",
+  "email": "customer@example.com",
+  "phone": "phone number",
   "message": "Request details",
   "website": ""
 }

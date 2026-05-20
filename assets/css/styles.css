@@ -119,6 +119,9 @@ main { flex: 1; }
 .contact-form textarea { resize: vertical; }
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--blue-500); outline: 3px solid rgba(25,118,189,0.2); }
 .form-submit { width: fit-content; border: 0; border-radius: var(--radius); background: var(--red-600); color: var(--white); cursor: pointer; font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; padding: 0.78rem 1rem; }
+.form-submit:disabled { cursor: wait; opacity: 0.72; }
+.form-status { min-height: 1.4rem; color: var(--blue-700); font-weight: 700; }
+.form-status.error { color: var(--red-600); }
 .field-trap { position: absolute; left: -100vw; opacity: 0; pointer-events: none; }
 .urgent-card { border-color: rgba(214,40,57,0.35); }
 .urgent-card strong { color: var(--red-600); }

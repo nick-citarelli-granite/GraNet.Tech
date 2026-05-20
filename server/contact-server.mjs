@@ -14,6 +14,18 @@ function json(res, status, body) {
   res.end(JSON.stringify(body));
 }
 
+function html(res, status, body) {
+  res.writeHead(status, {
+    'content-type': 'text/html; charset=utf-8',
+    'cache-control': 'no-store',
+  });
+  res.end(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GraNet.Tech Contact</title><style>body{font-family:system-ui,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f8fc;color:#07111f}.box{max-width:34rem;padding:2rem;border:1px solid #d7e2ec;border-radius:8px;background:#fff}a{color:#0b3f73;font-weight:700}</style></head><body><main class="box">${body}</main></body></html>`);
+}
+
+function wantsJson(req) {
+  return String(req.headers.accept || '').includes('application/json');
+}
+
 function readBody(req) {
   return new Promise((resolveBody, rejectBody) => {
     let size = 0;
@@ -49,10 +61,14 @@ function clean(value) {
 }
 
 function validate(payload) {
+  const email = clean(payload.email);
+  const phone = clean(payload.phone);
   const request = {
     createdAt: new Date().toISOString(),
     name: clean(payload.name),
-    contact: clean(payload.contact),
+    email,
+    phone,
+    contact: email || phone,
     message: clean(payload.message),
     website: clean(payload.website),
   };
@@ -60,7 +76,7 @@ function validate(payload) {
   if (request.website) {
     return { request, spam: true };
   }
-  if (!request.name || !request.contact || !request.message) {
+  if (!request.name || !request.email || !request.message) {
     throw new Error('Missing required fields');
   }
   return { request, spam: false };
@@ -72,7 +88,7 @@ async function saveRequest(request) {
 }
 
 const server = createServer(async (req, res) => {
-  if (req.method === 'GET' && req.url === '/health') {
+  if (req.method === 'GET' && (req.url === '/health' || req.url === '/api/contact/health')) {
     json(res, 200, { ok: true });
     return;
   }
@@ -91,9 +107,17 @@ const server = createServer(async (req, res) => {
       await saveRequest(request);
     }
 
-    json(res, 200, { ok: true });
+    if (wantsJson(req)) {
+      json(res, 200, { ok: true });
+      return;
+    }
+    html(res, 200, '<h1>Request sent.</h1><p>GraNet will follow up soon.</p><p><a href="/#contact-panel">Back to GraNet.Tech</a></p>');
   } catch (error) {
-    json(res, 400, { ok: false, error: error.message || 'Invalid request' });
+    if (wantsJson(req)) {
+      json(res, 400, { ok: false, error: error.message || 'Invalid request' });
+      return;
+    }
+    html(res, 400, '<h1>Request was not sent.</h1><p>Please go back and make sure your name, email, and message are filled in.</p><p><a href="/#contact-panel">Back to GraNet.Tech</a></p>');
   }
 });
 

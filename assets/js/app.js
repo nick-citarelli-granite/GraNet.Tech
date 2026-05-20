@@ -126,6 +126,84 @@ class ClipboardCopy {
   }
 }
 
+class ContactForm {
+  constructor() {
+    this.form = document.querySelector('[data-contact-form]');
+    this.status = document.querySelector('[data-form-status]');
+    this.button = this.form?.querySelector('button[type="submit"]') || null;
+  }
+
+  init() {
+    if (!this.form) return;
+    this.form.addEventListener('submit', (event) => this.submit(event));
+    this.checkEndpoint();
+  }
+
+  async checkEndpoint() {
+    try {
+      const response = await fetch('/api/contact/health', {
+        cache: 'no-store',
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error(`Contact health returned ${response.status}`);
+      this.setAvailable();
+    } catch {
+      this.setUnavailable();
+    }
+  }
+
+  setAvailable() {
+    this.form.hidden = false;
+    if (this.button) this.button.disabled = false;
+    this.setStatus('', false, true);
+  }
+
+  setUnavailable() {
+    this.form.hidden = true;
+    this.setStatus('Online request form is offline. Please call, text, or email GraNet directly.', true, false);
+  }
+
+  async submit(event) {
+    event.preventDefault();
+    if (!this.button) return;
+
+    const originalLabel = this.button.textContent;
+    this.button.disabled = true;
+    this.button.textContent = 'Sending...';
+    this.setStatus('Sending...', false, false);
+    Analytics.track('contact_form_submit');
+
+    try {
+      const response = await fetch(this.form.action, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(new FormData(this.form)),
+      });
+      if (!response.ok) throw new Error(`Contact endpoint returned ${response.status}`);
+
+      this.form.reset();
+      this.setStatus('Request sent. GraNet will follow up soon.', false, false);
+      Analytics.track('contact_form_success');
+    } catch {
+      this.setUnavailable();
+      Analytics.track('contact_form_error');
+    } finally {
+      this.button.disabled = false;
+      this.button.textContent = originalLabel;
+    }
+  }
+
+  setStatus(message, isError, hidden) {
+    if (!this.status) return;
+    this.status.textContent = message;
+    this.status.hidden = hidden;
+    this.status.classList.toggle('error', Boolean(isError));
+  }
+}
+
 class Analytics {
   static init() {
     Dom.all('[data-analytics]').forEach((element) => {
@@ -148,3 +226,4 @@ document.documentElement.classList.add(READY_CLASS);
 Analytics.init();
 new PanelSwitcher().init();
 new ClipboardCopy().init();
+new ContactForm().init();
