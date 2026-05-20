@@ -301,23 +301,23 @@
             <div class="form-grid">
               <label>
                 <span>Name</span>
-                <input name="name" autocomplete="name" required />
+                <input id="pm-name" name="name" autocomplete="name" required />
               </label>
               <label>
                 <span>Email</span>
-                <input name="email" type="email" autocomplete="email" required />
+                <input id="pm-email" name="email" type="email" autocomplete="email" required />
               </label>
             </div>
             <label>
               <span>Phone</span>
-              <input name="phone" autocomplete="tel" />
+              <input id="pm-phone" name="phone" autocomplete="tel" />
             </label>
             <label>
               <span>What do you need?</span>
-              <textarea name="message" rows="4" required></textarea>
+              <textarea id="pm-message" name="message" rows="4" required></textarea>
             </label>
-            <button class="form-submit" type="submit" data-analytics="contact_form_submit">Send request</button>
-            <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+            <button class="form-submit" type="submit" data-analytics="contact_form_submit" onclick="submitPlanForm()">Send request</button>
+            <!-- <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p> -->
           </form>
         </section>
       </div>
@@ -338,4 +338,22 @@
 
 <script type="module" src="assets/js/app.js"></script>
 </body>
+
+<script>
+function submitPlanForm() {
+  const name  = document.getElementById('pm-name').value.trim();
+  const email = document.getElementById('pm-email').value.trim();
+  if (!name || !email) { alert('Please fill in your name and email.'); return; }
+  const phone   = document.getElementById('pm-phone').value.trim() || 'Not provided';
+  const msg     = document.getElementById('pm-message').value.trim();
+  const subj    = encodeURIComponent('GraNet Business Inquiry from ' + name);
+  const body    = encodeURIComponent(
+    'Name: ' + name +
+    '\nPhone: ' + phone +
+    '\nEmail: ' + email +
+    '\n\nMessage:\n' + msg
+  );
+  window.location.href = 'mailto:support@granet.tech?subject=' + subj + '&body=' + body;
+}
+</script>
 </html>
