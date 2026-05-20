@@ -30,7 +30,7 @@ class PanelSwitcher {
     this.open(trigger.dataset.panelTarget);
   }
 
-  open(panelId, options = {}) {
+  open(panelId, options = { scroll: false }) {
     const selectedPanel = document.getElementById(panelId);
     const selectedTab = this.tabs.find((tab) => tab.dataset.panelTarget === panelId);
     if (!selectedPanel || !selectedTab) {
