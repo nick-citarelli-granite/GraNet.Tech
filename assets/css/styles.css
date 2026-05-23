@@ -227,8 +227,8 @@ main { position: relative; z-index: 1; flex: 1; overflow: hidden; }
   .site-header { gap: 0.5rem; padding: 0.72rem 0.72rem; }
   .brand img { width: 34px; }
   .brand { min-width: 0; flex: 0 1 auto; gap: 0.42rem; max-width: calc(100% - 6.3rem); }
-  .brand span { min-width: 0; max-width: 7.2rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .quick-call { flex: 0 0 4.8rem; margin-left: auto; max-width: 4.8rem; overflow: hidden; padding: 0.58rem 0.42rem; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+  .brand span { min-width: 0; white-space: nowrap; }
+  .quick-call { flex: 0 0 4.8rem; margin-left: auto; padding: 0.58rem 0.42rem; text-align: center; white-space: nowrap; }
   .hero { padding-top: 3rem; }
   .hero-brand { margin-bottom: 1rem; }
   .hero-mark::before { width: min(324px,103%); background: radial-gradient(circle, rgba(30,110,180,0.158) 0%, rgba(30,110,180,0.079) 38%, transparent 72%); filter: blur(7px); }
