@@ -36,7 +36,6 @@ $requiredSourceFiles = @(
   "assets\img\apple-touch-icon.png",
   "assets\img\logo.svg",
   "assets\img\og-image.png",
-  "assets\img\google-review-qr.svg",
   "CNAME",
   ".nojekyll",
   "robots.txt",
