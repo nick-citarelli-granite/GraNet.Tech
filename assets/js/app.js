@@ -6,6 +6,18 @@ class Dom {
   }
 }
 
+class BrowserMetadata {
+  static init() {
+    if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
+    if (document.querySelector('link[rel="manifest"]')) return;
+
+    const manifest = document.createElement('link');
+    manifest.rel = 'manifest';
+    manifest.href = 'site.webmanifest';
+    document.head.append(manifest);
+  }
+}
+
 class PanelSwitcher {
   constructor() {
     this.triggers = Dom.all('[data-panel-target]');
@@ -49,6 +61,8 @@ class PanelSwitcher {
       panel.hidden = !isSelected;
     });
 
+    window.dispatchEvent(new CustomEvent('granet:panelchange', { detail: { panelId } }));
+
     if (options.scroll !== false) {
       selectedPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -77,11 +91,11 @@ class ClipboardCopy {
 
     try {
       await navigator.clipboard.writeText(value);
-      this.setStatus(label, button);
+      this.setStatus(label);
       Analytics.track('copy_value');
     } catch {
       this.fallbackCopy(value);
-      this.setStatus(label, button);
+      this.setStatus(label);
       Analytics.track('copy_value_fallback');
     }
   }
@@ -98,14 +112,14 @@ class ClipboardCopy {
     input.remove();
   }
 
-  setStatus(message, button) {
+  setStatus(message) {
     this.showToast(message);
-    if (this.status) {
-      this.status.textContent = message;
-      window.setTimeout(() => {
-        this.status.textContent = '';
-      }, 1800);
-    }
+    if (!this.status) return;
+
+    this.status.textContent = message;
+    window.setTimeout(() => {
+      this.status.textContent = '';
+    }, 1800);
   }
 
   showToast(message) {
@@ -126,81 +140,38 @@ class ClipboardCopy {
   }
 }
 
-class ContactForm {
+class MailtoContactForm {
   constructor() {
-    this.form = document.querySelector('[data-contact-form]');
-    this.status = document.querySelector('[data-form-status]');
-    this.button = this.form?.querySelector('button[type="submit"]') || null;
+    this.form = document.querySelector('[data-mailto-form]');
   }
 
   init() {
     if (!this.form) return;
     this.form.addEventListener('submit', (event) => this.submit(event));
-    this.checkEndpoint();
   }
 
-  async checkEndpoint() {
-    try {
-      const response = await fetch('/api/contact/health', {
-        cache: 'no-store',
-        headers: { Accept: 'application/json' },
-      });
-      if (!response.ok) throw new Error(`Contact health returned ${response.status}`);
-      this.setAvailable();
-    } catch {
-      this.setUnavailable();
-    }
-  }
-
-  setAvailable() {
-    this.form.hidden = false;
-    if (this.button) this.button.disabled = false;
-    this.setStatus('', false, true);
-  }
-
-  setUnavailable() {
-    this.form.hidden = true;
-    this.setStatus('Online request form is offline. Please call, text, or email GraNet directly.', true, false);
-  }
-
-  async submit(event) {
+  submit(event) {
     event.preventDefault();
-    if (!this.button) return;
+    const formData = new FormData(this.form);
+    const name = this.clean(formData.get('name'));
+    const email = this.clean(formData.get('email'));
 
-    const originalLabel = this.button.textContent;
-    this.button.disabled = true;
-    this.button.textContent = 'Sending...';
-    this.setStatus('Sending...', false, false);
-    Analytics.track('contact_form_submit');
-
-    try {
-      const response = await fetch(this.form.action, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(new FormData(this.form)),
-      });
-      if (!response.ok) throw new Error(`Contact endpoint returned ${response.status}`);
-
-      this.form.reset();
-      this.setStatus('Request sent. GraNet will follow up soon.', false, false);
-      Analytics.track('contact_form_success');
-    } catch {
-      this.setUnavailable();
-      Analytics.track('contact_form_error');
-    } finally {
-      this.button.disabled = false;
-      this.button.textContent = originalLabel;
+    if (!name || !email) {
+      window.alert('Please fill in your name and email.');
+      return;
     }
+
+    const phone = this.clean(formData.get('phone')) || 'Not provided';
+    const message = this.clean(formData.get('message'));
+    const subject = encodeURIComponent(`GraNet Business Inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+    Analytics.track('contact_form_submit');
+    window.location.href = `mailto:support@granet.tech?subject=${subject}&body=${body}`;
   }
 
-  setStatus(message, isError, hidden) {
-    if (!this.status) return;
-    this.status.textContent = message;
-    this.status.hidden = hidden;
-    this.status.classList.toggle('error', Boolean(isError));
+  clean(value) {
+    return String(value || '').trim();
   }
 }
 
@@ -223,7 +194,9 @@ class Analytics {
 }
 
 document.documentElement.classList.add(READY_CLASS);
+BrowserMetadata.init();
 Analytics.init();
 new PanelSwitcher().init();
+window.GraNetCircuit?.init();
 new ClipboardCopy().init();
-new ContactForm().init();
+new MailtoContactForm().init();
