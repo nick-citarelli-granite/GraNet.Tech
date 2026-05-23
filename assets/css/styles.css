@@ -161,7 +161,6 @@ main { position: relative; z-index: 1; flex: 1; overflow: hidden; }
 .contact-card small { color: var(--muted); }
 .review-card { border-color: rgba(11,63,115,0.28); }
 .review-card strong { color: var(--blue-700); }
-.review-qr { width: min(132px,100%); aspect-ratio: 1; border: 1px solid var(--line); border-radius: 4px; background: var(--white); padding: 0.35rem; object-fit: contain; }
 .contact-card-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 .contact-card-actions a { text-decoration: none; }
 .copy-card-button { display: inline-flex; width: fit-content; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); color: var(--blue-700); cursor: pointer; font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; padding: 0.58rem 0.78rem; text-decoration: none; }
