@@ -10,7 +10,7 @@ Static homepage for GraNet State IT Solutions LLC.
 - `assets/img/` - site logo, Open Graph image, and PNG app icons.
 - `tools/check-site.ps1` - validates required files, local links, JavaScript syntax, and install metadata.
 
-Root files such as `CNAME`, `.nojekyll`, `favicon.ico`, `favicon.svg`, `site.webmanifest`, `robots.txt`, and `sitemap.xml` stay in the project root because GitHub Pages and browsers expect them there.
+Root files such as `CNAME`, `.nojekyll`, `favicon.ico`, `site.webmanifest`, `robots.txt`, and `sitemap.xml` stay in the project root because GitHub Pages and browsers expect them there.
 
 ## Check
 

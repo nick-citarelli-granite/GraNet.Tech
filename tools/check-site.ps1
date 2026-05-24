@@ -30,7 +30,6 @@ $requiredSourceFiles = @(
   "assets\js\circuit-background.js",
   "assets\js\app.js",
   "favicon.ico",
-  "favicon.svg",
   "assets\img\favicon-16x16.png",
   "assets\img\favicon-32x32.png",
   "assets\img\apple-touch-icon.png",
