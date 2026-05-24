@@ -34,7 +34,7 @@ $requiredSourceFiles = @(
   "assets\img\favicon-16x16.png",
   "assets\img\favicon-32x32.png",
   "assets\img\apple-touch-icon.png",
-  "assets\img\logo.svg",
+  "assets\img\logo.png",
   "assets\img\og-image.png",
   "CNAME",
   ".nojekyll",
