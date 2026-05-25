@@ -156,8 +156,8 @@ class MailtoContactForm {
     const name = this.clean(formData.get('name'));
     const email = this.clean(formData.get('email'));
 
-    if (!name || !email) {
-      window.alert('Please fill in your name and email.');
+    if (!name) {
+      window.alert('Please fill in your name.');
       return;
     }
 
