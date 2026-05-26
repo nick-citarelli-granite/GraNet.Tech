@@ -7,18 +7,18 @@
   justify-content: center;
 }
 
-.contact-info {
+.contact-header {
   display: flex;
-  gap: 10px;
   flex-direction: column;
+  gap: 10px;
   align-items: center;
 }
 
-.contact-info h1 {
+.contact-header h1 {
   font-size: 32px;
 }
 
-.contact-info h3 {
+.contact-header h3 {
   font-size: 18px;
   color: white;
   background: red;
@@ -27,7 +27,7 @@
   white-space: nowrap;
 }
 
-.contact-info h3::before {
+.contact-header h3::before {
   content: '';
   display: inline-block;
   width: 0;
@@ -37,7 +37,7 @@
   transform: translateX(-20px) translateY(-8px) rotate(15deg) scaleX(0.25);
 }
 
-.contact-info h3::after {
+.contact-header h3::after {
   content: '';
   display: inline-block;
   width: 0;
@@ -45,6 +45,12 @@
   outline: solid 15px;
   outline-color: white;
   transform: translateX(20px) translateY(-5px) rotate(15deg) scaleX(0.25);
+}
+
+.contact-info-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }
 
 .contact-buttons {
