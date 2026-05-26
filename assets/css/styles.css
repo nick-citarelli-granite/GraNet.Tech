@@ -192,13 +192,6 @@ main { position: relative; z-index: 1; flex: 1; overflow: hidden; }
 
 :focus-visible { outline: 3px solid rgba(25,118,189,0.55); outline-offset: 3px; }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.001ms !important; }
-  .circuit-signal { display: none; }
-  .circuit-node { animation: none !important; opacity: 0.42; filter: none; }
-  .brand span, .hero-brand span { animation: none !important; background-position: 50% 50%; }
-}
-
 @media (max-width: 920px) {
   .circuit-bg { inset: 0; }
   .circuit-art { --circuit-opacity: 0.78; }
