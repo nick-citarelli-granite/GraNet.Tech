@@ -140,44 +140,111 @@ class ClipboardCopy {
   }
 }
 
-class MailtoContactForm {
+class ContactApiForm {
   constructor() {
-    this.form = document.querySelector('[data-mailto-form]');
+    this.form = document.querySelector('[data-contact-form]');
+    this.endpoint = '/api/contact';
   }
 
   init() {
     if (!this.form) return;
+    this.button = this.form.querySelector('[type="submit"]');
+    this.status = this.form.querySelector('[data-contact-form-status]');
     this.form.addEventListener('submit', (event) => this.submit(event));
   }
 
-  submit(event) {
+  async submit(event) {
     event.preventDefault();
     const formData = new FormData(this.form);
     const name = this.clean(formData.get('name'));
     const email = this.clean(formData.get('email'));
+    const phone = this.clean(formData.get('phone'));
+    const message = this.clean(formData.get('message'));
+    const website = this.clean(formData.get('website'));
 
-    if (!name || !email) {
-      window.alert('Please fill in your name and email.');
+    const validationMessage = this.validate({ name, email, phone, message });
+    if (validationMessage) {
+      this.showStatus(validationMessage, 'error');
       return;
     }
 
-    const phone = this.clean(formData.get('phone')) || 'Not provided';
-    const message = this.clean(formData.get('message'));
-    const subject = encodeURIComponent(`GraNet Business Inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`);
+    this.setPending(true);
+    this.showStatus('Sending...', '');
 
-    Analytics.track('contact_form_submit');
-    window.location.href = `mailto:support@granet.tech?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch(this.endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          service: 'Website contact form',
+          message,
+          website
+        })
+      });
+
+      let result = null;
+      try {
+        result = await response.json();
+      } catch {
+        result = null;
+      }
+
+      if (!response.ok || result?.ok === false) {
+        throw new Error(result?.message || 'We could not send your request. Please call or email us instead.');
+      }
+
+      this.form.reset();
+      this.showStatus(result?.message || 'Contact request sent.', 'success');
+      Analytics.track(this.button?.dataset.analytics);
+    } catch (error) {
+      this.showStatus(error.message || 'We could not send your request. Please call or email us instead.', 'error');
+    } finally {
+      this.setPending(false);
+    }
   }
 
   clean(value) {
     return String(value || '').trim();
+  }
+
+  validate({ name, email, phone, message }) {
+    if (!name) return 'Please enter your name.';
+    if (name.length < 2) return 'Please enter at least 2 characters for your name.';
+    if (name.length > 100) return 'Please keep your name under 100 characters.';
+    if (!message) return 'Please tell us what you need.';
+    if (message.length < 10) return 'Please enter at least 10 characters in your message.';
+    if (message.length > 5000) return 'Please keep your message under 5000 characters.';
+    if (!email && !phone) return 'Please enter an email address or phone number.';
+    if (email.length > 254) return 'Please keep your email address under 254 characters.';
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please enter a valid email address or leave it blank.';
+    if (phone.length > 40) return 'Please keep your phone number under 40 characters.';
+    return '';
+  }
+
+  setPending(isPending) {
+    if (!this.button) return;
+    this.button.disabled = isPending;
+    this.button.textContent = isPending ? 'Sending...' : 'Send request';
+  }
+
+  showStatus(message, type) {
+    if (!this.status) return;
+    this.status.textContent = message;
+    this.status.classList.toggle('error', type === 'error');
+    this.status.classList.toggle('success', type === 'success');
   }
 }
 
 class Analytics {
   static init() {
     Dom.all('[data-analytics]').forEach((element) => {
+      if (element.matches('button[type="submit"], input[type="submit"]')) return;
       element.addEventListener('click', () => {
         Analytics.track(element.dataset.analytics);
       });
@@ -199,4 +266,4 @@ Analytics.init();
 new PanelSwitcher().init();
 window.GraNetCircuit?.init();
 new ClipboardCopy().init();
-new MailtoContactForm().init();
+new ContactApiForm().init();

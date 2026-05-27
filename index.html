@@ -361,30 +361,31 @@
             </a>
           </div>
 
-          <form class="contact-form" data-mailto-form>
+          <form class="contact-form" data-contact-form novalidate>
             <label class="field-trap" aria-hidden="true">
               <span>Website</span>
-              <input name="website" tabindex="-1" autocomplete="off" />
+              <input name="website" tabindex="-1" autocomplete="off" maxlength="100" />
             </label>
             <div class="form-grid">
               <label>
                 <span>Name</span>
-                <input id="contact_form_name" name="name" autocomplete="name" required />
+                <input id="contact_form_name" name="name" autocomplete="name" required minlength="2" maxlength="100" />
               </label>
               <label>
                 <span>Email</span>
-                <input id="contact_form_email" name="email" type="email" autocomplete="email" required />
+                <input id="contact_form_email" name="email" type="email" autocomplete="email" maxlength="254" />
               </label>
             </div>
             <label>
               <span>Phone</span>
-              <input id="contact_form_phone" name="phone" autocomplete="tel" />
+              <input id="contact_form_phone" name="phone" autocomplete="tel" maxlength="40" />
             </label>
             <label>
               <span>What do you need?</span>
-              <textarea id="contact_form_message" name="message" rows="4"></textarea>
+              <textarea id="contact_form_message" name="message" rows="4" required minlength="10" maxlength="5000"></textarea>
             </label>
-            <button class="form-submit" type="submit" data-analytics="contact_form_submit">Open email draft</button>
+            <button class="form-submit" type="submit" data-analytics="contact_form_submit">Send request</button>
+            <p class="form-status" data-contact-form-status role="status" aria-live="polite"></p>
             <p class="form-helper">No JavaScript? Call <a href="tel:+19782194427">(978) 219-4427</a> or email <a href="mailto:support@granet.tech?subject=GraNet.Tech%20support%20request">support@granet.tech</a>.</p>
           </form>
         </section>
@@ -405,6 +406,6 @@
 </footer>
 
 <script src="assets/js/circuit-background.js?v=trace-hero-signal-field-v12" defer></script>
-<script src="assets/js/app.js?v=trace-hero-signal-field-v12" defer></script>
+<script src="assets/js/app.js?v=contact-api-v2" defer></script>
 </body>
 </html>
