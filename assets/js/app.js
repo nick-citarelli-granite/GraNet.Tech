@@ -46,7 +46,8 @@ class PanelSwitcher {
     const selectedPanel = document.getElementById(panelId);
     const selectedTab = this.tabs.find((tab) => tab.dataset.panelTarget === panelId);
     if (!selectedPanel || !selectedTab) {
-      throw new Error(`Panel target not found: ${panelId}`);
+      console.warn(`Panel target not found: ${panelId}`);
+      return;
     }
 
     this.tabs.forEach((tab) => {
