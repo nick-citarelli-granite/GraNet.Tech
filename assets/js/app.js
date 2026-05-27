@@ -160,14 +160,13 @@ class ContactApiForm {
     const email = this.clean(formData.get('email'));
     const phone = this.clean(formData.get('phone'));
     const message = this.clean(formData.get('message'));
+    const website = this.clean(formData.get('website'));
 
     const validationMessage = this.validate({ name, email, phone, message });
     if (validationMessage) {
       this.showStatus(validationMessage, 'error');
       return;
     }
-
-    if (this.clean(formData.get('website'))) return;
 
     this.setPending(true);
     this.showStatus('Sending...', '');
@@ -184,7 +183,8 @@ class ContactApiForm {
           email,
           phone,
           service: 'Website contact form',
-          message
+          message,
+          website
         })
       });
 
@@ -215,9 +215,15 @@ class ContactApiForm {
 
   validate({ name, email, phone, message }) {
     if (!name) return 'Please enter your name.';
+    if (name.length < 2) return 'Please enter at least 2 characters for your name.';
+    if (name.length > 100) return 'Please keep your name under 100 characters.';
     if (!message) return 'Please tell us what you need.';
+    if (message.length < 10) return 'Please enter at least 10 characters in your message.';
+    if (message.length > 5000) return 'Please keep your message under 5000 characters.';
     if (!email && !phone) return 'Please enter an email address or phone number.';
+    if (email.length > 254) return 'Please keep your email address under 254 characters.';
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please enter a valid email address or leave it blank.';
+    if (phone.length > 40) return 'Please keep your phone number under 40 characters.';
     return '';
   }
 
