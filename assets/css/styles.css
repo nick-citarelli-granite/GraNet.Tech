@@ -90,7 +90,7 @@ h1, h2, h3, h4 { color: var(--black); font-family: var(--font-display); letter-s
 .noscript-banner a { color: var(--blue-700); font-weight: 700; }
 main { position: relative; z-index: 1; flex: 1; overflow: hidden; }
 
-.hero { position: relative; z-index: 1; overflow: hidden; padding: 4.1rem 0 1.2rem; background: linear-gradient(180deg,rgba(255,255,255,0.58) 0%,rgba(248,251,255,0.34) 72%,rgba(245,248,252,0) 100%); }
+.hero { position: relative; z-index: 1; padding: 4.1rem 0 1.2rem; background: linear-gradient(180deg,rgba(255,255,255,0.58) 0%,rgba(248,251,255,0.34) 72%,rgba(245,248,252,0) 100%); }
 .hero-bg { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg,rgba(255,255,255,0.26),rgba(255,255,255,0)); pointer-events: none; }
 .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(220px,0.65fr); gap: 2rem; align-items: center; }
 .hero-copy { position: relative; isolation: isolate; min-width: 0; }
