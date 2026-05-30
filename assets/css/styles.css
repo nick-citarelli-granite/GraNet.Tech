@@ -88,7 +88,7 @@ h1, h2, h3, h4 { color: var(--black); font-family: var(--font-display); letter-s
 
 .noscript-banner { background: #fff0f1; border-bottom: 1px solid rgba(214,40,57,0.25); color: var(--black); padding: 0.85rem 1rem; text-align: center; }
 .noscript-banner a { color: var(--blue-700); font-weight: 700; }
-main { position: relative; z-index: 1; flex: 1; overflow: hidden; }
+main { position: relative; z-index: 1; flex: 1; }
 
 .hero { position: relative; z-index: 1; padding: 4.1rem 0 1.2rem; background: linear-gradient(180deg,rgba(255,255,255,0.58) 0%,rgba(248,251,255,0.34) 72%,rgba(245,248,252,0) 100%); }
 .hero-bg { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg,rgba(255,255,255,0.26),rgba(255,255,255,0)); pointer-events: none; }
