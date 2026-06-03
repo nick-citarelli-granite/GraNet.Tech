@@ -117,6 +117,7 @@ main { position: relative; z-index: 1; flex: 1; }
 .service-console { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(180px,0.28fr) minmax(0,1fr); gap: 1rem; align-items: start; }
 .service-console::before { content: ''; position: absolute; inset: -1rem; z-index: -1; border-radius: 20px; background: radial-gradient(ellipse at 58% 42%, rgba(255,255,255,0.52), rgba(255,255,255,0.22) 58%, transparent 78%); pointer-events: none; }
 .panel-tabs { display: grid; grid-template-columns: 1fr; gap: 0.65rem; position: sticky; top: 5.2rem; }
+.panel-tabs > a { all: unset; text-decoration: none; display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
 .panel-tab { display: flex; min-height: 68px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 0.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); cursor: pointer; padding: 0.85rem 1rem; text-align: left; transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition), background var(--transition); }
 .panel-tab span { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
 .panel-tab small { color: var(--muted); font-size: 0.82rem; line-height: 1.35; }

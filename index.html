@@ -100,6 +100,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/styles.css" />
+<noscript><link rel="stylesheet" href="assets/css/no-javascript.css" /></noscript>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -114,7 +115,7 @@
 
 <noscript>
   <div class="noscript-banner">
-    JavaScript is disabled, so all service panels are shown below. Call or text <a href="tel:+19782199296">(978) 219-9296</a> or email <a href="mailto:support@granet.tech?subject=GraNet.Tech%20No%20JavaScript">support@granet.tech</a>.
+    Warning: JavaScript is disabled. Call or text <a href="tel:+19782199296">(978) 219-9296</a> or email <a href="mailto:support@granet.tech?subject=GraNet.Tech%20No%20JavaScript">support@granet.tech</a>.
   </div>
 </noscript>
 
@@ -151,21 +152,30 @@
 
       <div class="service-console">
         <div class="panel-tabs" aria-label="Service panels">
-          <button class="panel-tab active" type="button" aria-expanded="true" aria-controls="repair-panel" id="repair-toggle" data-panel-target="repair-panel" data-analytics="panel_repair">
+          <a href="#repair-panel">
+            <button class="panel-tab" type="button" aria-expanded="true" aria-controls="repair-panel" id="repair-toggle" data-panel-target="repair-panel" data-analytics="panel_repair">
             <span>Repair &amp; Hourly</span>
           </button>
+          </a>
+          <a href="#business-panel">
           <button class="panel-tab" type="button" aria-expanded="false" aria-controls="business-panel" id="business-toggle" data-panel-target="business-panel" data-analytics="panel_business">
             <span>Business IT</span>
           </button>
+          </a>
+          <a href="#web-panel">
           <button class="panel-tab" type="button" aria-expanded="false" aria-controls="web-panel" id="web-toggle" data-panel-target="web-panel" data-analytics="panel_web">
             <span>Web &amp; Programming</span>
           </button>
+          </a>
+          <a href="#contact-panel">
           <button class="panel-tab emergency-tab" type="button" aria-expanded="false" aria-controls="contact-panel" id="contact-toggle" data-panel-target="contact-panel" data-analytics="panel_contact">
             <span>Contact</span>
           </button>
+          </a>
         </div>
 
         <div class="panel-stage">
+
         <section class="info-panel open" id="repair-panel" aria-labelledby="repair-toggle">
           <div class="panel-intro">
             <p class="panel-kicker">Hourly service</p>

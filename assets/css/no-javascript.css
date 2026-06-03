@@ -1,0 +1,39 @@
+/* These styles are used if there's no javascript */
+
+html {
+  scroll-padding-top: 85px;
+}
+
+/******************************************************************************/
+/*                             Panel display logic                            */
+/******************************************************************************/
+
+section.info-panel {
+  display: none;
+}
+
+section.info-panel:target {
+  display: block;
+}
+
+:root:not(:has(section.info-panel:target)) section.info-panel.open {
+  display: block;
+}
+
+/******************************************************************************/
+/*                         Side button coloring logic                         */
+/******************************************************************************/
+
+:root:has(#repair-panel:target) #repair-toggle,
+:root:has(#business-panel:target) #business-toggle,
+:root:has(#web-panel:target) #web-toggle {
+  background: linear-gradient(135deg,var(--blue-700),var(--black));
+  color: var(--white);
+}
+
+:root:has(#contact-panel:target) #contact-toggle {
+  background: linear-gradient(135deg, var(--red-500), var(--red-600));
+  color: var(--white);
+}
+
+/******************************************************************************/
