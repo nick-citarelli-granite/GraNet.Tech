@@ -8,9 +8,17 @@
   --border: #d9e2ee;
   --bg: #f5f8fc;
   --white: #ffffff;
+  --black: #07111f;
+  --blue-700: #0b3f73;
+  --red-600: #d62839;
   --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
   --radius: 10px;
   --max: 1180px;
+}
+
+@keyframes brandVisor {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 * {
@@ -81,6 +89,15 @@ a {
 
 .brand .blue {
   color: var(--navy);
+}
+
+.brand span {
+  background: linear-gradient(105deg, var(--black) 0%, var(--blue-700) 28%, #8fc7f0 42%, var(--blue-700) 54%, var(--red-600) 74%, #f09aaa 86%, var(--black) 100%);
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: brandVisor 11s ease-in-out infinite alternate;
 }
 
 .nav {
