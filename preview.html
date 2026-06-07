@@ -167,18 +167,19 @@
         <form class="contact-form" action="/contact" method="post">
           <div class="form-row">
             <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
           </div>
 
-          <div class="form-row">
-            <input type="tel" name="phone" placeholder="Phone Number">
+          <input type="email" name="email" placeholder="Email Address" required>
+
+          <!-- <div class="form-row">
             <select name="contact_method">
               <option value="">Preferred Contact Method</option>
               <option value="phone">Phone</option>
               <option value="text">Text</option>
               <option value="email">Email</option>
             </select>
-          </div>
+          </div> -->
 
           <textarea name="message" placeholder="How can we help you?" required></textarea>
 
