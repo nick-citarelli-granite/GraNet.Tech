@@ -146,21 +146,18 @@
           or schedule a time that works for you.
         </p>
 
-        <!--
-          Static HTML warning:
-          This form needs a backend endpoint to actually send.
-          Options:
-          1. Change action="/contact" to your server endpoint.
-          2. Use Formspree/Basin/Netlify Forms.
-          3. Use mailto:, but that is less reliable.
-        -->
-        <form class="contact-form" action="/contact" method="post">
+        <form class="contact-form" data-contact-form novalidate>
+
           <div class="form-row">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="tel" name="phone" placeholder="Phone Number">
           </div>
 
-          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="email" name="email" placeholder="Email Address">
+
+          <div class="website-field" aria-hidden="true">
+            <input name="website" placeholder="Website" tabindex="-1" autocomplete="off" maxlength="100" />
+          </div>
 
           <!-- <div class="form-row">
             <select name="contact_method">
@@ -174,6 +171,7 @@
           <textarea name="message" placeholder="How can we help you?" required></textarea>
 
           <button class="btn primary" type="submit">➤ Send Message</button>
+          <p class="form-status" data-contact-form-status role="status"></p>
         </form>
       </div>
 
@@ -236,5 +234,6 @@
   </footer>
 
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="assets/js/new-app.js" defer></script>
 </body>
 </html>

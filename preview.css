@@ -483,6 +483,29 @@ textarea {
   resize: vertical;
 }
 
+.form-status {
+  display: none;
+  font-weight: 700;
+  margin: 0;
+}
+
+.form-status.success {
+  display: block;
+  color: var(--blue-700);
+}
+
+.form-status.error {
+  display: block;
+  color: var(--red-600);
+}
+
+.website-field {
+  position: absolute;
+  left: -100vw;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .calendar-card h3 {
   margin: 0 0 12px;
   font-size: 1.55rem;
