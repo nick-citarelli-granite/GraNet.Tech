@@ -430,7 +430,7 @@ a {
   min-height: 245px;
   background:
     linear-gradient(rgba(8, 29, 55, 0.08), rgba(8, 29, 55, 0.08)),
-    url("./assets/img/about-image.png") center/cover;
+    url("../img/about-image.png") center/cover;
 }
 
 .contact {
