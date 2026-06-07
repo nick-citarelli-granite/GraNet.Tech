@@ -465,7 +465,7 @@ a {
   min-height: 245px;
   background:
     linear-gradient(rgba(8, 29, 55, 0.08), rgba(8, 29, 55, 0.08)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=80") center/cover;
+    url("./assets/img/about-image.png") center/cover;
 }
 
 .contact {
