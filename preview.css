@@ -300,7 +300,7 @@ a {
 
 .services-layout {
   display: grid;
-  grid-template-columns: 255px 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: start;
 }
@@ -311,30 +311,6 @@ a {
   line-height: 1;
   letter-spacing: -0.055em;
   color: var(--text);
-}
-
-.side-tabs {
-  display: grid;
-  gap: 12px;
-}
-
-.side-tab {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 20px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--white);
-  font-weight: 900;
-  color: var(--navy);
-  text-decoration: none;
-}
-
-.side-tab.active {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: var(--white);
 }
 
 .content-card {
@@ -365,7 +341,6 @@ a {
 .content-card > p {
   color: var(--muted);
   margin: 13px 0 28px;
-  max-width: 760px;
 }
 
 .service-grid {
@@ -609,10 +584,6 @@ textarea {
   }
 
   .deal-card {
-    grid-template-columns: 1fr;
-  }
-
-  .services-layout {
     grid-template-columns: 1fr;
   }
 
