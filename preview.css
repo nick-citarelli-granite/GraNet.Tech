@@ -160,8 +160,7 @@ a {
   max-width: var(--max);
   margin: 0 auto;
   padding: 58px 24px 26px;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  display: flex;
   align-items: center;
   gap: 42px;
 }
@@ -215,7 +214,7 @@ a {
 }
 
 .hero-logo img {
-  width: min(420px, 90%);
+  width: 420px;
   height: auto;
   filter: drop-shadow(0 25px 40px rgba(7, 29, 55, 0.11));
 }
@@ -558,7 +557,10 @@ textarea {
     display: none;
   }
 
-  .hero,
+  .hero {
+    flex-direction: column-reverse;
+  }
+
   .about,
   .contact {
     grid-template-columns: 1fr;
@@ -566,6 +568,10 @@ textarea {
 
   .hero-logo {
     min-height: auto;
+  }
+
+  .hero-logo img {
+    width: 180px;
   }
 
   .deal-card {
