@@ -399,24 +399,9 @@ a {
 
 .about-copy {
   display: grid;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns:1fr;
   gap: 20px;
   align-items: start;
-}
-
-.round-icon {
-  visibility: hidden;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white);
-  border: 1px solid var(--border);
-  color: var(--navy);
-  font-size: 1.45rem;
-  box-shadow: var(--shadow);
 }
 
 .about h2,
@@ -642,10 +627,6 @@ textarea {
   }
 
   .service-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-copy {
     grid-template-columns: 1fr;
   }
 
