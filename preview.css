@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
 }
 
 body {
@@ -634,6 +635,10 @@ textarea {
 }
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+
   .nav-wrap {
     padding: 14px 18px;
   }
