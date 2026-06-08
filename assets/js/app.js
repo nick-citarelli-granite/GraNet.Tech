@@ -1,16 +1,22 @@
 class ContactApiForm {
+
   constructor() {
     /** @type {HTMLFormElement} */
     this.form = document.querySelector('[data-contact-form]');
+
     /** @type {string} */
     this.endpoint = '/api/contact';
   }
 
   init() {
     if (!this.form) return;
+
     /** @type {HTMLButtonElement} */
     this.button = this.form.querySelector('[type="submit"]');
+
+    /** @type {HTMLElement} */
     this.status = this.form.querySelector('[data-contact-form-status]');
+
     this.form.addEventListener('submit', (event) => this.submit(event));
   }
 
@@ -34,6 +40,7 @@ class ContactApiForm {
 
     this.setPending(true);
     this.showStatus('Sending...', '');
+    const defaultErrorMessage = 'We could not send your request. Please call or email us instead.';
 
     try {
       const response = await fetch(this.endpoint, {
@@ -60,13 +67,13 @@ class ContactApiForm {
       }
 
       if (!response.ok || result?.ok === false) {
-        throw new Error(result?.message || 'We could not send your request. Please call or email us instead.');
+        throw new Error(result?.message || defaultErrorMessage);
       }
 
       this.form.reset();
       this.showStatus(result?.message || 'Contact request sent.', 'success');
     } catch (error) {
-      this.showStatus(error.message || 'We could not send your request. Please call or email us instead.', 'error');
+      this.showStatus(error.message || defaultErrorMessage, 'error');
     } finally {
       this.setPending(false);
     }
@@ -80,6 +87,10 @@ class ContactApiForm {
     return String(value || '').trim();
   }
 
+  /**
+   * @param {{name: string, email: string, phone: string, message: string}}
+   * @returns {string}
+   */
   validate({ name, email, phone, message }) {
     if (!name) return 'Please enter your name.';
     if (name.length < 2) return 'Please enter at least 2 characters for your name.';
@@ -94,6 +105,9 @@ class ContactApiForm {
     return '';
   }
 
+  /**
+   * @param {boolean} isPending
+   */
   setPending(isPending) {
     if (!this.button) return;
     this.button.disabled = isPending;
@@ -102,7 +116,7 @@ class ContactApiForm {
 
   /**
    * @param {string} message
-   * @param {'error' | 'success'} type
+   * @param {'error' | 'success' | ''} type
    */
   showStatus(message, type) {
     if (!this.status) return;
