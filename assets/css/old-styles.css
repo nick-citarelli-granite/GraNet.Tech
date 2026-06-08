@@ -79,7 +79,7 @@ h1, h2, h3, h4 { color: var(--black); font-family: var(--font-display); letter-s
 .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--black); color: var(--white); padding: 0.7rem 1rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; }
 .skip-link:focus { top: 1rem; }
 
-.site-header { position: sticky; top: 0; z-index: 10; display: flex; width: 100%; min-width: 0; align-items: center; gap: 1rem; padding: 0.85rem 2.5rem; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; width: 100%; min-width: 0; align-items: center; gap: 1rem; padding: 0.85rem 2.5rem; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 .brand { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--black); font-family: var(--font-display); font-size: clamp(1.25rem,2vw,1.7rem); font-weight: 700; line-height: 1; text-decoration: none; }
 .brand img { display: block; width: 44px; height: auto; mix-blend-mode: multiply; }
 .brand span, .hero-brand span { background: linear-gradient(105deg,var(--black) 0%,var(--blue-700) 28%,#8fc7f0 42%,var(--blue-700) 54%,var(--red-600) 74%,#f09aaa 86%,var(--black) 100%); background-size: 240% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: brandVisor 11s ease-in-out infinite alternate; }
