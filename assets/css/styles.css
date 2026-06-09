@@ -666,6 +666,14 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .contact-card.calendar-card {
+    padding: 0;
+  }
+
+  .calendar-card-heading {
+    padding: 30px;
+  }
+
   .footer-wrap {
     grid-template-columns: 1fr;
   }
