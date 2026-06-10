@@ -48,11 +48,6 @@
   stroke-width: 0.98;
 }
 
-.circuit-trace.branch {
-  stroke: rgba(8, 42, 78, 0.13);
-  stroke-width: 0.9;
-}
-
 .circuit-signal {
   opacity: 0;
   stroke: rgba(30, 110, 180, 0.34);
