@@ -325,10 +325,6 @@
    * @typedef {{
    *  width: number,
    *  height: number,
-   *  rects: {
-   *    main: DOMRect,
-   *    logo: NormalizeRect,
-   *  },
    *  protectedZones: [],
    *  sourceHalo: SourceHalo,
    * }} Geometry
@@ -341,10 +337,7 @@
     if (!els.main || !els.mainRect) return null;
     if (!els.logo) return null;
 
-    const rects = {
-      main: els.mainRect,
-      logo: rectRelativeToMain(els.logo, els.mainRect),
-    };
+    const logoRect = rectRelativeToMain(els.logo, els.mainRect);
 
     // TODO: See if all code related to protectedZones can be deleted
     const protectedZones = [];
@@ -352,9 +345,8 @@
     return {
       width: els.mainRect.width,
       height: els.mainRect.height,
-      rects,
       protectedZones,
-      sourceHalo: makeSourceHalo(rects.logo, mode),
+      sourceHalo: makeSourceHalo(logoRect, mode),
     };
   }
 
