@@ -301,10 +301,10 @@
 
   /**
    * @typedef {{
-   *    x: number,
-   *    y: number,
-   *    radius: number,
-   *    innerRadius: number,
+   *  x: number,
+   *  y: number,
+   *  radius: number,
+   *  innerRadius: number,
    * }} SourceHalo
    *
    * @param {NormalizeRect} logoRect
@@ -323,14 +323,14 @@
 
   /**
    * @typedef {{
-   *    width: number,
-   *    height: number,
-   *    rects: {
-   *      main: DOMRect,
-   *      logo: NormalizeRect,
-   *    },
-   *    protectedZones: [],
-   *    sourceHalo: SourceHalo,
+   *  width: number,
+   *  height: number,
+   *  rects: {
+   *    main: DOMRect,
+   *    logo: NormalizeRect,
+   *  },
+   *  protectedZones: [],
+   *  sourceHalo: SourceHalo,
    * }} Geometry
    *
    * @param {Mode} mode
