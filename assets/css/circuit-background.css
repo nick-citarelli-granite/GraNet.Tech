@@ -9,16 +9,6 @@
   pointer-events: none;
 }
 
-.circuit-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  /* background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(245, 248, 252, 0.2)),
-    radial-gradient(circle at 66% 24%, rgba(30, 110, 180, 0.13), transparent 25%),
-    radial-gradient(circle at 70% 58%, rgba(210, 35, 55, 0.04), transparent 28%); */
-}
-
 .circuit-bg svg {
   display: block;
   width: 100%;
