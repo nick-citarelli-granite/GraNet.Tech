@@ -1,24 +1,12 @@
 (() => {
   'use strict';
 
-  const TRACE_VERSION = 'trace-hero-signal-field-v12';
   const SVG_NS = 'http://www.w3.org/2000/svg';
 
   const SELECTORS = {
     host: '[data-circuit-bg]',
     main: 'body',
-    // header: '.site-header',
     logo: '.hero-logo img',
-    // heroCopy: '.hero-copy',
-    // heroTextContent: '.hero-brand, .hero h1, .hero-text',
-    // ctaRow: '.hero-contact',
-    // ctaItems: '.hero-contact a',
-    // servicesHeading: '.switcher-heading h2',
-    // serviceTabs: '.panel-tabs',
-    // serviceTabItems: '.panel-tab',
-    // servicePanel: '.info-panel.open',
-    // panelContent: '.info-panel.open .panel-intro h3, .info-panel.open .panel-intro p, .info-panel.open .price-range, .info-panel.open h4, .info-panel.open .plan-price, .info-panel.open .price-list, .info-panel.open .inline-contact strong, .info-panel.open .inline-contact-actions, .info-panel.open .contact-card strong, .info-panel.open .contact-card-actions, .info-panel.open .contact-form label, .info-panel.open .form-submit, .info-panel.open .form-helper',
-    // footer: 'footer',
   };
 
   const BREAKPOINTS = {
@@ -33,7 +21,6 @@
       longPassRatio: 0.7,
       preferredOutsideHalo: 150,
       minSpacing: 12,
-      branchEvery: 5,
       nodeEvery: 2,
     },
     tablet: {
@@ -42,7 +29,6 @@
       longPassRatio: 0.7,
       preferredOutsideHalo: 110,
       minSpacing: 10,
-      branchEvery: 6,
       nodeEvery: 2,
     },
     mobile: {
@@ -51,7 +37,6 @@
       longPassRatio: 0.68,
       preferredOutsideHalo: 56,
       minSpacing: 8,
-      branchEvery: 7,
       nodeEvery: 3,
     },
   };
@@ -136,21 +121,6 @@
       bottom: rect.bottom - mainRect.top,
     });
   }
-
-  // function textRectRelativeToMain(element, mainRect) {
-  //   if (!element || !element.firstChild) return rectRelativeToMain(element, mainRect);
-  //   const range = document.createRange();
-  //   range.selectNodeContents(element);
-  //   const rect = range.getBoundingClientRect();
-  //   range.detach();
-  //   if (!rect.width || !rect.height) return rectRelativeToMain(element, mainRect);
-  //   return normalizeRect({
-  //     left: rect.left - mainRect.left,
-  //     right: rect.right - mainRect.left,
-  //     top: rect.top - mainRect.top,
-  //     bottom: rect.bottom - mainRect.top,
-  //   });
-  // }
 
   /**
    * @typedef {{
@@ -325,24 +295,9 @@
     return {
       main,
       mainRect: main?.getBoundingClientRect(),
-      // header: document.querySelector(SELECTORS.header),
       logo: document.querySelector(SELECTORS.logo),
-      // heroCopy: document.querySelector(SELECTORS.heroCopy),
-      // heroTextContent: Array.from(document.querySelectorAll(SELECTORS.heroTextContent)),
-      // ctaRow: document.querySelector(SELECTORS.ctaRow),
-      // ctaItems: Array.from(document.querySelectorAll(SELECTORS.ctaItems)),
-      // servicesHeading: document.querySelector(SELECTORS.servicesHeading),
-      // serviceTabs: document.querySelector(SELECTORS.serviceTabs),
-      // serviceTabItems: Array.from(document.querySelectorAll(SELECTORS.serviceTabItems)),
-      // servicePanel: document.querySelector(SELECTORS.servicePanel),
-      // panelContent: Array.from(document.querySelectorAll(SELECTORS.panelContent)),
-      // footer: document.querySelector(SELECTORS.footer),
     };
   }
-
-  // function rectsFor(elements, mainRect) {
-  //   return elements.map((element) => rectRelativeToMain(element, mainRect)).filter(Boolean);
-  // }
 
   /**
    * @typedef {{
@@ -374,6 +329,7 @@
    *      main: DOMRect,
    *      logo: NormalizeRect,
    *    },
+   *    protectedZones: [],
    *    sourceHalo: SourceHalo,
    * }} Geometry
    *
@@ -387,29 +343,11 @@
 
     const rects = {
       main: els.mainRect,
-      // header: rectRelativeToMain(els.header, els.mainRect),
       logo: rectRelativeToMain(els.logo, els.mainRect),
-      // heroCopy: rectRelativeToMain(els.heroCopy, els.mainRect),
-      // heroTextContent: rectsFor(els.heroTextContent, els.mainRect),
-      // ctaRow: rectRelativeToMain(els.ctaRow, els.mainRect),
-      // ctaItems: rectsFor(els.ctaItems, els.mainRect),
-      // servicesHeading: textRectRelativeToMain(els.servicesHeading, els.mainRect),
-      // serviceTabs: rectRelativeToMain(els.serviceTabs, els.mainRect),
-      // serviceTabItems: rectsFor(els.serviceTabItems, els.mainRect),
-      // servicePanel: rectRelativeToMain(els.servicePanel, els.mainRect),
-      // panelContent: rectsFor(els.panelContent, els.mainRect),
-      // footer: rectRelativeToMain(els.footer, els.mainRect),
     };
 
-    const protectedZones = [
-      // expandRect(rects.header, 8),
-      // ...rects.heroTextContent.map((rect) => expandRect(rect, 8)),
-      // ...rects.ctaItems.map((rect) => expandRect(rect, 6)),
-      // expandRect(rects.servicesHeading, 2),
-      // ...rects.serviceTabItems.map((rect) => expandRect(rect, 8)),
-      // ...rects.panelContent.map((rect) => expandRect(rect, 6)),
-      // expandRect(rects.footer, 12),
-    ]//.filter((rect) => rect && rect.w > 0 && rect.h > 0);
+    // TODO: See if all code related to protectedZones can be deleted
+    const protectedZones = [];
 
     return {
       width: els.mainRect.width,
@@ -764,33 +702,6 @@
     return distance(point, halo) <= halo.radius;
   }
 
-  // function addBranchStub(route, routeIndex, geometry, mode) {
-  //   if (routeIndex % CONFIG[mode].branchEvery !== 0 || route.points.length < 2) return null;
-  //   const segmentStart = route.points[Math.max(0, route.points.length - 2)];
-  //   const segmentEnd = route.points[route.points.length - 1];
-  //   const dx = segmentEnd.x - segmentStart.x;
-  //   const dy = segmentEnd.y - segmentStart.y;
-  //   const segmentLength = Math.hypot(dx, dy);
-  //   if (segmentLength < 60) return null;
-
-  //   const unit = { x: dx / segmentLength, y: dy / segmentLength };
-  //   const perp = { x: -unit.y, y: unit.x };
-  //   const base = {
-  //     x: segmentStart.x + dx * 0.62,
-  //     y: segmentStart.y + dy * 0.62,
-  //   };
-  //   const sign = routeIndex % 2 === 0 ? 1 : -1;
-  //   const length = mode === 'mobile' ? 18 : 28;
-  //   const branch = [
-  //     base,
-  //     { x: base.x + perp.x * sign * length, y: base.y + perp.y * sign * length },
-  //   ];
-
-  //   if (routeCrossesProtectedZone(branch, geometry.protectedZones)) return null;
-  //   if (branch[1].x < 0 || branch[1].x > geometry.width || branch[1].y < 0 || branch[1].y > geometry.height) return null;
-  //   return branch;
-  // }
-
   /**
    * @param {Point[]} points
    * @param {DOMRect[]} zones
@@ -978,9 +889,7 @@
         points,
         visibleSegments,
         kind: routeKind(spec, routes.length),
-        branch: null,
       };
-      // route.branch = addBranchStub(route, routes.length, geometry, mode);
       routes.push(route);
       endpoints.push(points[points.length - 1]);
     }
@@ -1057,7 +966,6 @@
       focusable: 'false',
     });
     svg.classList.add('circuit-art', `circuit-mode-${mode}`);
-    svg.dataset.traceVersion = TRACE_VERSION;
 
     const baseGroup = svgEl('g', { class: 'signal-base' });
     const pulseGroup = svgEl('g', { class: 'signal-pulses' });
@@ -1071,12 +979,6 @@
           pathLength: '1',
         }));
       });
-
-      if (route.branch) {
-        makeVisibleSegments(route.branch, geometry.protectedZones, mode).forEach((segment) => {
-          baseGroup.append(pathEl(segment, 'circuit-trace branch'));
-        });
-      }
 
       if (index % CONFIG[mode].nodeEvery === 0) {
         const lastSegment = route.visibleSegments[route.visibleSegments.length - 1];
@@ -1098,7 +1000,6 @@
    */
   function renderDebugOverlay(svg, geometry, plan) {
     const debugGroup = svgEl('g', { class: 'circuit-debug-layer' });
-    geometry.protectedZones.forEach((zone) => debugGroup.append(rectEl(zone, 'debug-zone')));
     debugGroup.append(circleEl(geometry.sourceHalo.x, geometry.sourceHalo.y, geometry.sourceHalo.radius, 'debug-source-halo'));
     plan.endpoints.forEach((point) => debugGroup.append(circleEl(point.x, point.y, 4, 'debug-terminal')));
     svg.append(debugGroup);
@@ -1114,7 +1015,6 @@
     const panel = document.createElement('div');
     panel.id = 'circuit-debug-panel';
     panel.textContent = [
-      TRACE_VERSION,
       mode,
       `routes ${plan.routes.length}`,
       `protected ${plan.stats.protected}`,
