@@ -41,7 +41,7 @@ body {
   line-height: 1.55;
 }
 
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -52,7 +52,7 @@ body::before {
     linear-gradient(60deg, transparent 0 47%, rgba(30, 91, 150, 0.12) 48%, transparent 49%);
   background-size: 220px 220px;
   z-index: -1;
-}
+} */
 
 a {
   color: inherit;
