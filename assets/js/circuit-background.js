@@ -124,16 +124,16 @@
 
   /**
    * @typedef {{
-   *  x: number
-   *  y: number
-   *  w: number
-   *  h: number
-   *  left: number
-   *  right: number
-   *  top: number
-   *  bottom: number
-   *  cx: number
-   *  cy: number
+   *  x: number,
+   *  y: number,
+   *  w: number,
+   *  h: number,
+   *  left: number,
+   *  right: number,
+   *  top: number,
+   *  bottom: number,
+   *  cx: number,
+   *  cy: number,
    * }} NormalizeRect
    *
    * @param {DOMRect} rect
@@ -334,8 +334,7 @@
    */
   function measurePageGeometry(mode) {
     const els = collectElements();
-    if (!els.main || !els.mainRect) return null;
-    if (!els.logo) return null;
+    if (!els.main || !els.mainRect || !els.logo) return null;
 
     const logoRect = rectRelativeToMain(els.logo, els.mainRect);
 
