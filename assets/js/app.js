@@ -24,10 +24,9 @@ class ContactApiForm {
       if (event.origin !== "https://calendly.com") return;
 
       if (event.data?.event === "calendly.event_scheduled") {
-        // setTimeout(() => {
-        //   window.location.href = "../thank-you/?method=schedule";
-        // }, 1000);
-        console.log('Thank you for scheduling.');
+        setTimeout(() => {
+          window.location.href = "../thank-you/?method=schedule";
+        }, 1000);
       }
     });
   }
