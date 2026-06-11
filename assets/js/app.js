@@ -18,6 +18,18 @@ class ContactApiForm {
     this.status = this.form.querySelector('[data-contact-form-status]');
 
     this.form.addEventListener('submit', (event) => this.submit(event));
+
+    // Listen for calendly event scheduled
+    window.addEventListener("message", (event) => {
+      if (event.origin !== "https://calendly.com") return;
+
+      if (event.data?.event === "calendly.event_scheduled") {
+        // setTimeout(() => {
+        //   window.location.href = "../thank-you/?method=schedule";
+        // }, 1000);
+        console.log('Thank you for scheduling.');
+      }
+    });
   }
 
   /**
@@ -72,6 +84,10 @@ class ContactApiForm {
 
       this.form.reset();
       this.showStatus(result?.message || 'Contact request sent.', 'success');
+
+      setTimeout(() => {
+        window.location.href = "../thank-you/?method=contact";
+      }, 1000);
     } catch (error) {
       this.showStatus(error.message || defaultErrorMessage, 'error');
     } finally {
