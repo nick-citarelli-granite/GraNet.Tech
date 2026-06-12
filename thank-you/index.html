@@ -139,11 +139,22 @@
 
   <script>
     (() => {
-      if (new URLSearchParams(window.location.search).get('method') === 'schedule') {
-        document.title = 'Thank You for Scheduling | GraNet IT Solutions';
-        document.getElementById('thank-you-status').textContent = 'Appointment Scheduled';
-        document.getElementById('thank-you-title').textContent = 'Thank you for scheduling with us!';
-        document.getElementById('thank-you-message').textContent = 'Your consultation request has been received. We\'ll see you at the scheduled time and help sort out the next best step.';
+      const method = new URLSearchParams(window.location.search).get('method');
+
+      switch (method) {
+        case 'schedule':
+          document.title = 'Thank You for Scheduling | GraNet IT Solutions';
+          document.getElementById('thank-you-status').textContent = 'Appointment Scheduled';
+          document.getElementById('thank-you-title').textContent = 'Thank you for scheduling with us!';
+          document.getElementById('thank-you-message').textContent = 'Your consultation request has been received. We\'ll see you at the scheduled time and help sort out the next best step.';
+          break;
+        case 'payment':
+          document.title = 'Thank You for choosing us! | GraNet IT Solutions';
+          document.getElementById('thank-you-status').textContent = 'Payment Received';
+          document.getElementById('thank-you-title').textContent = 'Thank you for choosing us!';
+          document.getElementById('thank-you-message').textContent = 'Your payment has been received. We hope you\'ve enjoyed using us!';
+        case 'contact':
+          break;
       }
 
       const count = document.getElementById("redirect-count");
@@ -151,12 +162,15 @@
       let seconds = 10;
 
       const countDownInterval = window.setInterval(() => {
-        --seconds;
-        if (seconds > 0) {
+        if (--seconds > 0) {
           count.textContent = seconds;
           seconds_field.textContent = seconds === 1 ? 'second' : 'seconds';
-        } else {
-          clearInterval(countDownInterval);
+          return;
+        }
+
+        clearInterval(countDownInterval);
+
+        if (new URLSearchParams(window.location.search).get('debug') !== 'true') {
           window.location.href = '../';
         }
       }, 1000);
