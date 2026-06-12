@@ -1076,7 +1076,7 @@
      */
     freezeLayerSize(geometry) {
       this.host.style.bottom = 'auto';
-      this.host.style.height = `${Math.ceil(geometry.height)}px`;
+      this.host.style.height = `${Math.floor(geometry.height)}px`;
     }
   }
 
