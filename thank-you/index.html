@@ -139,23 +139,37 @@
 
   <script>
     (() => {
-      const method = new URLSearchParams(window.location.search).get('method');
+      const method = new URLSearchParams(window.location.search).get('method') ?? 'contact';
 
-      switch (method) {
-        case 'schedule':
-          document.title = 'Thank You for Scheduling | GraNet IT Solutions';
-          document.getElementById('thank-you-status').textContent = 'Appointment Scheduled';
-          document.getElementById('thank-you-title').textContent = 'Thank you for scheduling with us!';
-          document.getElementById('thank-you-message').textContent = 'Your consultation request has been received. We\'ll see you at the scheduled time and help sort out the next best step.';
-          break;
-        case 'payment':
-          document.title = 'Thank You for choosing us! | GraNet IT Solutions';
-          document.getElementById('thank-you-status').textContent = 'Payment Received';
-          document.getElementById('thank-you-title').textContent = 'Thank you for choosing us!';
-          document.getElementById('thank-you-message').textContent = 'Your payment has been received. We hope you\'ve enjoyed using us!';
-        case 'contact':
-          break;
-      }
+      const documentData = {
+         'schedule': {
+          'thank-you-form-title': 'Thank You for Scheduling | Granet IT Solutions',
+          'thank-you-status': 'Appointment Scheduled',
+          'thank-you-title': 'Thank you for scheduling with us!',
+          'thank-you-message': 'Your consultation request has been received. We\'ll see you at the scheduled time and help sort out the next best step.'
+        },
+
+         'payment': {
+          'thank-you-form-title': 'Thank You for Your Payment | Granet IT Solutions',
+          'thank-you-status': 'Payment Received',
+          'thank-you-title': 'Thank you for choosing us!',
+          'thank-you-message': 'Your payment has been received. We hope you\'ve enjoyed using us!'
+        },
+
+        'contact': {
+          'thank-you-form-title': 'Thank You for Contacting Us | Granet IT Solutions',
+          'thank-you-status': 'Messaged Received',
+          'thank-you-title': 'Thank you for contacting us!',
+          'thank-you-message': 'Your message has been received. We\'ll review it and get back to you as soon as possible!'
+        },
+        
+      };
+
+      document.title = documentData[method]['thank-you-form-title'];
+      document.getElementById('thank-you-status').textContent = documentData[method]['thank-you-status'];
+      document.getElementById('thank-you-title').textContent = documentData[method]['thank-you-title'];
+      document.getElementById('thank-you-message').textContent = documentData[method]['thank-you-message'];
+
 
       const count = document.getElementById("redirect-count");
       const seconds_field = document.getElementById('seconds_field');
@@ -164,7 +178,7 @@
       const countDownInterval = window.setInterval(() => {
         if (--seconds > 0) {
           count.textContent = seconds;
-          seconds_field.textContent = seconds === 1 ? 'second' : 'seconds';
+          seconds_field.textContent = ((seconds === 1) ? 'second' : 'seconds');
           return;
         }
 
