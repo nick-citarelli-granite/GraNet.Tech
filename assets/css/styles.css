@@ -118,6 +118,7 @@ img {
   background-clip: text;
   color: transparent;
   animation: brandVisor 11s ease-in-out infinite alternate;
+  padding-right: 0.05em;
 }
 
 .nav {
