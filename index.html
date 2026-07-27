@@ -25,14 +25,13 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="#top">Home</a>
         <a href="/services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="#reviews">Reviews</a>
+        <button class="nav-contact-button" type="button" data-contact-open>Contact</button>
       </nav>
 
-      <!-- In case this link is needed in the future: https://calendly.com/granet-info/30min -->
-      <a class="btn dark header-cta" href="#book">
-        📅 Book a Free Consultation!
-      </a>
+      <button class="btn dark header-cta" type="button" data-contact-open>
+        Contact Us
+      </button>
     </div>
   </header>
 
@@ -63,55 +62,67 @@
       <div class="services-layout">
 
         <div class="content-card" id="content">
-          <h3>Small Business IT Solutions</h3>
+          <h3>Small Business Technology Services</h3>
+
+          <p>
+            GraNet helps local businesses manage, improve, and protect their technology—from ongoing IT support and cybersecurity to websites, repairs, and purchasing guidance.
+          </p>
 
           <div class="service-grid service-grid-home">
-            <a class="service-item service-card-link primary-service-item" href="services/#free-consultation">
-              <h4><span class="accent"><u>Always Free Consultation!</u></span></h4>
-              <p>Looking to upgrade, but unsure what to buy? Want the latest hardware, but can't spare the time to research, amidst everything you do day to day? <b>Schedule a 30 minute session with us, and let us do the research for you!</b></p>
-              <span class="text-link">Read the breakdown →</span>
+            <a class="service-item service-card-link" href="services/#managed-it-services">
+              <h4><u>Managed IT Services</u></h4>
+              <p>Proactive monitoring, maintenance, cybersecurity, Microsoft 365 administration, backups, employee support, and onsite assistance for a predictable monthly cost.</p>
+              <span class="text-link">Explore managed IT →</span>
             </a>
 
-            <a class="service-item service-card-link" href="services/#mobile-device-management">
-              <h4><u>Mobile Device Management</u> (MDM)</h4>
-              <p>From laptops to mobile phones, we handle it all. GraNet IT makes your complex spider web of devices sing like a well orchestrated harmony.</p>
-              <span class="text-link">View details →</span>
+            <a class="service-item service-card-link" href="services/#websites-and-hosting">
+              <h4><u>Websites and Hosting</u></h4>
+              <p>Professional business websites designed, hosted, maintained, and supported by a local technology partner who understands your company.</p>
+              <span class="text-link">View website services →</span>
             </a>
 
-            <a class="service-item service-card-link" href="services/#business-it-solutions">
-              <h4><u>Business IT Solutions</u><br>(MSP Services)</h4>
-              <p>On-site or remote help management for servers, firewalls, computers, laptops, etc. A one stop shop for everything IT, for a clear monthly rate.</p>
-              <span class="text-link">View details →</span>
+            <a class="service-item service-card-link" href="services/#computer-repair-it-projects">
+              <h4><u>Computer Repair and IT Projects</u></h4>
+              <p>Remote and onsite troubleshooting, repairs, upgrades, migrations, networking, device deployments, and one-time technology projects.</p>
+              <span class="text-link">View repair and project services →</span>
             </a>
 
-            <a class="service-item service-card-link" href="services/#hourly-services">
-              <h4><u>Hourly Services</u></h4>
-              <p>Expense forward? Cost sensitive? We have hourly rates for one off IT jobs, or for smaller businesses whose IT needs don't require explicit monthly IT services.</p>
-              <span class="text-link">View details →</span>
+            <a class="service-item service-card-link" href="services/#technology-purchasing-consulting">
+              <h4><u>Technology Purchasing and Consulting</u></h4>
+              <p>Practical guidance on computers, servers, networking equipment, software, phones, and other business technology—so you buy the right equipment the first time.</p>
+              <span class="text-link">Get purchasing advice →</span>
             </a>
+          </div>
+
+          <div class="consultation-callout">
+            <div>
+              <h4>Complimentary Technology Consultation</h4>
+              <p>Not sure where to start? Talk with us about your IT support, website, cybersecurity concerns, computer problems, or upcoming technology purchases.</p>
+            </div>
+            <button class="text-link inline-button" type="button" data-contact-open>Schedule a consultation →</button>
           </div>
 
         </div>
       </div>
     </section>
 
-    <section class="section about" id="about">
-      <div class="about-copy">
-        <div>
-          <h2>About Us</h2>
-
-            <h3>Mission</h3>
-            <p>
-              Our mission is to provide superb IT support to new and existing
-              small businesses and residential customers throughout the New England
-              region by delivering reliable technology solutions, honest guidance,
-              responsive service, and practical long-term support that keeps technology
-              simple, dependable, and stress-free.
-            </p>
-        </div>
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="reviews-heading">
+        <div class="card-eyebrow">Google Reviews</div>
+        <h2 id="reviews-title">See GraNet on Google.</h2>
+        <p>
+          Read the latest customer feedback directly on GraNet IT Solutions LLC's Google Business Profile.
+        </p>
       </div>
 
-      <div class="about-image" role="img" aria-label="Southern New Hampshire landscape"></div>
+      <div class="review-cta">
+        <a class="btn primary" href="https://maps.app.goo.gl/q3PG1kZLsYdCmx3o8" target="_blank" rel="noopener noreferrer">
+          View Google Reviews
+        </a>
+        <a class="btn" href="https://maps.app.goo.gl/q3PG1kZLsYdCmx3o8" target="_blank" rel="noopener noreferrer">
+          Leave a Review
+        </a>
+      </div>
     </section>
 
     <section class="section contact">
@@ -152,21 +163,6 @@
         </form>
       </div>
 
-      <div id="book" class="contact-card calendar-card">
-
-        <div class="calendar-card-heading">
-          <div class="card-eyebrow">Schedule a Call</div>
-          <h3>Book a time that works for you</h3>
-          <p class="muted">
-            Pick a time on the calendar below and tell us what kind of IT help you need.
-          </p>
-        </div>
-
-        <div
-          class="calendly-inline-widget"
-          data-url="https://calendly.com/granet-info/30min?hide_gdpr_banner=1"
-        ></div>
-      </div>
     </section>
   </main>
 
@@ -187,7 +183,7 @@
         <ul>
           <li><a href="#top">Home</a></li>
           <li><a href="./services/">Services</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -195,10 +191,10 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="./services/#free-consultation">Free Consultation</a></li>
-          <li><a href="./services/#mobile-device-management">Mobile Device Management</a></li>
-          <li><a href="./services/#business-it-solutions">Business IT Solutions</a></li>
-          <li><a href="./services/#hourly-services">Hourly Services</a></li>
+          <li><a href="./services/#managed-it-services">Managed IT Services</a></li>
+          <li><a href="./services/#websites-and-hosting">Websites and Hosting</a></li>
+          <li><a href="./services/#computer-repair-it-projects">Computer Repair and IT Projects</a></li>
+          <li><a href="./services/#technology-purchasing-consulting">Technology Purchasing and Consulting</a></li>
         </ul>
       </div>
 
@@ -217,8 +213,44 @@
     </div>
   </footer>
 
+  <div class="contact-modal" data-contact-modal aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-close></div>
+    <section class="contact-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" tabindex="-1">
+      <button class="contact-modal-close" type="button" aria-label="Close contact information" data-contact-close>
+        ×
+      </button>
+
+      <div class="contact-modal-content">
+        <p class="card-eyebrow">Contact GraNet</p>
+        <h2 id="contact-modal-title">GraNet IT Solutions</h2>
+        <p class="contact-modal-intro">Local technology support for Southern New Hampshire businesses.</p>
+
+        <div class="contact-modal-grid">
+          <a class="contact-pill" href="tel:19782199296">
+            <span>Call</span>
+            <strong>(978) 219-9296</strong>
+          </a>
+          <a class="contact-pill" href="mailto:support@granet.tech">
+            <span>Email</span>
+            <strong>support@granet.tech</strong>
+          </a>
+          <a class="contact-pill" href="https://maps.app.goo.gl/q3PG1kZLsYdCmx3o8" target="_blank" rel="noopener noreferrer">
+            <span>Service Area</span>
+            <strong>Southern New Hampshire</strong>
+          </a>
+        </div>
+
+        <div class="contact-modal-actions">
+          <a class="btn primary" href="https://maps.app.goo.gl/q3PG1kZLsYdCmx3o8" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+          <a class="btn" href="mailto:support@granet.tech">Email Us</a>
+          <a class="btn" href="#contact" data-contact-form-link>Send Message</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <script src="assets/js/circuit-background.js" defer></script>
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/tawk-chat.js" defer></script>
 </body>
 </html>

@@ -142,13 +142,6 @@
       const method = new URLSearchParams(window.location.search).get('method') ?? 'contact';
 
       const documentData = {
-         'schedule': {
-          'thank-you-form-title': 'Thank You for Scheduling | Granet IT Solutions',
-          'thank-you-status': 'Appointment Scheduled',
-          'thank-you-title': 'Thank you for scheduling with us!',
-          'thank-you-message': 'Your consultation request has been received. We\'ll see you at the scheduled time and help sort out the next best step.'
-        },
-
          'payment': {
           'thank-you-form-title': 'Thank You for Your Payment | Granet IT Solutions',
           'thank-you-status': 'Payment Received',
@@ -165,10 +158,12 @@
         
       };
 
-      document.title = documentData[method]['thank-you-form-title'];
-      document.getElementById('thank-you-status').textContent = documentData[method]['thank-you-status'];
-      document.getElementById('thank-you-title').textContent = documentData[method]['thank-you-title'];
-      document.getElementById('thank-you-message').textContent = documentData[method]['thank-you-message'];
+      const content = documentData[method] ?? documentData.contact;
+
+      document.title = content['thank-you-form-title'];
+      document.getElementById('thank-you-status').textContent = content['thank-you-status'];
+      document.getElementById('thank-you-title').textContent = content['thank-you-title'];
+      document.getElementById('thank-you-message').textContent = content['thank-you-message'];
 
 
       const count = document.getElementById("redirect-count");
@@ -190,5 +185,6 @@
       }, 1000);
     })();
   </script>
+  <script src="../assets/js/tawk-chat.js" defer></script>
 </body>
 </html>
