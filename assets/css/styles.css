@@ -445,27 +445,18 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  margin-top: 26px;
+  margin-bottom: 26px;
   padding: 22px 24px;
   border: 2px solid var(--red);
   border-radius: var(--radius);
   background: var(--light-pink);
 }
 
-.consultation-callout h4 {
+.consultation-callout .consultation-callout-title {
   margin: 0 0 8px;
   color: var(--red);
-  font-size: 1.15rem;
+  font-weight: 600;
   line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.consultation-callout .section-title {
-  margin: 0 0 8px;
-  color: var(--red);
-  font-size: 1.25rem;
-  line-height: 1.2;
-  letter-spacing: 0;
   text-transform: uppercase;
 }
 
