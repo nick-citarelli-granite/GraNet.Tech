@@ -783,8 +783,6 @@ main {
   gap: 10px;
 }
 
-
-
 .service-card-trigger {
   width: 100%;
   min-height: 190px;
@@ -1080,7 +1078,6 @@ body.service-modal-open {
   --service-modal-overlay-top: rgba(5, 8, 16, .76);
   --service-modal-overlay-bottom: rgba(5, 8, 16, .95);
 }
-
 
 @media (max-width: 940px) {
   .nav {
