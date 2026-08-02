@@ -1157,9 +1157,6 @@ body.service-modal-open {
 /** End of w3schools tooltip code */
 
 @media (max-width: 940px) {
-  .nav {
-    display: none;
-  }
 
   .services-hero {
     grid-template-columns: 1fr;
@@ -1302,6 +1299,10 @@ body.service-modal-open {
 }
 
 @media (max-width: 460px) {
+  .nav {
+    display: none;
+  }
+
   .service-anchor-grid {
     grid-template-columns: 1fr;
   }
