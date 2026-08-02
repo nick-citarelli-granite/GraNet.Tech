@@ -18,6 +18,17 @@ class ContactApiForm {
     this.status = this.form.querySelector('[data-contact-form-status]');
 
     this.form.addEventListener('submit', (event) => this.submit(event));
+
+    // Listen for calendly event scheduled
+    window.addEventListener("message", (event) => {
+      if (event.origin !== "https://calendly.com") return;
+
+      if (event.data?.event === "calendly.event_scheduled") {
+        setTimeout(() => {
+          window.location.href = "../thank-you/?method=schedule";
+        }, 1000);
+      }
+    });
   }
 
   /**
@@ -130,64 +141,4 @@ class ContactApiForm {
   }
 }
 
-class ContactModal {
-
-  constructor() {
-    this.modal = document.querySelector('[data-contact-modal]');
-    this.openers = Array.from(document.querySelectorAll('[data-contact-open]'));
-    this.closers = Array.from(document.querySelectorAll('[data-contact-close]'));
-    this.formLinks = Array.from(document.querySelectorAll('[data-contact-form-link]'));
-    this.lastFocus = null;
-  }
-
-  init() {
-    if (!this.modal) return;
-
-    this.dialog = this.modal.querySelector('.contact-modal-dialog');
-
-    this.openers.forEach((opener) => {
-      opener.addEventListener('click', (event) => {
-        event.preventDefault();
-        this.open();
-      });
-    });
-
-    this.closers.forEach((closer) => {
-      closer.addEventListener('click', () => this.close());
-    });
-
-    this.formLinks.forEach((link) => {
-      link.addEventListener('click', () => this.close({ restoreFocus: false }));
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && this.modal.classList.contains('is-open')) {
-        this.close();
-      }
-    });
-  }
-
-  open() {
-    this.lastFocus = document.activeElement;
-    this.modal.classList.add('is-open');
-    this.modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
-    this.dialog?.focus();
-  }
-
-  /**
-   * @param {{restoreFocus?: boolean}} options
-   */
-  close(options = { restoreFocus: true }) {
-    this.modal.classList.remove('is-open');
-    this.modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-
-    if (options.restoreFocus !== false && this.lastFocus && typeof this.lastFocus.focus === 'function') {
-      this.lastFocus.focus();
-    }
-  }
-}
-
-new ContactModal().init();
 new ContactApiForm().init();
