@@ -312,7 +312,7 @@ main {
 .eyebrow,
 .card-eyebrow {
   color: var(--granet-red);
-  font-size: 0.76rem;
+  font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -813,7 +813,7 @@ main {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 9px;
+  gap: 15px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: linear-gradient(145deg, #fff, #f7f8fa);
@@ -832,28 +832,28 @@ main {
 
 .service-card-trigger .service-card-kicker {
   color: var(--granet-red);
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .service-card-trigger strong {
-  font-size: 1.22rem;
+  font-size: 1.25rem;
   line-height: 1.12;
   letter-spacing: -0.025em;
 }
 
 .service-card-trigger .service-card-summary {
   color: var(--ink-soft);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.48;
 }
 
 .service-card-trigger .service-card-link {
   margin-top: auto;
   color: var(--granet-red);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 850;
 }
 
@@ -1158,6 +1158,10 @@ body.service-modal-open {
 
 @media (max-width: 940px) {
 
+  .service-anchor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .services-hero {
     grid-template-columns: 1fr;
     padding-top: 58px;
@@ -1245,10 +1249,6 @@ body.service-modal-open {
     padding-bottom: 24px;
   }
 
-  .service-anchor-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .service-detail {
     padding-top: 48px;
   }
@@ -1298,13 +1298,15 @@ body.service-modal-open {
   }
 }
 
+@media (max-width: 640px) {
+  .service-anchor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 460px) {
   .nav {
     display: none;
-  }
-
-  .service-anchor-grid {
-    grid-template-columns: 1fr;
   }
 
   .service-card-trigger {
