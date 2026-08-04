@@ -183,7 +183,7 @@ main {
   background-color: #07101d;
   background-image:
     linear-gradient(180deg, rgba(5, 12, 23, 0.88) 0%, rgba(5, 12, 23, 0.80) 42%, rgba(5, 12, 23, 0.92) 100%),
-    url('/assets/img/backgrounds/code.jpg');
+    url('/assets/img/backgrounds/code-blue-q50.webp');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -203,7 +203,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: url('/assets/img/backgrounds/code2.webp');
+  background-image: url('/assets/img/backgrounds/code-red-q25.webp');
   background-size: cover;
   background-position: center 46%;
   filter: saturate(0.78) contrast(1.08);
@@ -1060,42 +1060,42 @@ body.service-modal-open {
 }
 
 .service-modal[data-service-theme="software-development"] {
-  --service-modal-image: url('/assets/img/backgrounds/code.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/code-blue-q50.webp');
   --service-modal-position: center center;
   --service-modal-overlay-top: rgba(5, 10, 20, .80);
   --service-modal-overlay-bottom: rgba(5, 10, 20, .94);
 }
 
 .service-modal[data-service-theme="cybersecurity-data-protection"] {
-  --service-modal-image: url('/assets/img/backgrounds/network-cables.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/laptop-cat5-rotated-q80.webp');
   --service-modal-position: center 42%;
   --service-modal-overlay-top: rgba(5, 10, 18, .72);
   --service-modal-overlay-bottom: rgba(5, 10, 18, .94);
 }
 
 .service-modal[data-service-theme="device-cloud-management"] {
-  --service-modal-image: url('/assets/img/backgrounds/windows-11-laptop.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/windows-11-laptop-q75.webp');
   --service-modal-position: center center;
   --service-modal-overlay-top: rgba(3, 8, 18, .74);
   --service-modal-overlay-bottom: rgba(3, 8, 18, .94);
 }
 
 .service-modal[data-service-theme="ai-automation"] {
-  --service-modal-image: url('/assets/img/backgrounds/ai-chip.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/ai-chip-q25.webp');
   --service-modal-position: center center;
   --service-modal-overlay-top: rgba(6, 8, 13, .73);
   --service-modal-overlay-bottom: rgba(6, 8, 13, .94);
 }
 
 .service-modal[data-service-theme="managed-it-services"] {
-  --service-modal-image: url('/assets/img/backgrounds/pilots.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/pilots-q70.webp');
   --service-modal-position: center 54%;
   --service-modal-overlay-top: rgba(4, 10, 18, .72);
   --service-modal-overlay-bottom: rgba(4, 10, 18, .95);
 }
 
 .service-modal[data-service-theme="website-development"] {
-  --service-modal-image: url('/assets/img/backgrounds/some-guys-computer.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/some-guys-monitor-q25.webp');
   --service-modal-position: center center;
   --service-modal-overlay-top: rgba(5, 8, 16, .76);
   --service-modal-overlay-bottom: rgba(5, 8, 16, .95);
