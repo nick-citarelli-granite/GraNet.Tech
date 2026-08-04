@@ -1067,7 +1067,7 @@ body.service-modal-open {
 }
 
 .service-modal[data-service-theme="cybersecurity-data-protection"] {
-  --service-modal-image: url('/assets/img/backgrounds/network-cables.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/laptop-cat5-rotated.png');
   --service-modal-position: center 42%;
   --service-modal-overlay-top: rgba(5, 10, 18, .72);
   --service-modal-overlay-bottom: rgba(5, 10, 18, .94);
@@ -1081,21 +1081,21 @@ body.service-modal-open {
 }
 
 .service-modal[data-service-theme="ai-automation"] {
-  --service-modal-image: url('/assets/img/backgrounds/ai-chip.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/ai-chip.png');
   --service-modal-position: center center;
   --service-modal-overlay-top: rgba(6, 8, 13, .73);
   --service-modal-overlay-bottom: rgba(6, 8, 13, .94);
 }
 
 .service-modal[data-service-theme="managed-it-services"] {
-  --service-modal-image: url('/assets/img/backgrounds/pilots.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/pilots.png');
   --service-modal-position: center 54%;
   --service-modal-overlay-top: rgba(4, 10, 18, .72);
   --service-modal-overlay-bottom: rgba(4, 10, 18, .95);
 }
 
 .service-modal[data-service-theme="website-development"] {
-  --service-modal-image: url('/assets/img/backgrounds/some-guys-computer.jpg');
+  --service-modal-image: url('/assets/img/backgrounds/some-guys-monitor.png');
   --service-modal-position: center center;
   --service-modal-overlay-top: rgba(5, 8, 16, .76);
   --service-modal-overlay-bottom: rgba(5, 8, 16, .95);
