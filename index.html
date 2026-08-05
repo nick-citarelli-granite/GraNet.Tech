@@ -29,7 +29,7 @@
       <a
         aria-label="GraNet IT Solutions home"
         class="brand"
-        href="javascript:scrollToTop()"
+        href="/"
       >
         <span>GraNet IT Solutions</span>
       </a>
@@ -37,7 +37,7 @@
         aria-label="Main navigation"
         class="nav"
       >
-        <a href="javascript:scrollToTop()">Home</a>
+        <a href="/">Home</a>
         <a href="#services">Services</a>
       </nav>
       <a
@@ -717,7 +717,7 @@
     <div class="footer-wrap">
       <div class="footer-col">
         <div class="footer-brand">
-          <a href="javascript:scrollToTop()"><span class="red">GraNet</span> IT Solutions</a>
+          <a href="/"><span class="red">GraNet</span> IT Solutions</a>
         </div>
         <p>
           An engineering-first technology partner serving Derry, Manchester,
@@ -727,7 +727,7 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="javascript:scrollToTop()">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -810,7 +810,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 GraNet IT Solutions. All rights reserved.</span>
-      <span>Website created by <a href="javascript:scrollToTop()">GraNet IT Solutions</a></span>
+      <span>Website created by <a href="/">GraNet IT Solutions</a></span>
     </div>
   </footer>
   <dialog
@@ -1018,10 +1018,14 @@
       }
     });
 
-    scrollToTop = () => {
-      scroll(0, 0);
-      history.replaceState(null, null, '/');
-    }
+    const topLinks = document.querySelectorAll('a[href="/"]');
+    topLinks.forEach(elem => {
+      elem.addEventListener('click', function (event) {
+        event.preventDefault();
+        scroll(0, 0);
+        history.replaceState(null, null, '/');
+      });
+    });
   </script>
   <script
     defer
