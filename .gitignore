@@ -1,3 +1,5 @@
+.well-known/appspecific/com.chrome.devtools.json
+
 node_modules/
 
 # Local browser/test artifacts
