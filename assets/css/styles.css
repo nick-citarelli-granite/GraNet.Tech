@@ -127,8 +127,9 @@ a:hover .arrow { transform: translateX(4px); }
 
 /* Cards */
 .path-grid { display: grid; grid-template-columns: 7fr 3fr; gap: 20px; }
+.path-grid-evenly-sized { grid-template-columns: 1fr 1fr; }
 .path-card, .service-card, .feature-card, .process-card, .team-card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(18,27,41,.88), rgba(8,12,19,.92)); box-shadow: var(--shadow); }
-.path-card { min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(30px, 5vw, 58px); text-decoration: none; }
+.path-card { min-height: 420px; display: flex; flex-direction: column; padding: clamp(30px, 5vw, 55px); text-decoration: none; }
 .path-card::before { position: absolute; inset: 0; content: ""; background: radial-gradient(circle at var(--mx, 80%) var(--my, 20%), rgba(86,216,255,.18), transparent 34%); opacity: .7; pointer-events: none; }
 .path-card::after { position: absolute; inset: auto -10% -55% 40%; width: 330px; aspect-ratio: 1; content: ""; border: 1px solid rgba(86,216,255,.2); border-radius: 50%; box-shadow: 0 0 0 35px rgba(86,216,255,.035), 0 0 0 75px rgba(239,41,71,.025); }
 .path-card.consumer::before { background: radial-gradient(circle at var(--mx, 75%) var(--my, 25%), rgba(239,41,71,.2), transparent 38%); }
