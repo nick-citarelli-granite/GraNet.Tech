@@ -90,7 +90,7 @@ p { margin: 0; }
 .brand span { white-space: nowrap; }
 .site-nav { display: flex; align-items: center; gap: 7px; margin-left: auto; }
 .site-nav a { padding: 10px 12px; border-radius: 999px; color: #d5dce6; text-decoration: none; font-size: .9rem; font-weight: 650; }
-.site-nav a:hover, .site-nav a[aria-current="page"] { background: rgba(255,255,255,.07); color: #fff; }
+.site-nav a:not(.button.primary):hover, .site-nav a[aria-current="page"] { background: rgba(255,255,255,.07); color: #fff; }
 .nav-toggle { display: none; margin-left: auto; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; background: var(--panel); color: #fff; }
 .nav-toggle span, .nav-toggle::before, .nav-toggle::after { display: block; width: 19px; height: 2px; margin: 4px auto; content: ""; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
 .nav-toggle[aria-expanded="true"] span { opacity: 0; }
