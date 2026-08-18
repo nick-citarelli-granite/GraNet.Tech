@@ -44,7 +44,7 @@
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!configured) {
-      showStatus('Online intake is awaiting its Mercury public source. Please call or email us in the meantime.', 'error');
+      showStatus('Online intake is awaiting its public source. Please call or email us in the meantime.', 'error');
       return;
     }
     if (pendingSubmission === null) pendingSubmission = buildPayload();
@@ -73,7 +73,7 @@
 
     if (response.status >= 500) {
       setPending(false);
-      showStatus('Mercury is temporarily unavailable. Try again to safely retry this request, or call us.', 'error');
+      showStatus('The server is temporarily unavailable. Try again to safely retry this request, or call us.', 'error');
       return;
     }
     if (!response.ok) {
@@ -88,18 +88,18 @@
     let result;
     try { result = await response.json(); } catch {
       setPending(false);
-      showStatus('Mercury returned a response we could not read. Try again to safely replay this request, or call us for confirmation.', 'error');
+      showStatus('The server returned a response we could not read. Try again to safely replay this request, or call us for confirmation.', 'error');
       return;
     }
     if (response.status !== 202) {
       pendingSubmission = null;
       setPending(false);
-      showStatus('Mercury did not accept this request. Please review it and try again.', 'error');
+      showStatus('The server did not accept this request. Please review it and try again.', 'error');
       return;
     }
     if (result.ok !== true || typeof result.receipt_id !== 'string' || !result.receipt_id) {
       setPending(false);
-      showStatus('Mercury returned a response we could not verify. Try again to safely replay this request, or call us for confirmation.', 'error');
+      showStatus('The server returned a response we could not verify. Try again to safely replay this request, or call us for confirmation.', 'error');
       return;
     }
 
