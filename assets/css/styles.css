@@ -666,8 +666,9 @@ a:hover .arrow {
 .detail-block {
   display: grid;
   grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr);
+  /* grid-template-columns: 1fr; */
   gap: clamp(38px, 8vw, 110px);
-  align-items: start;
+  align-items: end;
 }
 
 .detail-block + .detail-block {
@@ -1070,6 +1071,10 @@ a:hover .arrow {
 
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-block {
+    grid-template-columns: 1fr;
   }
 
   .contact-layout {
