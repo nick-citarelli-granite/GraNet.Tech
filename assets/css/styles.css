@@ -892,6 +892,14 @@ a:hover .arrow {
   gap: 18px;
 }
 
+.team-grid > *:first-child {
+  grid-column: 2 / 3;
+}
+
+.team-grid > *:not(:first-child) {
+  grid-row: 2;
+}
+
 .team-card {
   padding: 30px;
 }
@@ -1109,6 +1117,11 @@ a:hover .arrow {
   .feature-grid,
   .team-grid {
     grid-template-columns: 1fr;
+  }
+
+  .team-grid > * {
+    grid-row: auto !important;
+    grid-column: auto !important;
   }
 
   .path-card {
