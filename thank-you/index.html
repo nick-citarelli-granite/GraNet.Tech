@@ -1,194 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You for Contacting Us | GraNet IT Solutions</title>
-  <meta name="robots" content="noindex, follow" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Request received | GraNet IT Solutions</title>
+  <meta
+    name="description"
+    content="Your request was received by GraNet IT Solutions."
+  />
+  <link rel="icon" href="../favicon.ico" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
-
-  <style>
-    .thank-you-main {
-      min-height: calc(100dvh - 88px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 56px 24px;
-    }
-
-    .thank-you-card {
-      width: min(760px, 100%);
-      margin: 0 auto;
-      padding: clamp(32px, 6vw, 58px);
-      border: 1px solid var(--border, #d9e2ee);
-      border-radius: 24px;
-      background: linear-gradient(135deg, #ffffff 0%, #fef7f8 100%);
-      box-shadow: var(--shadow, 0 18px 40px rgba(15, 23, 42, 0.08));
-      text-align: center;
-    }
-
-    .thank-you-icon {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 22px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background: var(--red, #d21f3c);
-      color: #ffffff;
-      font-size: 2.1rem;
-      font-weight: 1000;
-      line-height: 1;
-      box-shadow: 0 18px 34px rgba(210, 31, 60, 0.2);
-    }
-
-    .thank-you-card .card-eyebrow {
-      margin-inline: auto;
-    }
-
-    .thank-you-card h1 {
-      margin: 0 0 14px;
-      color: var(--navy, #061d37);
-      font-size: clamp(2.1rem, 5vw, 3.55rem);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-    }
-
-    .thank-you-card p {
-      max-width: 590px;
-      margin: 0 auto 16px;
-      color: var(--muted, #5d6b7c);
-      font-size: 1.05rem;
-    }
-
-    .redirect-note {
-      max-width: 560px;
-      margin: 22px auto 0;
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: rgba(6, 29, 55, 0.07);
-      color: #334155;
-      font-weight: 800;
-    }
-
-    .redirect-note strong {
-      color: var(--red, #d21f3c);
-    }
-
-    .thank-you-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    @media (max-width: 640px) {
-      .thank-you-main {
-        min-height: calc(100dvh - 70px);
-        padding: 34px 18px;
-      }
-
-      .thank-you-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
-<body id="top">
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="../" aria-label="GraNet IT Solutions home">
+<body>
+  <header class="site-header is-scrolled">
+    <div class="shell nav-shell">
+      <a class="brand" href="../">
+        <img
+          src="../assets/img/logo-q80.webp"
+          width="42"
+          height="42"
+          alt=""
+        />
         <span>GraNet IT Solutions</span>
       </a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="../">Home</a>
-        <a href="../services">Services</a>
-        <a href="../#about">About Us</a>
-        <a href="../#contact">Contact</a>
-      </nav>
-
-      <a class="btn dark header-cta" href="../services">Our Services</a>
     </div>
   </header>
-
-  <main class="thank-you-main">
-    <section class="thank-you-card" aria-labelledby="thank-you-title">
-      <div class="thank-you-icon" aria-hidden="true">✓</div>
-
-      <div id="thank-you-status" class="card-eyebrow">Message Received</div>
-
-      <h1 id="thank-you-title">Thank you for contacting us!</h1>
-
-      <p id="thank-you-message">
-        Your message has been received. We'll review it and get back to you as soon as possible.
-      </p>
-
-      <div class="redirect-note">
-        Returning you to the home page in <strong id="redirect-count">10</strong> <span id="seconds_field">seconds</span>.
-      </div>
-
-      <div class="thank-you-actions">
-        <a class="btn primary" href="../">Go Home Now</a>
-        <a class="btn" href="../services">View Services</a>
+  <main>
+    <section class="section thankyou-section">
+      <div class="shell">
+        <div class="cta-panel">
+          <div>
+            <h1 class="thankyou-title">Request received.</h1>
+            <p class="lede spaced-24">
+              Thanks for reaching out. The GraNet team will review your
+              request and follow up using the contact information you
+              provided.
+            </p>
+            <p class="muted spaced-18">
+              Returning home in
+              <span id="redirect-count">10</span>
+              seconds.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="button primary" href="../">Return home</a>
+            <a class="button" href="../services/">Explore services</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-
-  <script>
-    (() => {
-      const method = new URLSearchParams(window.location.search).get('method') ?? 'contact';
-
-      const documentData = {
-         'schedule': {
-          'thank-you-form-title': 'Thank You for Scheduling | Granet IT Solutions',
-          'thank-you-status': 'Appointment Scheduled',
-          'thank-you-title': 'Thank you for scheduling with us!',
-          'thank-you-message': 'Your consultation request has been received. We\'ll see you at the scheduled time and help sort out the next best step.'
-        },
-
-         'payment': {
-          'thank-you-form-title': 'Thank You for Your Payment | Granet IT Solutions',
-          'thank-you-status': 'Payment Received',
-          'thank-you-title': 'Thank you for choosing us!',
-          'thank-you-message': 'Your payment has been received. We hope you\'ve enjoyed using us!'
-        },
-
-        'contact': {
-          'thank-you-form-title': 'Thank You for Contacting Us | Granet IT Solutions',
-          'thank-you-status': 'Messaged Received',
-          'thank-you-title': 'Thank you for contacting us!',
-          'thank-you-message': 'Your message has been received. We\'ll review it and get back to you as soon as possible!'
-        },
-        
-      };
-
-      document.title = documentData[method]['thank-you-form-title'];
-      document.getElementById('thank-you-status').textContent = documentData[method]['thank-you-status'];
-      document.getElementById('thank-you-title').textContent = documentData[method]['thank-you-title'];
-      document.getElementById('thank-you-message').textContent = documentData[method]['thank-you-message'];
-
-
-      const count = document.getElementById("redirect-count");
-      const seconds_field = document.getElementById('seconds_field');
-      let seconds = 10;
-
-      const countDownInterval = window.setInterval(() => {
-        if (--seconds > 0) {
-          count.textContent = seconds;
-          seconds_field.textContent = ((seconds === 1) ? 'second' : 'seconds');
-          return;
-        }
-
-        clearInterval(countDownInterval);
-
-        if (new URLSearchParams(window.location.search).get('debug') !== 'true') {
-          window.location.href = '../';
-        }
-      }, 1000);
-    })();
-  </script>
+  <footer class="site-footer">
+    <div class="shell footer-bottom compact">
+      <span>
+        ©
+        <span data-year>2026</span>
+        GraNet IT Solutions LLC.
+      </span>
+      <a href="mailto:support@granet.tech">support@granet.tech</a>
+    </div>
+  </footer>
+  <script src="../assets/js/site.js" defer></script>
+  <script src="../assets/js/thank-you.js" defer></script>
 </body>
 </html>
