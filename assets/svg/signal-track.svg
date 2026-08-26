@@ -22,37 +22,36 @@
       src: url("../fonts/space-grotesk-latin.woff2") format("woff2");
     }
 
-    .label,
-    .marker {
+    text * {
       font-family: "Space Grotesk", "Aptos Display", "Segoe UI", sans-serif;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 1.8px;
     }
 
-    .label {
+    .txt {
       fill: #bfc9d6;
     }
 
-    .marker {
+    .dot {
       fill: #ef2947;
     }
   </style>
 
-  <text x="42" y="23" dominant-baseline="central">
-    <tspan class="label">SOFTWARE DEVELOPMENT</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
-    <tspan class="label" dx="42">AI AUTOMATION</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
-    <tspan class="label" dx="42">MANAGED IT</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
-    <tspan class="label" dx="42">CYBERSECURITY</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
-    <tspan class="label" dx="42">MICROSOFT 365</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
-    <tspan class="label" dx="42">WEB DEVELOPMENT</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
-    <tspan class="label" dx="42">COMPUTER SUPPORT</tspan>
-    <tspan class="marker" dx="42">✦</tspan>
+  <text x="0" y="23" dominant-baseline="central">
+    <tspan class="txt" dx="42">SOFTWARE DEVELOPMENT</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
+    <tspan class="txt" dx="42">AI AUTOMATION</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
+    <tspan class="txt" dx="42">MANAGED IT</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
+    <tspan class="txt" dx="42">CYBERSECURITY</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
+    <tspan class="txt" dx="42">MICROSOFT 365</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
+    <tspan class="txt" dx="42">WEB DEVELOPMENT</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
+    <tspan class="txt" dx="42">COMPUTER SUPPORT</tspan>
+    <tspan class="dot" dx="42">✦</tspan>
   </text>
 </svg>
