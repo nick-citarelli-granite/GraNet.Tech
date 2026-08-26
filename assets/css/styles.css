@@ -731,33 +731,23 @@ a:hover .arrow {
 }
 
 .signal-band {
-  position: relative;
-  overflow: hidden;
   border-block: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(239, 41, 71, .08), rgba(86, 216, 255, .07));
+  background: linear-gradient(
+    90deg,
+    rgba(239, 41, 71, .08),
+    rgba(86, 216, 255, .07)
+  );
 }
 
 .signal-track {
-  display: flex;
-  width: max-content;
-  gap: 42px;
-  padding: 17px 0;
+  height: 46px;
   animation: marquee 30s linear infinite;
-  color: #bfc9d6;
-  font: 700 .75rem/1 var(--font-display);
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.signal-track span::after {
-  margin-left: 42px;
-  color: var(--red);
-  content: "✦";
+  background: url('../svg/signal-track.svg') repeat-x;
 }
 
 @keyframes marquee {
   to {
-    transform: translateX(-50%);
+    background-position-x: -1650px;
   }
 }
 
