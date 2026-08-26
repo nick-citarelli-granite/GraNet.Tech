@@ -732,7 +732,11 @@ a:hover .arrow {
 
 .signal-band {
   border-block: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(239, 41, 71, .08), rgba(86, 216, 255, .07));
+  background: linear-gradient(
+    90deg,
+    rgba(239, 41, 71, .08),
+    rgba(86, 216, 255, .07)
+  );
 }
 
 .signal-track {
