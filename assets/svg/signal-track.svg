@@ -39,7 +39,7 @@
     }
   </style>
 
-  <text x="42" y="23" dominant-baseline="middle">
+  <text x="42" y="23" dominant-baseline="central">
     <tspan class="label">SOFTWARE DEVELOPMENT</tspan>
     <tspan class="marker" dx="42">✦</tspan>
     <tspan class="label" dx="42">AI AUTOMATION</tspan>
