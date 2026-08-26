@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1610"
+  height="46"
+  viewBox="0 0 1610 46"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">GraNet service signal track</title>
+  <desc id="desc">
+    Software development, AI automation, managed IT, cybersecurity,
+    Microsoft 365, web development, and computer support.
+  </desc>
+
+  <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("../fonts/space-grotesk-latin.woff2") format("woff2");
+    }
+
+    .label,
+    .marker {
+      font-family: "Space Grotesk", "Aptos Display", "Segoe UI", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+    }
+
+    .label {
+      fill: #bfc9d6;
+    }
+
+    .marker {
+      fill: #ef2947;
+    }
+  </style>
+
+  <text x="42" y="23" dominant-baseline="middle">
+    <tspan class="label">SOFTWARE DEVELOPMENT</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+    <tspan class="label" dx="42">AI AUTOMATION</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+    <tspan class="label" dx="42">MANAGED IT</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+    <tspan class="label" dx="42">CYBERSECURITY</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+    <tspan class="label" dx="42">MICROSOFT 365</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+    <tspan class="label" dx="42">WEB DEVELOPMENT</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+    <tspan class="label" dx="42">COMPUTER SUPPORT</tspan>
+    <tspan class="marker" dx="42">✦</tspan>
+  </text>
+</svg>
