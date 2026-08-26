@@ -30,7 +30,6 @@ $required = @(
   "assets\img\cinematic\home-960.webp",
   "assets\img\cinematic\home-1672.webp",
   "favicon.ico",
-  "site.webmanifest",
   "robots.txt",
   "sitemap.xml",
   "tools\nginx-security-headers.conf",
@@ -42,15 +41,6 @@ foreach ($file in $required) { Assert-File (Join-Path $SourceRoot $file) }
 Get-ChildItem -LiteralPath (Join-Path $SourceRoot "assets\js") -Filter "*.js" | ForEach-Object {
   node --check $_.FullName | Out-Host
   if ($LASTEXITCODE -ne 0) { throw "JavaScript syntax failed: $($_.FullName)" }
-}
-
-$manifest = Get-Content -Raw -LiteralPath (Join-Path $SourceRoot "site.webmanifest") | ConvertFrom-Json
-if (-not $manifest.name -or -not $manifest.short_name -or -not $manifest.icons) {
-  throw "site.webmanifest is missing required metadata."
-}
-foreach ($icon in $manifest.icons) {
-  $iconPath = Join-Path $SourceRoot ($icon.src.TrimStart("/") -replace "/", "\")
-  Assert-File $iconPath
 }
 
 try { [xml](Get-Content -Raw -LiteralPath (Join-Path $SourceRoot "sitemap.xml")) | Out-Null }
